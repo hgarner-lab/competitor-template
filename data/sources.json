@@ -1,19 +1,29 @@
 {
   "schema_version": "0.2.0",
-  "instructions": "Replace placeholder URLs with public pages. Set enabled to true when ready. Keep this list controlled at first.",
+  "instructions": "Controlled public source list for the Mastercard competitor dashboard. Keep only the strongest B2B-relevant sources enabled at first.",
   "client_brand": "Mastercard",
   "competitors": [
     {
       "name": "Mastercard",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/mastercard-b2b-product-page",
+          "source_type": "commercial payments product page",
+          "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
+          "enabled": true
+        },
+        {
+          "source_type": "money movement product page",
+          "url": "https://www.mastercard.com/us/en/business/payments/mastercard-move.html",
+          "enabled": true
+        },
+        {
+          "source_type": "open finance product page",
+          "url": "https://www.mastercard.com/us/en/business/open-finance.html",
           "enabled": false
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/mastercard-b2b-proof-page",
+          "source_type": "cybersecurity and fraud product page",
+          "url": "https://www.mastercard.com/us/en/business/cybersecurity-fraud-prevention.html",
           "enabled": false
         }
       ]
@@ -22,13 +32,28 @@
       "name": "Visa",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/visa-b2b-product-page",
+          "source_type": "B2B payables product page",
+          "url": "https://usa.visa.com/products/b2b-payables.html",
+          "enabled": true
+        },
+        {
+          "source_type": "money movement product page",
+          "url": "https://usa.visa.com/products/visa-direct.html",
+          "enabled": true
+        },
+        {
+          "source_type": "business solutions overview",
+          "url": "https://usa.visa.com/solutions/visa-business-solutions.html",
           "enabled": false
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/visa-b2b-proof-page",
+          "source_type": "commercial spend management product page",
+          "url": "https://usa.visa.com/products/visa-spend-clarity.html",
+          "enabled": false
+        },
+        {
+          "source_type": "B2B fintech partnerships page",
+          "url": "https://usa.visa.com/partner-with-us/fintech/vcs-partnerships.html",
           "enabled": false
         }
       ]
@@ -37,13 +62,23 @@
       "name": "Stripe",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/stripe-b2b-product-page",
+          "source_type": "enterprise payments product page",
+          "url": "https://stripe.com/payments",
+          "enabled": true
+        },
+        {
+          "source_type": "platform and marketplace payments product page",
+          "url": "https://stripe.com/connect",
+          "enabled": true
+        },
+        {
+          "source_type": "commercial card issuing product page",
+          "url": "https://stripe.com/issuing",
           "enabled": false
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/stripe-b2b-proof-page",
+          "source_type": "fraud and risk product page",
+          "url": "https://stripe.com/radar",
           "enabled": false
         }
       ]
@@ -52,13 +87,23 @@
       "name": "Adyen",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/adyen-b2b-product-page",
+          "source_type": "online payments product page",
+          "url": "https://www.adyen.com/online-payments",
+          "enabled": true
+        },
+        {
+          "source_type": "platform payments product page",
+          "url": "https://www.adyen.com/platform-payments",
+          "enabled": true
+        },
+        {
+          "source_type": "card issuing product page",
+          "url": "https://www.adyen.com/issuing",
           "enabled": false
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/adyen-b2b-proof-page",
+          "source_type": "fraud protection product page",
+          "url": "https://www.adyen.com/uplift/protect",
           "enabled": false
         }
       ]
@@ -67,13 +112,23 @@
       "name": "PayPal",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/paypal-b2b-product-page",
+          "source_type": "enterprise payments overview",
+          "url": "https://www.paypal.com/us/business/enterprise",
+          "enabled": true
+        },
+        {
+          "source_type": "payment processing product page",
+          "url": "https://www.paypal.com/us/business/payment-processing",
+          "enabled": true
+        },
+        {
+          "source_type": "platform payment solution",
+          "url": "https://www.paypal.com/us/business/platform-payment-solution",
           "enabled": false
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/paypal-b2b-proof-page",
+          "source_type": "business resource centre",
+          "url": "https://www.paypal.com/us/brc/",
           "enabled": false
         }
       ]
@@ -82,13 +137,18 @@
       "name": "Fiserv",
       "sources": [
         {
-          "source_type": "product page",
-          "url": "https://replace-this.example/fiserv-b2b-product-page",
-          "enabled": false
+          "source_type": "commerce platform overview",
+          "url": "https://www.carat.fiserv.com/en-us/",
+          "enabled": true
         },
         {
-          "source_type": "customer or partner proof",
-          "url": "https://replace-this.example/fiserv-b2b-proof-page",
+          "source_type": "card services product page",
+          "url": "https://www.fiserv.com/en/solutions/card-services/cardhub.html",
+          "enabled": true
+        },
+        {
+          "source_type": "merchant operating system page",
+          "url": "https://www.clover.com/",
           "enabled": false
         }
       ]
