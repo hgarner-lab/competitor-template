@@ -1766,12 +1766,12 @@
           <rect x="0" y="0" width="760" height="${height}" rx="10" fill="#0b1119"/>
           <line class="axis" x1="80" x2="720" y1="${large ? 190 : 170}" y2="${large ? 190 : 170}"/>
           <line class="axis" x1="400" x2="400" y1="40" y2="${large ? 315 : 276}"/>
-          <text class="axis-label" x="78" y="${large ? 350 : 304}">Enterprise-cold</text>
-          <text class="axis-label" x="618" y="${large ? 350 : 304}">Human-warm</text>
-          <text class="axis-label" x="320" y="${large ? 368 : 318}">Market communication style</text>
-          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Market message posture</text>
-          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Friction-focused</text>
-          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Confidence-focused</text>
+          <text class="axis-label" x="78" y="${large ? 350 : 304}">Lower buyer relevance</text>
+          <text class="axis-label" x="618" y="${large ? 350 : 304}">Higher buyer relevance</text>
+          <text class="axis-label" x="320" y="${large ? 368 : 318}">Buyer relevance + proof signal</text>
+          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Calibrated competitive strength</text>
+          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Lower strength</text>
+          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Higher strength</text>
           ${bubbles}`;
         svg.querySelectorAll("[data-signal]").forEach((node) => {
           node.addEventListener("click", () => selectMapSignal(node.dataset.signal, !large));
@@ -2270,6 +2270,77 @@ ${opportunity.risk}
         };
       }
 
+      function scaleBetween(value, min, max, outMin, outMax) {
+        const number = Number(value);
+        if (!Number.isFinite(number)) return Math.round((outMin + outMax) / 2);
+        if (min === max) return Math.round((outMin + outMax) / 2);
+        const ratio = (number - min) / (max - min);
+        return Math.round(outMin + ratio * (outMax - outMin));
+      }
+
+      function updateMapBubblePositions(payload) {
+        const clientName = String(payload?.client_brand || "Mastercard").toLowerCase();
+        const mappedBrands = (payload?.brand_scores || [])
+          .filter((brand) => brand && brand.name)
+          .map((brand) => {
+            const metrics = normaliseDashboardMetrics(brand.metrics || {});
+            const score = clampScore(brand.competitiveness_score);
+            const xScore = clampScore(metrics.buyer * 0.5 + metrics.proof * 0.3 + metrics.difference * 0.2);
+            return {
+              name: brand.name,
+              score,
+              xScore,
+              yScore: score,
+              isClient: String(brand.name).toLowerCase() === clientName,
+              claim: brand.summary || brand.name + " scored " + score + "/100 in the latest calibrated run.",
+              evidence: Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4))
+            };
+          });
+
+        if (!mappedBrands.length) return;
+
+        const xValues = mappedBrands.map((brand) => brand.xScore);
+        const yValues = mappedBrands.map((brand) => brand.yScore);
+        const xMin = Math.min(...xValues);
+        const xMax = Math.max(...xValues);
+        const yMin = Math.min(...yValues);
+        const yMax = Math.max(...yValues);
+        const ranked = [...mappedBrands].sort((a, b) => b.yScore - a.yScore || b.xScore - a.xScore || a.name.localeCompare(b.name));
+
+        ranked.forEach((brand, index) => {
+          const x = scaleBetween(brand.xScore, xMin, xMax, 185, 615);
+          const baseY = scaleBetween(brand.yScore, yMin, yMax, 248, 92);
+          const tieNudge = ((index % 3) - 1) * 7;
+          const y = Math.max(62, Math.min(278, baseY + tieNudge));
+          const labelLeft = index % 2 === 1;
+          const bubbleUpdate = {
+            name: brand.name,
+            x,
+            y,
+            r: Math.max(13, Math.min(22, Math.round(8 + brand.score / 7))),
+            lx: Math.max(92, Math.min(674, x + (labelLeft ? -92 : 26))),
+            ly: Math.max(54, Math.min(306, y + ((index % 3) - 1) * 18 + 8)),
+            type: brand.isClient ? "client" : "competitor",
+            claim: brand.claim,
+            evidence: brand.evidence,
+            confidence: Math.max(40, brand.score)
+          };
+
+          ["b2b", "commercial", "movement", "openfinance"].forEach((segment) => {
+            const data = segmentData[segment];
+            if (!data) return;
+            data.bubbles = data.bubbles || [];
+            let bubble = data.bubbles.find((item) => item.name === brand.name);
+            if (!bubble) {
+              bubble = { ...bubbleUpdate };
+              data.bubbles.push(bubble);
+            } else {
+              Object.assign(bubble, bubbleUpdate);
+            }
+          });
+        });
+      }
+
       function flattenEvidence(payload) {
         const direct = Array.isArray(payload?.evidence_feed) ? payload.evidence_feed : [];
         const fromBrands = (payload?.brand_scores || []).flatMap((brand) => (brand.evidence || []).map((item) => ({ ...item, brand: brand.name })));
@@ -2307,6 +2378,7 @@ ${opportunity.risk}
       function applyExternalDashboardData(payload) {
         if (!payload || !Array.isArray(payload.brand_scores)) return false;
         updateBrandScores(payload);
+        updateMapBubblePositions(payload);
         updateSegmentSummary(payload);
         updateWhitespace(payload);
         renderLiveData(payload);
