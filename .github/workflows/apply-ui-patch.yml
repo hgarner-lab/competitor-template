@@ -1,0 +1,551 @@
+name: Apply UI dashboard patch
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/apply-ui-patch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch-ui:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Patch dashboard UI
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'index.html';
+          let text = fs.readFileSync(path, 'utf8');
+
+          function replaceOnce(oldValue, newValue, label) {
+            if (text.includes(newValue)) return;
+            if (!text.includes(oldValue)) {
+              throw new Error(`Could not find patch marker: ${label}`);
+            }
+            text = text.replace(oldValue, newValue);
+          }
+
+          const cssMarker = `      .source-card a:hover {
+            text-decoration: underline;
+          }
+
+          `;
+          const cssInsert = `      .readiness-card {
+            grid-column: 1 / -1;
+          }
+
+          .readiness-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-bottom: 10px;
+          }
+
+          .readiness-item {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            display: grid;
+            gap: 5px;
+            min-height: 82px;
+            padding: 12px;
+          }
+
+          .readiness-item span {
+            color: var(--quiet);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+          }
+
+          .readiness-item strong {
+            color: var(--text);
+            font-size: 19px;
+            line-height: 1.1;
+          }
+
+          .readiness-item em {
+            color: var(--muted);
+            font-size: 11px;
+            font-style: normal;
+            line-height: 1.35;
+          }
+
+          .readiness-badge {
+            align-items: center;
+            border-radius: 999px;
+            display: inline-flex;
+            font-size: 11px;
+            font-weight: 900;
+            gap: 7px;
+            letter-spacing: 0.03em;
+            padding: 6px 10px;
+            text-transform: uppercase;
+            width: max-content;
+          }
+
+          .readiness-badge::before {
+            border-radius: 999px;
+            content: "";
+            height: 7px;
+            width: 7px;
+          }
+
+          .readiness-badge.red {
+            background: rgba(235, 0, 27, 0.16);
+            color: #ff9aa5;
+          }
+
+          .readiness-badge.red::before {
+            background: var(--red);
+          }
+
+          .readiness-badge.amber {
+            background: rgba(239, 188, 103, 0.16);
+            color: #ffd89a;
+          }
+
+          .readiness-badge.amber::before {
+            background: var(--amber);
+          }
+
+          .readiness-badge.green {
+            background: rgba(123, 217, 177, 0.16);
+            color: #a8f2d2;
+          }
+
+          .readiness-badge.green::before {
+            background: var(--green);
+          }
+
+          .source-gap {
+            display: grid;
+            gap: 4px;
+          }
+
+          .source-gap strong {
+            color: var(--text);
+            font-size: 13px;
+          }
+
+          .source-gap span {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.4;
+          }
+
+          `;
+          replaceOnce(cssMarker, cssMarker + cssInsert, 'readiness CSS');
+
+          replaceOnce(
+          `        .brief-form,
+            .wedge-grid,
+            .source-grid {
+              grid-template-columns: 1fr;
+            }
+          `,
+          `        .brief-form,
+            .wedge-grid,
+            .source-grid {
+              grid-template-columns: 1fr;
+            }
+
+            .readiness-grid {
+              grid-template-columns: 1fr;
+            }
+          `,
+          'mobile readiness CSS'
+          );
+
+          replaceOnce(
+            `<input id="confidenceFloor" aria-label="Confidence floor" type="number" min="50" max="95" value="72" />`,
+            `<input id="confidenceFloor" aria-label="Confidence floor" type="number" min="50" max="95" value="60" />`,
+            'confidence floor default'
+          );
+
+          replaceOnce(
+          `          <section class="view is-active" id="dashboardView">
+                <div class="grid">
+                  <article class="card">`,
+          `          <section class="view is-active" id="dashboardView">
+                <div class="grid">
+                  <article class="card readiness-card">
+                    <div class="card-header"><p class="eyebrow">Run Readiness</p><span class="helper" id="readinessHelper">From latest calibrated run</span></div>
+                    <div class="readiness-grid" id="readinessPanel"></div>
+                    <div class="detail-list" id="sourcesToImprove"></div>
+                  </article>
+
+                  <article class="card">`,
+          'readiness card'
+          );
+
+          replaceOnce(
+          `      const dataStatus = document.querySelector("#dataStatus");
+          const liveFeedHelper = document.querySelector("#liveFeedHelper");
+          const liveEvidenceFeed = document.querySelector("#liveEvidenceFeed");
+          const liveRecommendations = document.querySelector("#liveRecommendations");
+          `,
+          `      const dataStatus = document.querySelector("#dataStatus");
+          const readinessHelper = document.querySelector("#readinessHelper");
+          const readinessPanel = document.querySelector("#readinessPanel");
+          const sourcesToImprove = document.querySelector("#sourcesToImprove");
+          const liveFeedHelper = document.querySelector("#liveFeedHelper");
+          const liveEvidenceFeed = document.querySelector("#liveEvidenceFeed");
+          const liveRecommendations = document.querySelector("#liveRecommendations");
+          `,
+          'readiness element references'
+          );
+
+          replaceOnce(
+          `      const activeCompetitors = new Set(["visa", "stripe", "adyen", "paypal", "fiserv"]);
+          const expandedCategories = new Set(["share"]);
+          `,
+          `      let activeClientKey = "mastercard";
+          const fallbackColors = ["#efbc67", "#6573ec", "#7bd9b1", "#8d74f1", "#9aa4b6", "#df6aa7", "#f37eb5", "#a5afbf"];
+          const activeCompetitors = new Set(["visa", "stripe", "adyen", "paypal", "fiserv"]);
+          const expandedCategories = new Set(["share"]);
+          `,
+          'dynamic brand state'
+          );
+
+          replaceOnce(
+          `      function childScore(brand, category, childIndex) {
+            return modeValue(currentScoreProfile()[brand][category.key][childIndex], childIndex);
+          }
+
+          function categoryScore(brand, category) {
+            const values = category.children.map((child, index) => childScore(brand, category, index));
+            return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length);
+          }
+
+          function categoryScoresFor(brand) {
+            return scoreModel.map((category) => categoryScore(brand, category));
+          }
+          `,
+          `      function profileForBrand(brand) {
+            return currentScoreProfile()[brand] || b2bScoreProfile[brand] || b2bScoreProfile[activeClientKey] || b2bScoreProfile.mastercard;
+          }
+
+          function childScore(brand, category, childIndex) {
+            const profile = profileForBrand(brand);
+            const values = profile?.[category.key] || [];
+            const fallback = values.length ? values[values.length - 1] : 0;
+            return modeValue(values[childIndex] ?? fallback, childIndex);
+          }
+
+          function categoryScore(brand, category) {
+            const values = category.children.map((child, index) => childScore(brand, category, index));
+            return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length);
+          }
+
+          function categoryScoresFor(brand) {
+            return scoreModel.map((category) => categoryScore(brand, category));
+          }
+
+          function visibleBrandKeys() {
+            const keys = Object.keys(b2bScoreProfile);
+            const clientKey = keys.includes(activeClientKey) ? activeClientKey : "mastercard";
+            const preferred = ["visa", "stripe", "adyen", "paypal", "fiserv"];
+            const others = keys.filter((key) => key !== clientKey);
+            const orderedOthers = [
+              ...preferred.filter((key) => others.includes(key)),
+              ...others.filter((key) => !preferred.includes(key)).sort((a, b) => (brandNames[a] || a).localeCompare(brandNames[b] || b))
+            ];
+            return [clientKey, ...orderedOthers];
+          }
+          `,
+          'dynamic brand helpers'
+          );
+
+          replaceOnce(
+          `        const overlays = [["mastercard", valuesFor("mastercard")], ...Array.from(activeCompetitors).map((key) => [key, valuesFor(key)])].map(([key, values]) => {
+              const pts = polygon(pointsFor(values, size));
+              return `<polygon points="${pts}" fill="${colors[key]}" fill-opacity="${key === "mastercard" ? 0.2 : 0.055}" stroke="${colors[key]}" stroke-width="${key === "mastercard" ? 2.3 : 1.4}"/>`;
+            }).join("");
+          `,
+          `        const overlays = [[activeClientKey, valuesFor(activeClientKey)], ...Array.from(activeCompetitors).filter((key) => b2bScoreProfile[key]).map((key) => [key, valuesFor(key)])].map(([key, values]) => {
+              const pts = polygon(pointsFor(values, size));
+              const color = colors[key] || fallbackColors[0];
+              return `<polygon points="${pts}" fill="${color}" fill-opacity="${key === activeClientKey ? 0.2 : 0.055}" stroke="${color}" stroke-width="${key === activeClientKey ? 2.3 : 1.4}"/>`;
+            }).join("");
+          `,
+          'dynamic radar overlays'
+          );
+
+          replaceOnce(
+          `      function renderToggles() {
+            competitorToggles.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");
+            competitorToggles.querySelectorAll("[data-competitor]").forEach((button) => {
+              button.addEventListener("click", () => {
+                if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
+                else activeCompetitors.add(button.dataset.competitor);
+                renderAll();
+              });
+            });
+          }
+          `,
+          `      function renderToggles() {
+            const keys = visibleBrandKeys().filter((key) => key !== activeClientKey);
+            competitorToggles.innerHTML = keys.map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key] || key}</button>`).join("");
+            competitorToggles.querySelectorAll("[data-competitor]").forEach((button) => {
+              button.addEventListener("click", () => {
+                if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
+                else activeCompetitors.add(button.dataset.competitor);
+                renderAll();
+              });
+            });
+          }
+          `,
+          'dynamic toggles'
+          );
+
+          replaceOnce(
+          `      function renderMatrix(target) {
+            const brandKeys = ["mastercard", "visa", "stripe", "adyen", "paypal", "fiserv"];
+            const rows = scoreModel.map((category) => {
+              const open = expandedCategories.has(category.key);
+              const parent = `<tr title="${category.note}"><td><button class="matrix-toggle ${open ? "is-open" : ""}" data-category-toggle="${category.key}" type="button">${category.label}</button></td>${brandKeys.map((brand) => `<td class="${brand === "mastercard" ? "you" : ""}">${scoreBar(categoryScore(brand, category), colors[brand], `${brandNames[brand]} ${category.label}`)}</td>`).join("")}</tr>`;
+              const children = open ? category.children.map((child, childIndex) => `<tr class="matrix-child"><td><span>${child.label}</span><small>${child.result}</small><small>${child.interpretation}</small></td>${brandKeys.map((brand) => `<td class="${brand === "mastercard" ? "you" : ""}">${scoreBar(childScore(brand, category, childIndex), colors[brand], `${brandNames[brand]} ${child.label}`)}</td>`).join("")}</tr>`).join("") : "";
+              return `${parent}${children}`;
+            }).join("");
+            const summaries = Object.fromEntries(brandKeys.map((brand) => [brand, weightedScore(categoryScoresFor(brand))]));
+            target.innerHTML = `${rows}<tr class="score-summary"><td>Competitive score</td><td class="you">${summaries.mastercard}</td><td>${summaries.visa}</td><td>${summaries.stripe}</td><td>${summaries.adyen}</td><td>${summaries.paypal}</td><td>${summaries.fiserv}</td></tr>`;
+            target.querySelectorAll("[data-category-toggle]").forEach((button) => {
+          `,
+          `      function renderMatrix(target) {
+            const brandKeys = visibleBrandKeys();
+            const table = target.closest("table");
+            const header = table?.querySelector("thead");
+            if (header) {
+              header.innerHTML = `<tr><th>Evaluation criteria</th>${brandKeys.map((brand) => `<th class="${brand === activeClientKey ? "you" : ""}">${brandNames[brand] || brand}</th>`).join("")}</tr>`;
+            }
+            const rows = scoreModel.map((category) => {
+              const open = expandedCategories.has(category.key);
+              const parent = `<tr title="${category.note}"><td><button class="matrix-toggle ${open ? "is-open" : ""}" data-category-toggle="${category.key}" type="button">${category.label}</button></td>${brandKeys.map((brand) => `<td class="${brand === activeClientKey ? "you" : ""}">${scoreBar(categoryScore(brand, category), colors[brand] || fallbackColors[0], `${brandNames[brand] || brand} ${category.label}`)}</td>`).join("")}</tr>`;
+              const children = open ? category.children.map((child, childIndex) => `<tr class="matrix-child"><td><span>${child.label}</span><small>${child.result}</small><small>${child.interpretation}</small></td>${brandKeys.map((brand) => `<td class="${brand === activeClientKey ? "you" : ""}">${scoreBar(childScore(brand, category, childIndex), colors[brand] || fallbackColors[0], `${brandNames[brand] || brand} ${child.label}`)}</td>`).join("")}</tr>`).join("") : "";
+              return `${parent}${children}`;
+            }).join("");
+            const summaries = Object.fromEntries(brandKeys.map((brand) => [brand, weightedScore(categoryScoresFor(brand))]));
+            target.innerHTML = `${rows}<tr class="score-summary"><td>Competitive score</td>${brandKeys.map((brand) => `<td class="${brand === activeClientKey ? "you" : ""}">${summaries[brand]}</td>`).join("")}</tr>`;
+            target.querySelectorAll("[data-category-toggle]").forEach((button) => {
+          `,
+          'dynamic matrix'
+          );
+
+          const flattenBlock = `      function flattenEvidence(payload) {
+            const direct = Array.isArray(payload?.evidence_feed) ? payload.evidence_feed : [];
+            const fromBrands = (payload?.brand_scores || []).flatMap((brand) => (brand.evidence || []).map((item) => ({ ...item, brand: brand.name })));
+            return [...direct, ...fromBrands];
+          }
+
+          `;
+          const readinessFunctions = `      function readinessClass(value) {
+            const text = String(value || "").toUpperCase();
+            if (text.includes("GREEN")) return "green";
+            if (text.includes("AMBER")) return "amber";
+            return "red";
+          }
+
+          function readinessLabel(value) {
+            const text = String(value || "").toUpperCase();
+            if (text.includes("GREEN")) return "GREEN";
+            if (text.includes("AMBER")) return "AMBER";
+            return "RED";
+          }
+
+          function strongestSourceGap(payload) {
+            const brands = payload?.brand_scores || [];
+            if (!brands.length) return null;
+            return [...brands].sort((a, b) => {
+              const aProof = Number(a.metrics?.proof_strength || 0);
+              const bProof = Number(b.metrics?.proof_strength || 0);
+              const aEvidence = (a.evidence || []).length;
+              const bEvidence = (b.evidence || []).length;
+              return aProof - bProof || aEvidence - bEvidence;
+            })[0];
+          }
+
+          function renderReadinessPanel(payload) {
+            if (!readinessPanel || !sourcesToImprove) return;
+            if (!payload) {
+              if (readinessHelper) readinessHelper.textContent = "Waiting for data/dashboard.json";
+              readinessPanel.innerHTML = `
+                <div class="readiness-item"><span>Status</span><strong>No live data</strong><em>Run the calibrated workflow to populate this panel.</em></div>
+                <div class="readiness-item"><span>Proof-bearing</span><strong>-</strong><em>No evidence loaded.</em></div>
+                <div class="readiness-item"><span>Sources kept</span><strong>-</strong><em>No source count available.</em></div>
+                <div class="readiness-item"><span>Next gap</span><strong>-</strong><em>Add sources first.</em></div>`;
+              sourcesToImprove.innerHTML = `<div class="detail-item">Add URLs in data/sources.json, then run the calibrated workflow.</div>`;
+              return;
+            }
+
+            const diagnostics = payload.run_diagnostics || {};
+            const evidence = flattenEvidence(payload);
+            const brandCount = (payload.brand_scores || []).length;
+            const proofBearingCount = Number(diagnostics.proof_bearing_sources ?? evidence.filter((item) => item.proof_bearing).length);
+            const sourceCount = Number(diagnostics.sources_kept ?? evidence.length);
+            const skipped = Number(diagnostics.sources_skipped_or_filtered ?? 0);
+            const readiness = diagnostics.readiness || (proofBearingCount >= brandCount ? "AMBER: proof-bearing evidence present" : "RED: add stronger proof-bearing evidence");
+            const level = readinessLabel(readiness);
+            const gapBrand = strongestSourceGap(payload);
+            const lowestProof = gapBrand ? clampScore(gapBrand.metrics?.proof_strength) : 0;
+
+            if (readinessHelper) readinessHelper.textContent = `Updated ${payload.last_updated || "unknown"} · ${sourceCount} sources kept`;
+            readinessPanel.innerHTML = `
+              <div class="readiness-item"><span>Readiness</span><strong><span class="readiness-badge ${readinessClass(readiness)}">${level}</span></strong><em>${escapeHtml(String(readiness).replace(/^[A-Z]+:\\s*/i, ""))}</em></div>
+              <div class="readiness-item"><span>Proof-bearing</span><strong>${proofBearingCount}/${brandCount || "-"}</strong><em>Target: at least one strong proof source per brand.</em></div>
+              <div class="readiness-item"><span>Sources kept</span><strong>${sourceCount}</strong><em>${skipped} skipped or filtered in the latest run.</em></div>
+              <div class="readiness-item"><span>Next gap</span><strong>${escapeHtml(gapBrand?.name || "n/a")}</strong><em>Weakest proof score: ${lowestProof || "n/a"}/100.</em></div>`;
+
+            const sourceGaps = (payload.brand_scores || [])
+              .map((brand) => {
+                const diagnostics = brand.score_diagnostics || {};
+                const proof = clampScore(brand.metrics?.proof_strength);
+                const evidenceCount = (brand.evidence || []).length;
+                const caps = diagnostics.caps_applied || [];
+                const lowestQuality = (brand.evidence || []).reduce((min, item) => Math.min(min, Number(item.evidence_quality_score || 100)), 100);
+                const reason = caps.length ? caps[0] : evidenceCount < 3 ? "Needs at least three distinct source types." : proof < 70 ? "Needs stronger proof-bearing evidence." : "Looks usable for now.";
+                return { brand, proof, evidenceCount, reason, lowestQuality };
+              })
+              .filter((item) => item.proof < 75 || item.evidenceCount < 3 || item.reason !== "Looks usable for now.")
+              .sort((a, b) => a.proof - b.proof || a.evidenceCount - b.evidenceCount)
+              .slice(0, 4);
+
+            if (!sourceGaps.length) {
+              sourcesToImprove.innerHTML = `<div class="detail-item">No immediate source gaps detected. Run a human review before moving to client-facing use.</div>`;
+            } else {
+              sourcesToImprove.innerHTML = sourceGaps.map(({ brand, proof, evidenceCount, reason, lowestQuality }) => `
+                <div class="detail-item source-gap">
+                  <strong>${escapeHtml(brand.name)} - improve source mix</strong>
+                  <span>Proof ${proof}/100 · ${evidenceCount} evidence item${evidenceCount === 1 ? "" : "s"} · lowest evidence quality ${lowestQuality === 100 ? "n/a" : lowestQuality}. ${escapeHtml(reason)}</span>
+                </div>`).join("");
+            }
+          }
+
+          `;
+          replaceOnce(flattenBlock, flattenBlock + readinessFunctions, 'readiness functions');
+
+          replaceOnce(
+          `      function renderLiveData(payload) {
+            if (!liveEvidenceFeed || !liveRecommendations) return;
+
+            const evidence = flattenEvidence(payload).filter((item) => item && (item.title || item.url || item.snippet));
+          `,
+          `      function renderLiveData(payload) {
+            renderReadinessPanel(payload);
+            if (!liveEvidenceFeed || !liveRecommendations) return;
+
+            const evidence = flattenEvidence(payload).filter((item) => item && (item.title || item.url || item.snippet));
+          `,
+          'readiness render call'
+          );
+
+          replaceOnce(
+          `              <span>${escapeHtml(item.brand || "Market signal")} · ${escapeHtml(item.source_type || "public source")}</span>
+                  <p>${escapeHtml(item.snippet || "No snippet available yet.")}</p>
+          `,
+          `              <span>${escapeHtml(item.brand || "Market signal")} · ${escapeHtml(item.source_type || "public source")}${item.source_class ? ` · ${escapeHtml(item.source_class)}` : ""}${typeof item.proof_bearing === "boolean" ? ` · proof ${item.proof_bearing ? "yes" : "no"}` : ""}</span>
+                  <p>${escapeHtml(item.snippet || "No snippet available yet.")}</p>
+          `,
+          'evidence metadata label'
+          );
+
+          replaceOnce(
+          `      function updateSegmentSummary(payload) {
+            const clientBrand = firstClientBrand(payload);
+            if (!clientBrand) return;
+
+            const clientScore = clampScore(clientBrand.competitiveness_score, currentData().score);
+          `,
+          `      function updateSegmentSummary(payload) {
+            const clientBrand = firstClientBrand(payload);
+            if (!clientBrand) return;
+            activeClientKey = brandKeyFromName(clientBrand.name || payload.client_brand || "Mastercard");
+
+            const clientScore = clampScore(clientBrand.competitiveness_score, currentData().score);
+          `,
+          'active client key update'
+          );
+
+          replaceOnce(
+          `          const key = brandKeyFromName(brand.name);
+              const metrics = normaliseDashboardMetrics(brand.metrics || {});
+          `,
+          `          const key = brandKeyFromName(brand.name);
+              const isClient = String(brand.name).toLowerCase() === String(payload.client_brand || "Mastercard").toLowerCase();
+              colors[key] = colors[key] || fallbackColors[Object.keys(colors).length % fallbackColors.length];
+              if (!isClient) activeCompetitors.add(key);
+              const metrics = normaliseDashboardMetrics(brand.metrics || {});
+          `,
+          'dynamic brand registration'
+          );
+
+          replaceOnce(
+          `          const score = clampScore(brand.competitiveness_score);
+              const isClient = String(brand.name).toLowerCase() === String(payload.client_brand || "Mastercard").toLowerCase();
+              mapStanding[brand.name] = {
+          `,
+          `          const score = clampScore(brand.competitiveness_score);
+              mapStanding[brand.name] = {
+          `,
+          'remove duplicate client flag'
+          );
+
+          replaceOnce(
+          `          ["b2b", "commercial", "movement", "openfinance"].forEach((segment) => {
+                const bubble = segmentData[segment]?.bubbles?.find((item) => item.name === brand.name);
+                if (!bubble) return;
+                bubble.confidence = Math.max(55, score);
+                bubble.evidence = Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4));
+                bubble.claim = brand.summary || bubble.claim;
+              });
+          `,
+          `          ["b2b", "commercial", "movement", "openfinance"].forEach((segment) => {
+                const data = segmentData[segment];
+                if (!data) return;
+                data.bubbles = data.bubbles || [];
+                let bubble = data.bubbles.find((item) => item.name === brand.name);
+                if (!bubble) {
+                  const competitorIndex = Math.max(0, data.bubbles.filter((item) => item.type === "competitor").length);
+                  bubble = {
+                    name: brand.name,
+                    x: isClient ? 602 : 190 + competitorIndex * 72,
+                    y: isClient ? 116 : Math.max(118, 248 - competitorIndex * 22),
+                    r: isClient ? 22 : 14,
+                    lx: isClient ? 626 : 140 + competitorIndex * 72,
+                    ly: isClient ? 132 : Math.max(136, 268 - competitorIndex * 22),
+                    type: isClient ? "client" : "competitor",
+                    claim: brand.summary || `${brand.name} scored ${score}/100 in the latest run.`,
+                    evidence: Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4)),
+                    confidence: Math.max(40, score)
+                  };
+                  data.bubbles.push(bubble);
+                }
+                bubble.confidence = Math.max(40, score);
+                bubble.evidence = Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4));
+                bubble.claim = brand.summary || bubble.claim;
+              });
+          `,
+          'dynamic map bubbles'
+          );
+
+          fs.writeFileSync(path, text);
+          NODE
+
+      - name: Commit UI patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No UI changes to commit."
+          else
+            git commit -m "Patch dashboard UI controls"
+            git push
+          fi
