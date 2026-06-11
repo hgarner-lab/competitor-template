@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.2.0",
+  "instructions": "V2 separates B2B relevance from competitive strength. Generic owned product pages can prove relevance, but they cannot create elite scores without proof-bearing evidence such as named customers, partner announcements, quantified outcomes, reports or dated launch activity.",
+  "b2b_relevance_filter": {
+    "include_keywords": ["enterprise", "business", "businesses", "b2b", "commercial", "treasury", "finance leader", "cfo", "procurement", "platform", "merchant", "merchants", "bank", "banks", "issuer", "acquirer", "acquiring", "fintech", "working capital", "reconciliation", "settlement", "cross-border", "supplier", "supply chain", "accounts payable", "accounts receivable", "payment orchestration", "risk management", "fraud", "identity", "embedded finance"],
+    "exclude_if_only_consumer_keywords": ["shopping", "cashback", "rewards", "traveller", "traveler", "personal card", "consumer credit", "retail shopper", "holiday spending", "travel card", "points", "miles", "buy now pay later", "send money", "request money", "pool money", "direct deposit"],
+    "minimum_include_keyword_hits": 2
+  },
+  "scoring_guardrails": {
+    "generic_owned_product_page_cap": 70,
+    "overview_or_nav_heavy_cap": 62,
+    "only_product_or_overview_overall_cap": 72,
+    "fewer_than_three_source_types_overall_cap": 84,
+    "no_proof_bearing_overall_cap": 76,
+    "no_proof_bearing_proof_strength_cap": 65,
+    "one_proof_bearing_source_overall_cap": 86,
+    "movement_requires_content_delta": true,
+    "source_quality_weights": {
+      "customer_story": 92,
+      "case_study": 92,
+      "press_release": 86,
+      "partner_announcement": 86,
+      "report_or_research": 84,
+      "event_or_webinar": 74,
+      "product_page": 64,
+      "overview_page": 56,
+      "resource_centre": 48,
+      "adjacent_or_mixed": 48
+    },
+    "proof_bearing_keywords": ["case study", "customer story", "customer", "client", "partner", "partnership", "announced", "launch", "launched", "newsroom", "press release", "report", "research", "survey", "annual report", "investor", "pilot", "deployed", "results", "increased", "reduced", "improved", "million", "billion", "percent", "roi"],
+    "boilerplate_keywords": ["skip to main content", "open menu", "sign in", "log in", "contact sales", "pricing", "dashboard", "products solutions developers resources", "for you", "shopping & rewards", "send & receive", "add cards and banks", "direct deposit"],
+    "generic_claim_keywords": ["simple", "secure", "seamless", "innovative", "global", "trusted", "easy", "efficient", "comprehensive", "best-in-class"]
+  },
+  "categories": [
+    {"id": "share_of_model", "name": "Share of Model", "weight": 30, "signals": ["launch", "announced", "campaign", "event", "webinar", "report", "guide", "thought leadership", "product", "platform", "solution", "partnership", "customer story", "case study", "newsroom", "press release"]},
+    {"id": "differentiation", "name": "Differentiation", "weight": 25, "signals": ["unique", "single platform", "network", "proprietary", "real-time", "AI", "machine learning", "automation", "orchestration", "integrated", "global scale", "end-to-end", "data-driven", "optimisation", "optimization", "embedded", "unified"]},
+    {"id": "buyer_relevance", "name": "Buyer Relevance", "weight": 25, "signals": ["enterprise", "cfo", "treasury", "finance", "procurement", "merchant", "platform", "bank", "issuer", "acquirer", "working capital", "cash flow", "reconciliation", "settlement", "cost", "risk", "compliance", "growth", "operational efficiency"]},
+    {"id": "proof_strength", "name": "Proof Strength", "weight": 20, "signals": ["customer", "case study", "partner", "partnership", "research", "survey", "report", "percent", "million", "billion", "ROI", "reduced", "increased", "improved", "named", "pilot", "launched", "deployed", "results", "newsroom", "press release"]}
+  ],
+  "whitespace_topics": [
+    {"topic": "AI-led treasury automation", "keywords": ["AI", "treasury", "cash flow", "forecasting", "working capital", "automation"]},
+    {"topic": "Cross-border B2B payment certainty", "keywords": ["cross-border", "settlement", "reconciliation", "supplier", "currency", "global payments"]},
+    {"topic": "Embedded finance for enterprise platforms", "keywords": ["embedded finance", "platform", "marketplace", "software platform", "SaaS", "monetisation", "monetization"]},
+    {"topic": "Acquirer and merchant enablement", "keywords": ["acquirer", "acquiring", "merchant", "acceptance", "commerce", "checkout"]},
+    {"topic": "Fraud and identity orchestration", "keywords": ["fraud", "identity", "risk", "authentication", "authorisation", "authorization", "trust"]},
+    {"topic": "Merchant data intelligence", "keywords": ["data", "insight", "analytics", "merchant", "loyalty", "personalisation", "personalization"]}
+  ]
+}
