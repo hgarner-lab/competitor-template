@@ -41,3 +41,12 @@ This file is appended by `scripts/research-worker.js`.
 - Sources skipped or filtered: 0
 - Score movement: no movement detected or no previous score available.
 - Top whitespace topic: Cross-border B2B payment certainty (87/100)
+
+## 2026-06-11 - calibrated research run
+
+- Evidence items kept: 12
+- Proof-bearing evidence items: 12
+- Sources skipped or filtered: 0
+- Readiness: AMBER: proof-bearing evidence present, still needs human review
+- Score movement: set to 0 until content deltas are verified.
+- Top directional whitespace topic: Cross-border B2B payment certainty (74/100)

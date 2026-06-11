@@ -1,218 +1,324 @@
 {
-  "schema_version": "0.1.0",
+  "schema_version": "0.2.0",
   "last_updated": "2026-06-11",
-  "generated_at": "2026-06-11T15:20:30.051Z",
-  "status": "generated_from_public_sources",
+  "generated_at": "2026-06-11T15:25:41.559Z",
+  "status": "generated_from_public_sources_calibrated",
   "market": "B2B payments",
   "client_brand": "Mastercard",
   "brand_scores": [
     {
       "name": "Mastercard",
-      "competitiveness_score": 96,
+      "competitiveness_score": 72,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 96,
-        "differentiation": 96,
-        "buyer_relevance": 96,
-        "proof_strength": 96
+        "share_of_model": 78,
+        "differentiation": 62,
+        "buyer_relevance": 81,
+        "proof_strength": 62
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US; Mastercard Move - Set money in motion | Mastercard US.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US; Mastercard Move - Set money in motion | Mastercard US.",
       "evidence": [
         {
           "source_type": "commercial payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US",
           "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
           "snippet": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prep..."
         },
         {
           "source_type": "money movement product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Mastercard Move - Set money in motion | Mastercard US",
           "url": "https://www.mastercard.com/us/en/business/payments/mastercard-move.html",
           "snippet": "Mastercard Move - Set money in motion | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prepaid Cards Cards for your..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 72,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 1,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types.",
+          "Differentiation and Proof Strength capped for nav-heavy snippets."
+        ],
+        "movement_note": "Previous score was 96, but movement is set to 0 until content deltas are verified."
+      }
     },
     {
       "name": "Visa",
-      "competitiveness_score": 71,
+      "competitiveness_score": 65,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 57,
-        "differentiation": 95,
-        "buyer_relevance": 75,
-        "proof_strength": 57
+        "share_of_model": 58,
+        "differentiation": 67,
+        "buyer_relevance": 73,
+        "proof_strength": 65
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Visa B2B Payables | Visa; Visa Direct | Transforming global money movement | Visa.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Visa B2B Payables | Visa; Visa Direct | Transforming global money movement | Visa.",
       "evidence": [
         {
           "source_type": "B2B payables product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 64,
+          "proof_bearing": true,
           "title": "Visa B2B Payables | Visa",
           "url": "https://usa.visa.com/products/b2b-payables.html",
           "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s..."
         },
         {
           "source_type": "money movement product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 57,
+          "proof_bearing": true,
           "title": "Visa Direct | Transforming global money movement | Visa",
           "url": "https://usa.visa.com/products/visa-direct.html",
           "snippet": "...ving money globally is easy with Visa Direct. Global We offer worldwide reach to billions of endpoints, with real-time¹ cross-border² and domestic payment solutions. Simple We are a single point of access connecting to card and network endpoints. Innovative We build for the future based on over 60 years of industry expertise. Secure We make it possible for f..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 65,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 1,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types."
+        ],
+        "movement_note": "Previous score was 71, but movement is set to 0 until content deltas are verified."
+      }
     },
     {
       "name": "Stripe",
-      "competitiveness_score": 96,
+      "competitiveness_score": 72,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 96,
-        "differentiation": 96,
-        "buyer_relevance": 96,
-        "proof_strength": 96
+        "share_of_model": 81,
+        "differentiation": 62,
+        "buyer_relevance": 81,
+        "proof_strength": 62
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Stripe Payments | Global Payment Processing Platform; Stripe Connect | Platform and Marketplace Payment Solutions.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Stripe Payments | Global Payment Processing Platform; Stripe Connect | Platform and Marketplace Payment Solutions.",
       "evidence": [
         {
           "source_type": "enterprise payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Stripe Payments | Global Payment Processing Platform",
           "url": "https://stripe.com/payments",
           "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Payments | Global Payment Processing Platform Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payment..."
         },
         {
           "source_type": "platform and marketplace payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
           "url": "https://stripe.com/connect",
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 72,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 1,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types.",
+          "Differentiation and Proof Strength capped for nav-heavy snippets."
+        ],
+        "movement_note": "Previous score was 96, but movement is set to 0 until content deltas are verified."
+      }
     },
     {
       "name": "Adyen",
-      "competitiveness_score": 89,
+      "competitiveness_score": 69,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 96,
-        "differentiation": 78,
-        "buyer_relevance": 96,
-        "proof_strength": 82
+        "share_of_model": 72,
+        "differentiation": 62,
+        "buyer_relevance": 78,
+        "proof_strength": 62
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Online payments | Making online payments easy - Adyen; Platforms | Payment solution for marketplaces and platforms - Adyen.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Online payments | Making online payments easy - Adyen; Platforms | Payment solution for marketplaces and platforms - Adyen.",
       "evidence": [
         {
           "source_type": "online payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Online payments | Making online payments easy - Adyen",
           "url": "https://www.adyen.com/online-payments",
           "snippet": "Online payments | Making online payments easy - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Online payments Effortless online payments for you and your customer Accept, process, and set..."
         },
         {
           "source_type": "platform payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 55,
+          "proof_bearing": true,
           "title": "Platforms | Payment solution for marketplaces and platforms - Adyen",
           "url": "https://www.adyen.com/platform-payments",
           "snippet": "Platforms | Payment solution for marketplaces and platforms - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Adyen for Platforms Embed payments into your platform or marketplace Let your u..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 69,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 1,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types.",
+          "Differentiation and Proof Strength capped for nav-heavy snippets."
+        ],
+        "movement_note": "Previous score was 89, but movement is set to 0 until content deltas are verified."
+      }
     },
     {
       "name": "PayPal",
-      "competitiveness_score": 96,
+      "competitiveness_score": 71,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 96,
-        "differentiation": 96,
-        "buyer_relevance": 96,
-        "proof_strength": 96
+        "share_of_model": 77,
+        "differentiation": 62,
+        "buyer_relevance": 80,
+        "proof_strength": 62
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Enterprise Payments | PayPal for Enterprises | PayPal US; Enterprise Payments Processing Solutions | PayPal US.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Enterprise Payments | PayPal for Enterprises | PayPal US; Enterprise Payments Processing Solutions | PayPal US.",
       "evidence": [
         {
           "source_type": "enterprise payments overview",
+          "source_class": "overview_page",
+          "evidence_quality_score": 44,
+          "proof_bearing": true,
           "title": "Enterprise Payments | PayPal for Enterprises | PayPal US",
           "url": "https://www.paypal.com/us/business/enterprise",
           "snippet": "Enterprise Payments | PayPal for Enterprises | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash..."
         },
         {
           "source_type": "payment processing product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
           "title": "Enterprise Payments Processing Solutions | PayPal US",
           "url": "https://www.paypal.com/us/business/payment-processing",
           "snippet": "Enterprise Payments Processing Solutions | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Sub..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 71,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 2,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types.",
+          "Differentiation and Proof Strength capped for nav-heavy snippets."
+        ],
+        "movement_note": "Previous score was 96, but movement is set to 0 until content deltas are verified."
+      }
     },
     {
       "name": "Fiserv",
-      "competitiveness_score": 95,
+      "competitiveness_score": 72,
       "movement_since_last_run": 0,
       "metrics": {
-        "share_of_model": 96,
-        "differentiation": 96,
-        "buyer_relevance": 96,
-        "proof_strength": 90
+        "share_of_model": 81,
+        "differentiation": 71,
+        "buyer_relevance": 81,
+        "proof_strength": 76
       },
-      "summary": "Based on 2 B2B-relevant public sources. Strongest signals: Carat Global Platform | Carat U.S. | Fiserv; CardHub, Card Solutions, Digital Wallet | Fiserv.",
+      "summary": "Based on 2 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Carat Global Platform | Carat U.S. | Fiserv; CardHub, Card Solutions, Digital Wallet | Fiserv.",
       "evidence": [
         {
           "source_type": "commerce platform overview",
+          "source_class": "overview_page",
+          "evidence_quality_score": 53,
+          "proof_bearing": true,
           "title": "Carat Global Platform | Carat U.S. | Fiserv",
           "url": "https://www.carat.fiserv.com/en-us/",
           "snippet": "Carat Global Platform | Carat U.S. | Fiserv Skip to Contact an Expert Skip to Main Content What we do What we do Explore the Carat Platform Explore the Carat Platform Orchestrate payments and commerce experiences. Alternative Payments Alternative Payments Engage more customers and lower the cost of payments. Secure Commerce Secure Commerce Protect your brand..."
         },
         {
           "source_type": "card services product page",
+          "source_class": "adjacent_or_mixed",
+          "evidence_quality_score": 51,
+          "proof_bearing": true,
           "title": "CardHub, Card Solutions, Digital Wallet | Fiserv",
           "url": "https://www.fiserv.com/en/solutions/card-services/cardhub.html",
           "snippet": "CardHub, Card Solutions, Digital Wallet | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 2026 Moving commerce forward, together. Reg..."
         }
-      ]
+      ],
+      "score_diagnostics": {
+        "uncapped_score": 78,
+        "applied_overall_cap": 72,
+        "proof_bearing_sources": 2,
+        "distinct_source_types": 2,
+        "caps_applied": [
+          "Overall capped at 72: only product/overview/adjacent sources are present.",
+          "Overall capped at 72: fewer than three distinct source types."
+        ],
+        "movement_note": "Previous score was 95, but movement is set to 0 until content deltas are verified."
+      }
     }
   ],
   "whitespace_topics": [
     {
       "topic": "Cross-border B2B payment certainty",
-      "opportunity_score": 87,
-      "why_it_matters": "Detected in public evidence, but not yet saturated enough to treat as a closed space.",
-      "activation_idea": "Review public evidence and decide whether cross-border b2b payment certainty should become a buyer-facing brief."
+      "opportunity_score": 74,
+      "why_it_matters": "Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.",
+      "activation_idea": "Pressure-test cross-border b2b payment certainty with stronger proof-bearing sources before making it a buyer-facing brief."
     },
     {
       "topic": "AI-led treasury automation",
-      "opportunity_score": 84,
-      "why_it_matters": "Detected in public evidence, but not yet saturated enough to treat as a closed space.",
-      "activation_idea": "Review public evidence and decide whether ai-led treasury automation should become a buyer-facing brief."
+      "opportunity_score": 70,
+      "why_it_matters": "Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.",
+      "activation_idea": "Pressure-test ai-led treasury automation with stronger proof-bearing sources before making it a buyer-facing brief."
     },
     {
       "topic": "Fraud and identity orchestration",
-      "opportunity_score": 81,
-      "why_it_matters": "Detected in public evidence, but not yet saturated enough to treat as a closed space.",
-      "activation_idea": "Review public evidence and decide whether fraud and identity orchestration should become a buyer-facing brief."
+      "opportunity_score": 66,
+      "why_it_matters": "Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.",
+      "activation_idea": "Pressure-test fraud and identity orchestration with stronger proof-bearing sources before making it a buyer-facing brief."
     },
     {
       "topic": "Embedded finance for enterprise platforms",
-      "opportunity_score": 68,
-      "why_it_matters": "Detected in public evidence, but not yet saturated enough to treat as a closed space.",
-      "activation_idea": "Review public evidence and decide whether embedded finance for enterprise platforms should become a buyer-facing brief."
+      "opportunity_score": 62,
+      "why_it_matters": "Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.",
+      "activation_idea": "Pressure-test embedded finance for enterprise platforms with stronger proof-bearing sources before making it a buyer-facing brief."
     },
     {
       "topic": "Acquirer and merchant enablement",
-      "opportunity_score": 68,
-      "why_it_matters": "Detected in public evidence, but not yet saturated enough to treat as a closed space.",
-      "activation_idea": "Review public evidence and decide whether acquirer and merchant enablement should become a buyer-facing brief."
+      "opportunity_score": 62,
+      "why_it_matters": "Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.",
+      "activation_idea": "Pressure-test acquirer and merchant enablement with stronger proof-bearing sources before making it a buyer-facing brief."
     }
   ],
   "recommendations": [
     {
-      "title": "Pressure-test Cross-border B2B payment certainty",
+      "title": "Treat this run as internal QA, not client-ready intelligence",
       "priority": "High",
-      "why": "It currently has the strongest whitespace score in this run.",
-      "action": "Create a one-page buyer brief: problem, audience, evidence, competitor crowding and a proposed Mastercard angle."
+      "why": "Current inputs are mostly owned product or overview pages, so scores are directionally useful but not executive-ready.",
+      "action": "Add proof-bearing sources before using scores externally: customer stories, partner announcements, press releases, reports, quantified outcomes or dated launch evidence."
     },
     {
-      "title": "Strengthen proof for Visa",
+      "title": "Pressure-test Cross-border B2B payment certainty",
+      "priority": "Medium",
+      "why": "Whitespace ranking is capped and directional in this calibrated run.",
+      "action": "Create an evidence table for Cross-border B2B payment certainty: public proof, competitor crowding, buyer relevance and what Mastercard can credibly own."
+    },
+    {
+      "title": "Strengthen proof for Mastercard",
       "priority": "Medium",
       "why": "Proof Strength is the weakest visible metric for this brand in the current scoring set.",
-      "action": "Add named customers, quantified outcomes, partner announcements or analyst-grade evidence before making a client-facing claim."
-    },
-    {
-      "title": "Keep the source list narrow for now",
-      "priority": "Medium",
-      "why": "A controlled source list makes the first version easier to trust, review and debug.",
-      "action": "Add 3 to 5 high-quality public URLs per brand before expanding automated discovery."
+      "action": "Replace or supplement generic product pages with named customers, quantified outcomes, partner announcements or analyst-grade evidence."
     }
   ],
   "evidence_feed": [
@@ -221,8 +327,12 @@
       "source_type": "commercial payments product page",
       "title": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
-      "captured_at": "2026-06-11T15:20:23.294Z",
+      "captured_at": "2026-06-11T15:25:36.303Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -233,15 +343,26 @@
         "acquirer",
         "fintech"
       ],
-      "snippet": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prep..."
+      "snippet": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prep...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 47,
+      "boilerplateHits": 9,
+      "genericHits": 18,
+      "quality": 52
     },
     {
       "brand": "Mastercard",
       "source_type": "money movement product page",
       "title": "Mastercard Move - Set money in motion | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/mastercard-move.html",
-      "captured_at": "2026-06-11T15:20:23.372Z",
+      "captured_at": "2026-06-11T15:25:36.348Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -252,15 +373,26 @@
         "merchants",
         "bank"
       ],
-      "snippet": "Mastercard Move - Set money in motion | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prepaid Cards Cards for your..."
+      "snippet": "Mastercard Move - Set money in motion | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prepaid Cards Cards for your...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 48,
+      "boilerplateHits": 9,
+      "genericHits": 16,
+      "quality": 52
     },
     {
       "brand": "Visa",
       "source_type": "B2B payables product page",
       "title": "Visa B2B Payables | Visa",
       "url": "https://usa.visa.com/products/b2b-payables.html",
-      "captured_at": "2026-06-11T15:20:23.505Z",
+      "captured_at": "2026-06-11T15:25:36.576Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 64,
+      "proof_bearing": true,
+      "nav_heavy": false,
       "top_signals": [
         "business",
         "businesses",
@@ -271,30 +403,52 @@
         "fintech",
         "working capital"
       ],
-      "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s..."
+      "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": false,
+      "proofHits": 3,
+      "boilerplateHits": 0,
+      "genericHits": 6,
+      "quality": 64
     },
     {
       "brand": "Visa",
       "source_type": "money movement product page",
       "title": "Visa Direct | Transforming global money movement | Visa",
       "url": "https://usa.visa.com/products/visa-direct.html",
-      "captured_at": "2026-06-11T15:20:23.598Z",
-      "b2b_relevance_score": 70,
+      "captured_at": "2026-06-11T15:25:36.659Z",
+      "b2b_relevance_score": 48,
+      "source_class": "product_page",
+      "evidence_quality_score": 57,
+      "proof_bearing": true,
+      "nav_heavy": false,
       "top_signals": [
         "business",
         "businesses",
         "platform",
         "cross-border"
       ],
-      "snippet": "...ving money globally is easy with Visa Direct. Global We offer worldwide reach to billions of endpoints, with real-time¹ cross-border² and domestic payment solutions. Simple We are a single point of access connecting to card and network endpoints. Innovative We build for the future based on over 60 years of industry expertise. Secure We make it possible for f..."
+      "snippet": "...ving money globally is easy with Visa Direct. Global We offer worldwide reach to billions of endpoints, with real-time¹ cross-border² and domestic payment solutions. Simple We are a single point of access connecting to card and network endpoints. Innovative We build for the future based on over 60 years of industry expertise. Secure We make it possible for f...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": false,
+      "proofHits": 2,
+      "boilerplateHits": 1,
+      "genericHits": 9,
+      "quality": 57
     },
     {
       "brand": "Stripe",
       "source_type": "enterprise payments product page",
       "title": "Stripe Payments | Global Payment Processing Platform",
       "url": "https://stripe.com/payments",
-      "captured_at": "2026-06-11T15:20:23.922Z",
+      "captured_at": "2026-06-11T15:25:37.252Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -305,15 +459,26 @@
         "bank",
         "acquiring"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Payments | Global Payment Processing Platform Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payment..."
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Payments | Global Payment Processing Platform Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payment...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 41,
+      "boilerplateHits": 11,
+      "genericHits": 32,
+      "quality": 52
     },
     {
       "brand": "Stripe",
       "source_type": "platform and marketplace payments product page",
       "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
       "url": "https://stripe.com/connect",
-      "captured_at": "2026-06-11T15:20:25.247Z",
+      "captured_at": "2026-06-11T15:25:38.539Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -324,15 +489,26 @@
         "merchants",
         "bank"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 25,
+      "boilerplateHits": 11,
+      "genericHits": 16,
+      "quality": 52
     },
     {
       "brand": "Adyen",
       "source_type": "online payments product page",
       "title": "Online payments | Making online payments easy - Adyen",
       "url": "https://www.adyen.com/online-payments",
-      "captured_at": "2026-06-11T15:20:25.664Z",
+      "captured_at": "2026-06-11T15:25:38.949Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -343,15 +519,26 @@
         "bank",
         "acquiring"
       ],
-      "snippet": "Online payments | Making online payments easy - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Online payments Effortless online payments for you and your customer Accept, process, and set..."
+      "snippet": "Online payments | Making online payments easy - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Online payments Effortless online payments for you and your customer Accept, process, and set...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 7,
+      "boilerplateHits": 8,
+      "genericHits": 14,
+      "quality": 52
     },
     {
       "brand": "Adyen",
       "source_type": "platform payments product page",
       "title": "Platforms | Payment solution for marketplaces and platforms - Adyen",
       "url": "https://www.adyen.com/platform-payments",
-      "captured_at": "2026-06-11T15:20:27.579Z",
+      "captured_at": "2026-06-11T15:25:39.179Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 55,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "business",
         "businesses",
@@ -362,15 +549,26 @@
         "fraud",
         "identity"
       ],
-      "snippet": "Platforms | Payment solution for marketplaces and platforms - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Adyen for Platforms Embed payments into your platform or marketplace Let your u..."
+      "snippet": "Platforms | Payment solution for marketplaces and platforms - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Adyen for Platforms Embed payments into your platform or marketplace Let your u...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 4,
+      "boilerplateHits": 6,
+      "genericHits": 5,
+      "quality": 55
     },
     {
       "brand": "PayPal",
       "source_type": "enterprise payments overview",
       "title": "Enterprise Payments | PayPal for Enterprises | PayPal US",
       "url": "https://www.paypal.com/us/business/enterprise",
-      "captured_at": "2026-06-11T15:20:28.375Z",
+      "captured_at": "2026-06-11T15:25:40.094Z",
       "b2b_relevance_score": 100,
+      "source_class": "overview_page",
+      "evidence_quality_score": 44,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -381,15 +579,26 @@
         "bank",
         "banks"
       ],
-      "snippet": "Enterprise Payments | PayPal for Enterprises | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash..."
+      "snippet": "Enterprise Payments | PayPal for Enterprises | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash...",
+      "sourceClass": "overview_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 8,
+      "boilerplateHits": 5,
+      "genericHits": 11,
+      "quality": 44
     },
     {
       "brand": "PayPal",
       "source_type": "payment processing product page",
       "title": "Enterprise Payments Processing Solutions | PayPal US",
       "url": "https://www.paypal.com/us/business/payment-processing",
-      "captured_at": "2026-06-11T15:20:29.137Z",
+      "captured_at": "2026-06-11T15:25:41.049Z",
       "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 52,
+      "proof_bearing": true,
+      "nav_heavy": true,
       "top_signals": [
         "enterprise",
         "business",
@@ -400,15 +609,26 @@
         "bank",
         "banks"
       ],
-      "snippet": "Enterprise Payments Processing Solutions | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Sub..."
+      "snippet": "Enterprise Payments Processing Solutions | PayPal US PayPal logo Personal PayPal for You Shopping & Rewards Buy Now, Pay Later Rewards PayPal credit and cards PayPal Debit Card Paying with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Sub...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": true,
+      "proofHits": 12,
+      "boilerplateHits": 5,
+      "genericHits": 14,
+      "quality": 52
     },
     {
       "brand": "Fiserv",
       "source_type": "commerce platform overview",
       "title": "Carat Global Platform | Carat U.S. | Fiserv",
       "url": "https://www.carat.fiserv.com/en-us/",
-      "captured_at": "2026-06-11T15:20:29.609Z",
+      "captured_at": "2026-06-11T15:25:41.414Z",
       "b2b_relevance_score": 100,
+      "source_class": "overview_page",
+      "evidence_quality_score": 53,
+      "proof_bearing": true,
+      "nav_heavy": false,
       "top_signals": [
         "business",
         "businesses",
@@ -417,15 +637,26 @@
         "bank",
         "fraud"
       ],
-      "snippet": "Carat Global Platform | Carat U.S. | Fiserv Skip to Contact an Expert Skip to Main Content What we do What we do Explore the Carat Platform Explore the Carat Platform Orchestrate payments and commerce experiences. Alternative Payments Alternative Payments Engage more customers and lower the cost of payments. Secure Commerce Secure Commerce Protect your brand..."
+      "snippet": "Carat Global Platform | Carat U.S. | Fiserv Skip to Contact an Expert Skip to Main Content What we do What we do Explore the Carat Platform Explore the Carat Platform Orchestrate payments and commerce experiences. Alternative Payments Alternative Payments Engage more customers and lower the cost of payments. Secure Commerce Secure Commerce Protect your brand...",
+      "sourceClass": "overview_page",
+      "proofBearing": true,
+      "navHeavy": false,
+      "proofHits": 9,
+      "boilerplateHits": 1,
+      "genericHits": 11,
+      "quality": 53
     },
     {
       "brand": "Fiserv",
       "source_type": "card services product page",
       "title": "CardHub, Card Solutions, Digital Wallet | Fiserv",
       "url": "https://www.fiserv.com/en/solutions/card-services/cardhub.html",
-      "captured_at": "2026-06-11T15:20:30.049Z",
+      "captured_at": "2026-06-11T15:25:41.556Z",
       "b2b_relevance_score": 100,
+      "source_class": "adjacent_or_mixed",
+      "evidence_quality_score": 51,
+      "proof_bearing": true,
+      "nav_heavy": false,
       "top_signals": [
         "enterprise",
         "business",
@@ -436,12 +667,21 @@
         "bank",
         "banks"
       ],
-      "snippet": "CardHub, Card Solutions, Digital Wallet | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 2026 Moving commerce forward, together. Reg..."
+      "snippet": "CardHub, Card Solutions, Digital Wallet | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 2026 Moving commerce forward, together. Reg...",
+      "sourceClass": "adjacent_or_mixed",
+      "proofBearing": true,
+      "navHeavy": false,
+      "proofHits": 5,
+      "boilerplateHits": 0,
+      "genericHits": 5,
+      "quality": 51
     }
   ],
   "run_diagnostics": {
     "sources_kept": 12,
     "sources_skipped_or_filtered": 0,
-    "warning": null
+    "proof_bearing_sources": 12,
+    "readiness": "AMBER: proof-bearing evidence present, still needs human review",
+    "warning": "Scores are calibrated and capped. Client use requires manual review and stronger proof-bearing evidence."
   }
 }
