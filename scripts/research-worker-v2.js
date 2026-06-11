@@ -266,15 +266,122 @@ async function analyseCompetitor(competitor, rubric, previousBrand) {
   return { brandScore: { name: competitor.name, competitiveness_score: score, movement_since_last_run: movement, metrics, summary: `Based on ${evidence.length} B2B-relevant public source${evidence.length === 1 ? '' : 's'}. Score is calibrated for source quality. Strongest signals: ${topEvidenceTitles || 'none'}.`, evidence: evidence.slice(0, 5).map(item => ({ source_type: item.source_type, source_class: item.source_class, evidence_quality_score: item.evidence_quality_score, proof_bearing: item.proof_bearing, title: item.title, url: item.url, snippet: item.snippet })), score_diagnostics: { uncapped_score: uncappedScore, applied_overall_cap: capResult.overallCap, proof_bearing_sources: capResult.proofCount, distinct_source_types: capResult.sourceTypeCount, caps_applied: capResult.caps, movement_note: movementNote } }, evidence: evidence.map(({ text, ...item }) => item), skipped };
 }
 
-function scoreWhitespaceTopics(evidenceFeed, rubric, previousDashboard) {
+function topicMetadata(topicName) {
+  const name = String(topicName || '').toLowerCase();
+  if (name.includes('treasury')) return { buyer: 'VP Finance / Treasurer', region: 'Global', horizon: '3-9 months' };
+  if (name.includes('cross-border')) return { buyer: 'VP Finance / Treasurer', region: 'Europe / Global', horizon: '0-6 months' };
+  if (name.includes('embedded')) return { buyer: 'Platform partnerships lead', region: 'Global', horizon: '3-9 months' };
+  if (name.includes('acquirer') || name.includes('merchant')) return { buyer: 'Merchant acquiring / commerce leader', region: 'North America / Global', horizon: '0-6 months' };
+  if (name.includes('fraud') || name.includes('identity')) return { buyer: 'Risk, fraud and identity leader', region: 'Global', horizon: '6-12 months' };
+  return { buyer: 'Finance leaders / enterprise buyers', region: 'Global', horizon: '6-12 months' };
+}
+
+function topicText(item) {
+  return `${item.title || ''} ${item.source_type || ''} ${item.source_class || ''} ${item.snippet || ''} ${(item.top_signals || []).join(' ')}`;
+}
+
+function average(values, fallback = 0) {
+  const valid = values.map(Number).filter(Number.isFinite);
+  return valid.length ? valid.reduce((sum, value) => sum + value, 0) / valid.length : fallback;
+}
+
+function valueLabel(score) {
+  if (score >= 82) return 'Very high';
+  if (score >= 72) return 'High';
+  if (score >= 62) return 'Medium-high';
+  return 'Emerging';
+}
+
+function summariseEvidence(items, limit = 3) {
+  return items.slice(0, limit).map(item => `${item.brand}: ${item.title}`).join('; ');
+}
+
+function scoreWhitespaceTopics(evidenceFeed, rubric, previousDashboard, brandScores = [], clientBrandName = 'Mastercard') {
   if (!evidenceFeed.length && previousDashboard.whitespace_topics?.length) return previousDashboard.whitespace_topics;
-  const combined = evidenceFeed.map(item => `${item.title} ${item.snippet} ${(item.top_signals || []).join(' ')}`).join(' ');
-  const proofBearingCount = evidenceFeed.filter(item => item.proof_bearing).length;
-  return (rubric.whitespace_topics || []).map(topic => {
-    const saturation = countMatches(combined, topic.keywords || []);
-    const buyerHits = countMatches(combined, ['enterprise', 'cfo', 'treasury', 'merchant', 'platform', 'bank', 'acquirer', 'commercial', 'finance']);
-    const score = clamp(52 + Math.min(14, buyerHits) + Math.min(10, proofBearingCount * 2) + (saturation > 0 ? 6 : 0) - Math.min(20, saturation * 4), 30, 78);
-    return { topic: topic.topic, opportunity_score: score, why_it_matters: 'Directional only: topic detected in public evidence, but whitespace scoring requires manual strategic review before client use.', activation_idea: `Pressure-test ${topic.topic.toLowerCase()} with stronger proof-bearing sources before making it a buyer-facing brief.` };
+
+  const client = brandScores.find(brand => String(brand.name).toLowerCase() === String(clientBrandName).toLowerCase()) || brandScores[0] || {};
+  const clientMetrics = client.metrics || {};
+  const clientFitBase = average([clientMetrics.buyer_relevance, clientMetrics.differentiation, clientMetrics.proof_strength], 60);
+  const proofKeywords = rubric.scoring_guardrails?.proof_bearing_keywords || ['customer', 'case study', 'partner', 'report', 'research', 'pilot', 'launched', 'increased', 'reduced', 'million', 'billion', '%'];
+  const buyerKeywords = rubric.b2b_relevance_filter?.include_keywords || ['enterprise', 'treasury', 'finance', 'merchant', 'platform', 'bank', 'acquirer', 'commercial'];
+
+  return (rubric.whitespace_topics || []).map((topic, index) => {
+    const keywords = topic.keywords || [];
+    const matchedEvidence = evidenceFeed
+      .map(item => ({ item, hits: countMatches(topicText(item), keywords) }))
+      .filter(result => result.hits > 0)
+      .sort((a, b) => {
+        const proofDelta = Number(b.item.proof_bearing) - Number(a.item.proof_bearing);
+        if (proofDelta) return proofDelta;
+        const qualityDelta = Number(b.item.evidence_quality_score || 0) - Number(a.item.evidence_quality_score || 0);
+        if (qualityDelta) return qualityDelta;
+        return b.hits - a.hits;
+      })
+      .map(result => result.item);
+
+    const topicEvidence = matchedEvidence.length ? matchedEvidence : evidenceFeed.slice(0, 3);
+    const combined = topicEvidence.map(topicText).join(' ');
+    const distinctBrands = new Set(matchedEvidence.map(item => item.brand).filter(Boolean));
+    const competitorBrands = new Set(matchedEvidence.map(item => item.brand).filter(brand => String(brand).toLowerCase() !== String(clientBrandName).toLowerCase()));
+    const clientEvidence = matchedEvidence.filter(item => String(item.brand).toLowerCase() === String(clientBrandName).toLowerCase());
+    const buyerHits = countMatches(combined, buyerKeywords);
+    const proofHits = countMatches(combined, proofKeywords);
+    const proofBearingTopicCount = matchedEvidence.filter(item => item.proof_bearing).length;
+    const avgQuality = average(topicEvidence.map(item => item.evidence_quality_score), 55);
+    const saturation = matchedEvidence.length;
+
+    const buyerSignal = clamp(42 + Math.min(38, buyerHits * 3) + Math.min(12, distinctBrands.size * 3));
+    const proofSignal = clamp(34 + Math.min(28, proofHits * 2) + Math.min(20, proofBearingTopicCount * 8) + Math.min(12, avgQuality / 8));
+    const crowding = clamp(Math.min(72, competitorBrands.size * 12 + saturation * 7));
+    const fit = clamp(clientFitBase * 0.5 + buyerSignal * 0.28 + proofSignal * 0.22);
+    const urgency = clamp(44 + Math.min(26, buyerHits * 2.8) + Math.min(16, proofBearingTopicCount * 6) + Math.min(10, saturation * 2));
+    const noise = matchedEvidence.length ? crowding : 22;
+    const opportunityScore = clamp(fit * 0.46 + urgency * 0.34 + (100 - noise) * 0.2, 35, 92);
+    const metadata = topicMetadata(topic.topic);
+    const supportingEvidence = topicEvidence.slice(0, 4).map(item => ({
+      brand: item.brand,
+      title: item.title,
+      url: item.url,
+      source_type: item.source_type,
+      source_class: item.source_class,
+      evidence_quality_score: item.evidence_quality_score,
+      proof_bearing: item.proof_bearing,
+      snippet: item.snippet
+    }));
+
+    const brandList = Array.from(distinctBrands).slice(0, 5).join(', ') || 'the current evidence set';
+    const proofSummary = supportingEvidence.length ? summariseEvidence(supportingEvidence, 3) : 'No direct public evidence matched this topic in the current run.';
+    const crowdingPhrase = competitorBrands.size >= 3 ? 'visible competitor crowding' : competitorBrands.size ? 'some competitor signal' : 'limited competitor signal';
+
+    return {
+      id: `live-${index + 1}-${String(topic.topic).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`,
+      topic: topic.topic,
+      title: topic.topic,
+      opportunity_score: opportunityScore,
+      confidence: opportunityScore,
+      buyer: metadata.buyer,
+      region: metadata.region,
+      horizon: metadata.horizon,
+      value: valueLabel(opportunityScore),
+      fit,
+      urgency,
+      noise,
+      source_count: matchedEvidence.length,
+      distinct_brands: Array.from(distinctBrands),
+      competitor_count: competitorBrands.size,
+      supporting_evidence: supportingEvidence,
+      why_it_matters: `Detected from ${matchedEvidence.length} matching public evidence item${matchedEvidence.length === 1 ? '' : 's'} across ${brandList}. The evidence shows ${crowdingPhrase}, which makes this a live opportunity to pressure-test rather than a static theme.`,
+      thesis: `${topic.topic} is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.`,
+      why: `The strongest buyer signal is for ${metadata.buyer.toLowerCase()}, with ${buyerHits} buyer-relevance hits and ${proofBearingTopicCount} proof-bearing source${proofBearingTopicCount === 1 ? '' : 's'} tied to the topic.`,
+      activation_idea: `Build a buyer-facing proof ladder for ${topic.topic.toLowerCase()}: what the market is saying, what competitors can prove, and where ${clientBrandName} can credibly create a sharper position.`,
+      move: `Turn this into a live evidence table and brief: lead with ${metadata.buyer.toLowerCase()}, cite the strongest public sources, and separate ${clientBrandName}'s proof from competitor noise.`,
+      proof: proofSummary,
+      risk: noise >= 60
+        ? 'Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy.'
+        : proofBearingTopicCount < 2
+          ? 'The topic has buyer relevance but needs more proof-bearing sources before it is safe for client-facing use.'
+          : 'Keep the claim tied to named sources and quantified proof so the bet does not become a generic category statement.'
+    };
   }).sort((a, b) => b.opportunity_score - a.opportunity_score).slice(0, 5);
 }
 
@@ -283,7 +390,7 @@ function makeRecommendations(brandScores, whitespaceTopics, clientBrandName) {
   const proofWeak = [...brandScores].sort((a, b) => (a.metrics?.proof_strength || 0) - (b.metrics?.proof_strength || 0))[0];
   const recommendations = [];
   recommendations.push({ title: 'Treat this run as internal QA, not client-ready intelligence', priority: 'High', why: 'Current inputs are mostly owned product or overview pages, so scores are directionally useful but not executive-ready.', action: 'Add proof-bearing sources before using scores externally: customer stories, partner announcements, press releases, reports, quantified outcomes or dated launch evidence.' });
-  if (topWhitespace) recommendations.push({ title: `Pressure-test ${topWhitespace.topic}`, priority: 'Medium', why: 'Whitespace ranking is capped and directional in this calibrated run.', action: `Create an evidence table for ${topWhitespace.topic}: public proof, competitor crowding, buyer relevance and what Mastercard can credibly own.` });
+  if (topWhitespace) recommendations.push({ title: `Pressure-test ${topWhitespace.topic}`, priority: 'Medium', why: 'Whitespace ranking is now based on live evidence counts, buyer signal, proof signal and competitor crowding from the calibrated run.', action: `Create an evidence table for ${topWhitespace.topic}: public proof, competitor crowding, buyer relevance and what ${clientBrandName || 'Mastercard'} can credibly own.` });
   if (proofWeak) recommendations.push({ title: `Strengthen proof for ${proofWeak.name}`, priority: 'Medium', why: 'Proof Strength is the weakest visible metric for this brand in the current scoring set.', action: 'Replace or supplement generic product pages with named customers, quantified outcomes, partner announcements or analyst-grade evidence.' });
   return recommendations;
 }
@@ -324,10 +431,17 @@ function makeReviewMarkdown({ dashboard, skippedSources }) {
   lines.push('- Exact brand scores and whitespace rankings should not be used externally without manual review.');
   lines.push('- Claims of momentum, advantage or category leadership require stronger proof-bearing sources.');
   lines.push('');
-  lines.push('## Whitespace topics');
+  lines.push('## Ranked bets from live evidence');
   lines.push('');
-  for (const topic of dashboard.whitespace_topics) lines.push(`- ${topic.topic}: ${topic.opportunity_score}/100`);
-  lines.push('');
+  for (const topic of dashboard.whitespace_topics) {
+    lines.push(`### ${topic.topic}: ${topic.opportunity_score}/100`);
+    lines.push(`- Buyer: ${topic.buyer || 'n/a'}`);
+    lines.push(`- Fit / urgency / crowding: ${topic.fit ?? 'n/a'} / ${topic.urgency ?? 'n/a'} / ${topic.noise ?? 'n/a'}`);
+    lines.push(`- Evidence items matched: ${topic.source_count ?? 0}`);
+    lines.push(`- Why: ${topic.why_it_matters}`);
+    if (topic.proof) lines.push(`- Proof: ${topic.proof}`);
+    lines.push('');
+  }
   lines.push('## Recommendations');
   lines.push('');
   for (const rec of dashboard.recommendations) {
@@ -373,7 +487,7 @@ function makeChangeLogEntry(dashboard, skippedSources) {
   lines.push(`- Sources skipped or filtered: ${skippedSources.length}`);
   lines.push(`- Readiness: ${dashboard.run_diagnostics.readiness}`);
   lines.push('- Score movement: set to 0 until content deltas are verified.');
-  if (dashboard.whitespace_topics?.length) lines.push(`- Top directional whitespace topic: ${dashboard.whitespace_topics[0].topic} (${dashboard.whitespace_topics[0].opportunity_score}/100)`);
+  if (dashboard.whitespace_topics?.length) lines.push(`- Top live ranked bet: ${dashboard.whitespace_topics[0].topic} (${dashboard.whitespace_topics[0].opportunity_score}/100, ${dashboard.whitespace_topics[0].source_count || 0} matching evidence items)`);
   lines.push('');
   return lines.join('\n');
 }
@@ -396,7 +510,8 @@ async function main() {
   const brandScores = results.map(result => result.brandScore);
   const evidenceFeed = results.flatMap(result => result.evidence);
   const proofBearingCount = evidenceFeed.filter(item => item.proof_bearing).length;
-  const whitespaceTopics = scoreWhitespaceTopics(evidenceFeed, rubric, previousDashboard);
+  const clientBrand = sources.client_brand || previousDashboard.client_brand || 'Mastercard';
+  const whitespaceTopics = scoreWhitespaceTopics(evidenceFeed, rubric, previousDashboard, brandScores, clientBrand);
   const readiness = proofBearingCount >= sources.competitors.length ? 'AMBER: proof-bearing evidence present, still needs human review' : 'RED: mostly generic owned evidence; do not use scores client-facing yet';
 
   const dashboard = {
@@ -405,10 +520,10 @@ async function main() {
     generated_at: nowIso(),
     status: evidenceFeed.length ? 'generated_from_public_sources_calibrated' : 'no_new_evidence_preserved_previous_scores',
     market: previousDashboard.market || 'B2B payments intelligence',
-    client_brand: sources.client_brand || previousDashboard.client_brand || 'Mastercard',
+    client_brand: clientBrand,
     brand_scores: brandScores,
     whitespace_topics: whitespaceTopics,
-    recommendations: makeRecommendations(brandScores, whitespaceTopics, sources.client_brand || previousDashboard.client_brand),
+    recommendations: makeRecommendations(brandScores, whitespaceTopics, clientBrand),
     evidence_feed: evidenceFeed,
     run_diagnostics: { sources_kept: evidenceFeed.length, sources_skipped_or_filtered: skippedSources.length, proof_bearing_sources: proofBearingCount, readiness, warning: 'Scores are calibrated and capped. Client use requires manual review and stronger proof-bearing evidence.' }
   };
