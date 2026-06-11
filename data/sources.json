@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.2.0",
+  "instructions": "Replace placeholder URLs with public pages. Set enabled to true when ready. Keep this list controlled at first.",
+  "client_brand": "Mastercard",
+  "competitors": [
+    {
+      "name": "Mastercard",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/mastercard-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/mastercard-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "Visa",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/visa-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/visa-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "Stripe",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/stripe-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/stripe-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "Adyen",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/adyen-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/adyen-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "PayPal",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/paypal-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/paypal-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "Fiserv",
+      "sources": [
+        {
+          "source_type": "product page",
+          "url": "https://replace-this.example/fiserv-b2b-product-page",
+          "enabled": false
+        },
+        {
+          "source_type": "customer or partner proof",
+          "url": "https://replace-this.example/fiserv-b2b-proof-page",
+          "enabled": false
+        }
+      ]
+    }
+  ]
+}

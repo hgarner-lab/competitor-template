@@ -1,0 +1,48 @@
+.dynamic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.dynamic-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.dynamic-card {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(255,255,255,0.04);
+}
+
+.card-kicker {
+  opacity: 0.72;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-score {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 800;
+  margin: 0.75rem 0;
+}
+
+.metric-list {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dashboard-error {
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  padding: 1rem;
+}

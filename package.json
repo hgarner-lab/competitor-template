@@ -1,0 +1,13 @@
+{
+  "name": "intelligence-dashboard-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Simple backend-style research pipeline for a static GitHub Pages dashboard.",
+  "type": "commonjs",
+  "scripts": {
+    "research": "node scripts/research-worker.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

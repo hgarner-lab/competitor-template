@@ -1,0 +1,226 @@
+{
+  "schema_version": "0.1.0",
+  "instructions": "Weights match the patched dashboard UI: 30% Share of Model, 25% Differentiation, 25% Buyer Relevance, 20% Proof Strength. Signals are simple keyword hints for v1.",
+  "b2b_relevance_filter": {
+    "include_keywords": [
+      "enterprise",
+      "business",
+      "businesses",
+      "b2b",
+      "commercial",
+      "treasury",
+      "finance leader",
+      "cfo",
+      "procurement",
+      "platform",
+      "merchant",
+      "merchants",
+      "bank",
+      "banks",
+      "issuer",
+      "acquirer",
+      "acquiring",
+      "fintech",
+      "working capital",
+      "reconciliation",
+      "settlement",
+      "cross-border",
+      "supplier",
+      "supply chain",
+      "accounts payable",
+      "accounts receivable",
+      "payment orchestration",
+      "risk management",
+      "fraud",
+      "identity",
+      "embedded finance"
+    ],
+    "exclude_if_only_consumer_keywords": [
+      "shopping",
+      "cashback",
+      "rewards",
+      "traveller",
+      "traveler",
+      "personal card",
+      "consumer credit",
+      "retail shopper",
+      "holiday spending",
+      "travel card",
+      "points",
+      "miles"
+    ],
+    "minimum_include_keyword_hits": 2
+  },
+  "categories": [
+    {
+      "id": "share_of_model",
+      "name": "Share of Model",
+      "weight": 30,
+      "question": "How visible and repeatable is the competitor's B2B narrative across public sources?",
+      "signals": [
+        "launch",
+        "announced",
+        "campaign",
+        "event",
+        "webinar",
+        "report",
+        "guide",
+        "thought leadership",
+        "product",
+        "platform",
+        "solution",
+        "partnership",
+        "customer story",
+        "case study"
+      ]
+    },
+    {
+      "id": "differentiation",
+      "name": "Differentiation",
+      "weight": 25,
+      "question": "Does the competitor make a clear, hard-to-copy claim?",
+      "signals": [
+        "unique",
+        "single platform",
+        "network",
+        "proprietary",
+        "real-time",
+        "AI",
+        "machine learning",
+        "automation",
+        "orchestration",
+        "integrated",
+        "global scale",
+        "end-to-end",
+        "data-driven",
+        "optimisation",
+        "optimization"
+      ]
+    },
+    {
+      "id": "buyer_relevance",
+      "name": "Buyer Relevance",
+      "weight": 25,
+      "question": "Does the signal matter to enterprise buyers, finance leaders, platforms, merchants, banks or acquirers?",
+      "signals": [
+        "enterprise",
+        "cfo",
+        "treasury",
+        "finance",
+        "procurement",
+        "merchant",
+        "platform",
+        "bank",
+        "issuer",
+        "acquirer",
+        "working capital",
+        "cash flow",
+        "reconciliation",
+        "settlement",
+        "cost",
+        "risk",
+        "compliance",
+        "growth",
+        "operational efficiency"
+      ]
+    },
+    {
+      "id": "proof_strength",
+      "name": "Proof Strength",
+      "weight": 20,
+      "question": "Is there evidence beyond a generic claim?",
+      "signals": [
+        "customer",
+        "case study",
+        "partner",
+        "partnership",
+        "research",
+        "survey",
+        "report",
+        "%",
+        "percent",
+        "million",
+        "billion",
+        "ROI",
+        "reduced",
+        "increased",
+        "named",
+        "pilot",
+        "launched",
+        "deployed",
+        "results"
+      ]
+    }
+  ],
+  "whitespace_topics": [
+    {
+      "topic": "AI-led treasury automation",
+      "keywords": [
+        "AI",
+        "treasury",
+        "cash flow",
+        "forecasting",
+        "working capital",
+        "automation"
+      ]
+    },
+    {
+      "topic": "Cross-border B2B payment certainty",
+      "keywords": [
+        "cross-border",
+        "settlement",
+        "reconciliation",
+        "supplier",
+        "currency",
+        "global payments"
+      ]
+    },
+    {
+      "topic": "Embedded finance for enterprise platforms",
+      "keywords": [
+        "embedded finance",
+        "platform",
+        "marketplace",
+        "software platform",
+        "SaaS",
+        "monetisation",
+        "monetization"
+      ]
+    },
+    {
+      "topic": "Acquirer and merchant enablement",
+      "keywords": [
+        "acquirer",
+        "acquiring",
+        "merchant",
+        "acceptance",
+        "commerce",
+        "checkout"
+      ]
+    },
+    {
+      "topic": "Fraud and identity orchestration",
+      "keywords": [
+        "fraud",
+        "identity",
+        "risk",
+        "authentication",
+        "authorisation",
+        "authorization",
+        "trust"
+      ]
+    },
+    {
+      "topic": "Merchant data intelligence",
+      "keywords": [
+        "data",
+        "insight",
+        "analytics",
+        "merchant",
+        "loyalty",
+        "personalisation",
+        "personalization"
+      ]
+    }
+  ]
+}

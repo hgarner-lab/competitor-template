@@ -1,0 +1,29 @@
+<!-- Add this in the <head> if your GitHub Pages site is served from a sub-path. Usually optional. -->
+<!-- <meta name="dashboard-data-base" content="https://YOUR_USERNAME.github.io/YOUR_REPO_NAME"> -->
+
+<!-- Add this where you want the date. -->
+<p>Last updated: <span data-field="last_updated">Loading...</span></p>
+
+<!-- Add these where you want dynamic dashboard sections. -->
+<section>
+  <h2>Competitiveness scorecard</h2>
+  <div data-render="brand-score-cards"></div>
+</section>
+
+<section>
+  <h2>Whitespace topics</h2>
+  <div data-render="whitespace-topics"></div>
+</section>
+
+<section>
+  <h2>Recommendations</h2>
+  <div data-render="recommendations"></div>
+</section>
+
+<section>
+  <h2>Evidence feed</h2>
+  <div data-render="evidence-feed"></div>
+</section>
+
+<!-- Add this before </body>. -->
+<script src="assets/dashboard-data-loader.js" defer></script>

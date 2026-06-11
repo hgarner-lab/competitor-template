@@ -1,0 +1,208 @@
+{
+  "schema_version": "0.1.0",
+  "last_updated": "2026-06-11",
+  "generated_at": "2026-06-11T13:55:21.212Z",
+  "status": "no_new_evidence_preserved_previous_scores",
+  "market": "B2B payments",
+  "client_brand": "Mastercard",
+  "brand_scores": [
+    {
+      "name": "Mastercard",
+      "competitiveness_score": 72,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 55,
+        "differentiation": 79,
+        "buyer_relevance": 79,
+        "proof_strength": 78
+      },
+      "summary": "Strong trust-led contender with a broad B2B capability map. The next job is to turn breadth into a sharper buyer-facing proof story.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example Mastercard B2B market signal",
+          "url": "https://replace-this.example/mastercard-b2b-signal",
+          "snippet": "Example only: replace with public Mastercard product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    },
+    {
+      "name": "Visa",
+      "competitiveness_score": 77,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 73,
+        "differentiation": 73,
+        "buyer_relevance": 80,
+        "proof_strength": 82
+      },
+      "summary": "Closest network-scale rival with strong money movement credibility and senior buyer recognition.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example Visa B2B market signal",
+          "url": "https://replace-this.example/visa-b2b-signal",
+          "snippet": "Example only: replace with public Visa product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    },
+    {
+      "name": "Stripe",
+      "competitiveness_score": 79,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 75,
+        "differentiation": 85,
+        "buyer_relevance": 81,
+        "proof_strength": 77
+      },
+      "summary": "Developer-led challenger with outsized platform and software mindshare.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example Stripe B2B market signal",
+          "url": "https://replace-this.example/stripe-b2b-signal",
+          "snippet": "Example only: replace with public Stripe product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    },
+    {
+      "name": "Adyen",
+      "competitiveness_score": 75,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 68,
+        "differentiation": 78,
+        "buyer_relevance": 78,
+        "proof_strength": 76
+      },
+      "summary": "Unified commerce specialist with a clean product-led story for merchants and platforms.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example Adyen B2B market signal",
+          "url": "https://replace-this.example/adyen-b2b-signal",
+          "snippet": "Example only: replace with public Adyen product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    },
+    {
+      "name": "PayPal",
+      "competitiveness_score": 65,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 62,
+        "differentiation": 64,
+        "buyer_relevance": 70,
+        "proof_strength": 66
+      },
+      "summary": "High-recognition merchant payments brand with uneven B2B distinctiveness.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example PayPal B2B market signal",
+          "url": "https://replace-this.example/paypal-b2b-signal",
+          "snippet": "Example only: replace with public PayPal product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    },
+    {
+      "name": "Fiserv",
+      "competitiveness_score": 64,
+      "movement_since_last_run": 0,
+      "metrics": {
+        "share_of_model": 59,
+        "differentiation": 62,
+        "buyer_relevance": 68,
+        "proof_strength": 69
+      },
+      "summary": "Infrastructure and processing player with practical enterprise relevance.",
+      "evidence": [
+        {
+          "source_type": "mock evidence",
+          "title": "Example Fiserv B2B market signal",
+          "url": "https://replace-this.example/fiserv-b2b-signal",
+          "snippet": "Example only: replace with public Fiserv product, campaign, customer, press or partner evidence."
+        }
+      ],
+      "run_note": "No new evidence fetched. Existing score preserved where available."
+    }
+  ],
+  "whitespace_topics": [
+    {
+      "topic": "Finance-ops confidence for payment leaders",
+      "opportunity_score": 86,
+      "buyer": "Head of Payments / finance operations",
+      "region": "Global",
+      "horizon": "0-6 months",
+      "why_it_matters": "Heads of payments and finance operations are being asked to modernise AP, AR, supplier payments and working capital without creating operational uncertainty.",
+      "activation_idea": "Build a campaign platform around confidence in business payments: control, visibility, resilience and partner support.",
+      "proof": "Mastercard can connect commercial payments, money movement, open finance, advisory, insights, fraud and AI capability areas.",
+      "risk": "The narrative must remain concrete and proof-backed, not a soft brand layer detached from products."
+    },
+    {
+      "topic": "Embedded payment orchestration for platforms",
+      "opportunity_score": 82,
+      "buyer": "Platform partnerships lead",
+      "region": "Global",
+      "horizon": "3-9 months",
+      "why_it_matters": "Embedded payment teams want less integration complexity and more credible ecosystem support.",
+      "activation_idea": "Create a partner activation that positions Mastercard as the trusted orchestration layer for embedded payments at enterprise scale.",
+      "proof": "The Mastercard capability map spans payments, money movement, open finance, data, identity and services.",
+      "risk": "Stripe and Adyen can credibly claim developer and platform mindshare, so Mastercard needs sharper platform proof."
+    },
+    {
+      "topic": "Working-capital intelligence for cross-border flows",
+      "opportunity_score": 79,
+      "buyer": "VP Finance / Treasurer",
+      "region": "Europe / Asia Pacific",
+      "horizon": "6-12 months",
+      "why_it_matters": "Global finance leaders want reliability, predictability and insight across supplier, marketplace and merchant flows.",
+      "activation_idea": "Develop thought leadership that connects money movement to working-capital confidence, supplier resilience and decision support.",
+      "proof": "Mastercard can connect cross-border rails, commercial payments, data and advisory narratives.",
+      "risk": "Needs careful substantiation so the story does not overpromise treasury transformation."
+    },
+    {
+      "topic": "Trust controls for agentic commerce workflows",
+      "opportunity_score": 74,
+      "buyer": "Procurement / AP leader",
+      "region": "North America / Global",
+      "horizon": "9-18 months",
+      "why_it_matters": "Enterprise buyers will need ways to approve, govern and audit payment actions initiated by software agents and automated workflows.",
+      "activation_idea": "Shape an executive narrative and pilot agenda around trusted payment controls for agentic commerce.",
+      "proof": "Mastercard can credibly connect identity, authorisation, tokenisation, fraud, commercial payments and advisory services.",
+      "risk": "The opportunity is early; frame it as practical readiness rather than speculative futurism."
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Pressure-test Finance-ops confidence for payment leaders",
+      "priority": "High",
+      "why": "It currently has the strongest whitespace score in this run.",
+      "action": "Create a one-page buyer brief: problem, audience, evidence, competitor crowding and a proposed Mastercard angle."
+    },
+    {
+      "title": "Strengthen proof for PayPal",
+      "priority": "Medium",
+      "why": "Proof Strength is the weakest visible metric for this brand in the current scoring set.",
+      "action": "Add named customers, quantified outcomes, partner announcements or analyst-grade evidence before making a client-facing claim."
+    },
+    {
+      "title": "Keep the source list narrow for now",
+      "priority": "Medium",
+      "why": "A controlled source list makes the first version easier to trust, review and debug.",
+      "action": "Add 3 to 5 high-quality public URLs per brand before expanding automated discovery."
+    }
+  ],
+  "evidence_feed": [],
+  "run_diagnostics": {
+    "sources_kept": 0,
+    "sources_skipped_or_filtered": 0,
+    "warning": "No new B2B-relevant evidence was fetched. Check data/sources.json and set real public URLs to enabled: true."
+  }
+}
