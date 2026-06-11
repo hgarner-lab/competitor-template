@@ -1,0 +1,38 @@
+name: Calibrated intelligence research
+
+on:
+  workflow_dispatch:
+  # Runs every Monday at 07:00 UTC once trusted.
+  # schedule:
+  #   - cron: "0 7 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run calibrated research worker
+        run: node scripts/research-worker-v2.js
+
+      - name: Commit generated intelligence files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/dashboard.json memory/weekly-change-log.md output/review-this-week.md
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Update calibrated intelligence dashboard data"
+            git push
+          fi
