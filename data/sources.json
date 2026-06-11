@@ -25,6 +25,21 @@
           "source_type": "cybersecurity and fraud product page",
           "url": "https://www.mastercard.com/us/en/business/cybersecurity-fraud-prevention.html",
           "enabled": false
+        },
+        {
+          "source_type": "customer story - AIK Banka acquiring optimisation",
+          "url": "https://www.mastercard.com/us/en/news-and-trends/Insights/2023/how-aik-banka-found-a-possible-30-increase-in-transaction-volume.html",
+          "enabled": true
+        },
+        {
+          "source_type": "press release - instant cross-border settlement pilot",
+          "url": "https://www.mastercard.com/us/en/news-and-trends/press/2026/june/Mastercard-advances-instant-cross-border-payments-with-TIPS-cross-currency-pilot.html",
+          "enabled": true
+        },
+        {
+          "source_type": "specific product page - accounts receivable solutions",
+          "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments/corporate-solutions/accounts-receivable-solutions.html",
+          "enabled": true
         }
       ]
     },
@@ -55,6 +70,16 @@
           "source_type": "B2B fintech partnerships page",
           "url": "https://usa.visa.com/partner-with-us/fintech/vcs-partnerships.html",
           "enabled": false
+        },
+        {
+          "source_type": "press release - VCS Hub and AR Manager integration",
+          "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22471.html",
+          "enabled": true
+        },
+        {
+          "source_type": "specific product page - AR Manager",
+          "url": "https://usa.visa.com/products/ar-manager.html",
+          "enabled": true
         }
       ]
     },
@@ -72,14 +97,24 @@
           "enabled": true
         },
         {
-          "source_type": "commercial card issuing product page",
+          "source_type": "specific product page - card issuing",
           "url": "https://stripe.com/issuing",
-          "enabled": false
+          "enabled": true
         },
         {
           "source_type": "fraud and risk product page",
           "url": "https://stripe.com/radar",
           "enabled": false
+        },
+        {
+          "source_type": "customer story - Hertz enterprise commerce",
+          "url": "https://stripe.com/customers/hertz",
+          "enabled": true
+        },
+        {
+          "source_type": "report - 2025 annual update",
+          "url": "https://stripe.com/annual-updates/2025",
+          "enabled": true
         }
       ]
     },
@@ -97,14 +132,24 @@
           "enabled": true
         },
         {
-          "source_type": "card issuing product page",
+          "source_type": "specific product page - issuing",
           "url": "https://www.adyen.com/issuing",
-          "enabled": false
+          "enabled": true
         },
         {
           "source_type": "fraud protection product page",
           "url": "https://www.adyen.com/uplift/protect",
           "enabled": false
+        },
+        {
+          "source_type": "customer story - New Black unified commerce platform",
+          "url": "https://www.adyen.com/knowledge-hub/how-new-black-attracts-high-value-merchants-and-increases-win-rates-with-adyen",
+          "enabled": true
+        },
+        {
+          "source_type": "investor report - H2 2024 shareholder letter",
+          "url": "https://investors.adyen.com/financials/h2-2024",
+          "enabled": true
         }
       ]
     },
@@ -122,14 +167,24 @@
           "enabled": true
         },
         {
-          "source_type": "platform payment solution",
+          "source_type": "specific product page - platform payment solution",
           "url": "https://www.paypal.com/us/business/platform-payment-solution",
-          "enabled": false
+          "enabled": true
         },
         {
           "source_type": "business resource centre",
           "url": "https://www.paypal.com/us/brc/",
           "enabled": false
+        },
+        {
+          "source_type": "customer story - PayPal ecosystem merchant case study",
+          "url": "https://www.paypal.com/us/brc/case-study/paypal-ecosystem-helps-simplify-payments",
+          "enabled": true
+        },
+        {
+          "source_type": "investor source - 2025 Investor Day",
+          "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
+          "enabled": true
         }
       ]
     },
@@ -150,6 +205,21 @@
           "source_type": "merchant operating system page",
           "url": "https://www.clover.com/",
           "enabled": false
+        },
+        {
+          "source_type": "customer story - Autoagent local government payments",
+          "url": "https://www.fiserv.com/en/insights/articles-and-blogs/autoagent-partners-with-fiserv-to-drive-reliable-payments-for-local-governments.html",
+          "enabled": true
+        },
+        {
+          "source_type": "white paper - ISV integrated payments revenue",
+          "url": "https://www.fiserv.com/en/about-fiserv/resource-center/white-papers/the-strategic-growth-engine-behind-44-of-isv-revenue.html",
+          "enabled": true
+        },
+        {
+          "source_type": "specific product page - SnapPay accounts receivable automation",
+          "url": "https://merchants.fiserv.com/en-us/products/merchants/snappay/",
+          "enabled": true
         }
       ]
     }
