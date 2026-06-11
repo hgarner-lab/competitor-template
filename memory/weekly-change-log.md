@@ -59,3 +59,12 @@ This file is appended by `scripts/research-worker.js`.
 - Readiness: AMBER: proof-bearing evidence present, still needs human review
 - Score movement: set to 0 until content deltas are verified.
 - Top directional whitespace topic: AI-led treasury automation (62/100)
+
+## 2026-06-11 - calibrated research run
+
+- Evidence items kept: 28
+- Proof-bearing evidence items: 28
+- Sources skipped or filtered: 1
+- Readiness: AMBER: proof-bearing evidence present, still needs human review
+- Score movement: set to 0 until content deltas are verified.
+- Top live ranked bet: Cross-border B2B payment certainty (77/100, 4 matching evidence items)
