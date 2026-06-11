@@ -45,7 +45,7 @@ const helperCode = `      function scaleBetween(value, min, max, outMin, outMax)
               xScore,
               yScore: score,
               isClient: String(brand.name).toLowerCase() === clientName,
-              claim: brand.summary || `${brand.name} scored ${score}/100 in the latest calibrated run.`,
+              claim: brand.summary || brand.name + " scored " + score + "/100 in the latest calibrated run.",
               evidence: Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4))
             };
           });
