@@ -1,0 +1,50 @@
+name: Set confidence floor to 51
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/set-confidence-floor-51.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch-confidence-floor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set dashboard confidence floor default
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'index.html';
+          let text = fs.readFileSync(path, 'utf8');
+          const before = text;
+
+          text = text.replace(
+            /(<input id="confidenceFloor"[^>]*value=")\d+("[^>]*>)/,
+            '$151$2'
+          );
+
+          if (text === before) {
+            throw new Error('Could not find confidenceFloor input in index.html');
+          }
+
+          fs.writeFileSync(path, text);
+          NODE
+
+      - name: Commit confidence floor patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Confidence floor is already set to 51."
+          else
+            git commit -m "Set dashboard confidence floor default to 51"
+            git push
+          fi
