@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "last_updated": "2026-06-11",
-  "generated_at": "2026-06-11T14:52:50.394Z",
+  "generated_at": "2026-06-11T15:20:30.051Z",
   "status": "generated_from_public_sources",
   "market": "B2B payments",
   "client_brand": "Mastercard",
@@ -9,7 +9,7 @@
     {
       "name": "Mastercard",
       "competitiveness_score": 96,
-      "movement_since_last_run": 24,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 96,
         "differentiation": 96,
@@ -35,7 +35,7 @@
     {
       "name": "Visa",
       "competitiveness_score": 71,
-      "movement_since_last_run": -6,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 57,
         "differentiation": 95,
@@ -61,7 +61,7 @@
     {
       "name": "Stripe",
       "competitiveness_score": 96,
-      "movement_since_last_run": 17,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 96,
         "differentiation": 96,
@@ -80,14 +80,14 @@
           "source_type": "platform and marketplace payments product page",
           "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
           "url": "https://stripe.com/connect",
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ..."
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
         }
       ]
     },
     {
       "name": "Adyen",
       "competitiveness_score": 89,
-      "movement_since_last_run": 14,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 96,
         "differentiation": 78,
@@ -113,7 +113,7 @@
     {
       "name": "PayPal",
       "competitiveness_score": 96,
-      "movement_since_last_run": 31,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 96,
         "differentiation": 96,
@@ -139,7 +139,7 @@
     {
       "name": "Fiserv",
       "competitiveness_score": 95,
-      "movement_since_last_run": 31,
+      "movement_since_last_run": 0,
       "metrics": {
         "share_of_model": 96,
         "differentiation": 96,
@@ -221,7 +221,7 @@
       "source_type": "commercial payments product page",
       "title": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
-      "captured_at": "2026-06-11T14:52:46.510Z",
+      "captured_at": "2026-06-11T15:20:23.294Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -240,7 +240,7 @@
       "source_type": "money movement product page",
       "title": "Mastercard Move - Set money in motion | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/mastercard-move.html",
-      "captured_at": "2026-06-11T14:52:46.558Z",
+      "captured_at": "2026-06-11T15:20:23.372Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -259,7 +259,7 @@
       "source_type": "B2B payables product page",
       "title": "Visa B2B Payables | Visa",
       "url": "https://usa.visa.com/products/b2b-payables.html",
-      "captured_at": "2026-06-11T14:52:46.700Z",
+      "captured_at": "2026-06-11T15:20:23.505Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "business",
@@ -278,7 +278,7 @@
       "source_type": "money movement product page",
       "title": "Visa Direct | Transforming global money movement | Visa",
       "url": "https://usa.visa.com/products/visa-direct.html",
-      "captured_at": "2026-06-11T14:52:46.776Z",
+      "captured_at": "2026-06-11T15:20:23.598Z",
       "b2b_relevance_score": 70,
       "top_signals": [
         "business",
@@ -293,7 +293,7 @@
       "source_type": "enterprise payments product page",
       "title": "Stripe Payments | Global Payment Processing Platform",
       "url": "https://stripe.com/payments",
-      "captured_at": "2026-06-11T14:52:47.004Z",
+      "captured_at": "2026-06-11T15:20:23.922Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -312,7 +312,7 @@
       "source_type": "platform and marketplace payments product page",
       "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
       "url": "https://stripe.com/connect",
-      "captured_at": "2026-06-11T14:52:47.070Z",
+      "captured_at": "2026-06-11T15:20:25.247Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -324,14 +324,14 @@
         "merchants",
         "bank"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ..."
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
     },
     {
       "brand": "Adyen",
       "source_type": "online payments product page",
       "title": "Online payments | Making online payments easy - Adyen",
       "url": "https://www.adyen.com/online-payments",
-      "captured_at": "2026-06-11T14:52:47.533Z",
+      "captured_at": "2026-06-11T15:20:25.664Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -350,7 +350,7 @@
       "source_type": "platform payments product page",
       "title": "Platforms | Payment solution for marketplaces and platforms - Adyen",
       "url": "https://www.adyen.com/platform-payments",
-      "captured_at": "2026-06-11T14:52:47.836Z",
+      "captured_at": "2026-06-11T15:20:27.579Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "business",
@@ -369,7 +369,7 @@
       "source_type": "enterprise payments overview",
       "title": "Enterprise Payments | PayPal for Enterprises | PayPal US",
       "url": "https://www.paypal.com/us/business/enterprise",
-      "captured_at": "2026-06-11T14:52:48.802Z",
+      "captured_at": "2026-06-11T15:20:28.375Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -388,7 +388,7 @@
       "source_type": "payment processing product page",
       "title": "Enterprise Payments Processing Solutions | PayPal US",
       "url": "https://www.paypal.com/us/business/payment-processing",
-      "captured_at": "2026-06-11T14:52:49.741Z",
+      "captured_at": "2026-06-11T15:20:29.137Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",
@@ -407,7 +407,7 @@
       "source_type": "commerce platform overview",
       "title": "Carat Global Platform | Carat U.S. | Fiserv",
       "url": "https://www.carat.fiserv.com/en-us/",
-      "captured_at": "2026-06-11T14:52:50.106Z",
+      "captured_at": "2026-06-11T15:20:29.609Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "business",
@@ -424,7 +424,7 @@
       "source_type": "card services product page",
       "title": "CardHub, Card Solutions, Digital Wallet | Fiserv",
       "url": "https://www.fiserv.com/en/solutions/card-services/cardhub.html",
-      "captured_at": "2026-06-11T14:52:50.391Z",
+      "captured_at": "2026-06-11T15:20:30.049Z",
       "b2b_relevance_score": 100,
       "top_signals": [
         "enterprise",

@@ -34,3 +34,10 @@ This file is appended by `scripts/research-worker.js`.
   - Adyen: +14
   - Visa: -6
 - Top whitespace topic: Cross-border B2B payment certainty (87/100)
+
+## 2026-06-11 - automated research run
+
+- Evidence items kept: 12
+- Sources skipped or filtered: 0
+- Score movement: no movement detected or no previous score available.
+- Top whitespace topic: Cross-border B2B payment certainty (87/100)
