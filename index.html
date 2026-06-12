@@ -452,6 +452,12 @@
       .home-score-card .score-model { display: none !important; }
       .home-score-card .score-model { display: none !important; }
       .score-radar-svg .tooltip-title { display: none; }
+      .radar-svg .tooltip-title { display: none !important; }
+      .home-score-card .score-actions { order: 1; }
+      .home-score-card .stat-row { order: 2; }
+      .home-score-card .score-radar-panel { order: 3; }
+      .home-score-card .score-model { display: none !important; }
+      .wedge-card .score-pill.evidence-confidence { background: rgba(255,255,255,0.045); border-color: var(--line); border-radius: 8px; color: var(--muted); font-weight: 700; padding: 4px 8px; }
       @media (max-width: 1180px) { .home-map-card, .home-activation-card, .home-score-card, .home-matrix-card { grid-column: auto; grid-row: auto; } .home-activation-card { grid-template-columns: 1fr; grid-template-rows: auto; } .home-activation-card .selected-bet-summary, .home-activation-card .wedge-card, .home-activation-card .brief-preview { grid-column: auto; grid-row: auto; } }
 
       .opportunity-strip,
@@ -1997,7 +2003,7 @@
           return `<polygon points="${pts}" fill="${colors[key]}" fill-opacity="${key === "mastercard" ? 0.2 : 0.055}" stroke="${colors[key]}" stroke-width="${key === "mastercard" ? 2.3 : 1.4}"/>`;
         }).join("");
         svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
-        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/><text class="tooltip-title" x="12" y="22">${showingParents ? "Competitiveness pillars" : `${activeCategory.label} sub-metrics`}</text>${rings}${axes}${overlays}`;
+        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/>${rings}${axes}${overlays}`;
       }
 
       function renderToggleSet(container) {
@@ -2134,7 +2140,7 @@
         if (selectedBetSummary) {
           selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small>`;
         }
-        wedgeCard.innerHTML = `<h3>Activation Wedge: ${opportunity.title}</h3><span class="score-pill">Evidenced / ${opportunity.confidence}% confidence</span><div class="wedge-grid"><div><strong>The opening</strong><span>${opportunity.thesis}</span></div><div><strong>Right to win</strong><span>${opportunity.proof}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${opportunity.why}</span></div><div><strong>Watchout</strong><span>${opportunity.risk}</span></div></div>`;
+        wedgeCard.innerHTML = `<h3>Activation Wedge: ${opportunity.title}</h3><span class="score-pill evidence-confidence">Evidence confidence: ${opportunity.confidence}%</span><div class="wedge-grid"><div><strong>The opening</strong><span>${opportunity.thesis}</span></div><div><strong>Right to win</strong><span>${opportunity.proof}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${opportunity.why}</span></div><div><strong>Watchout</strong><span>${opportunity.risk}</span></div></div>`;
       }
 
       function briefMarkdown() {
