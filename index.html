@@ -1766,12 +1766,12 @@
           <rect x="0" y="0" width="760" height="${height}" rx="10" fill="#0b1119"/>
           <line class="axis" x1="80" x2="720" y1="${large ? 190 : 170}" y2="${large ? 190 : 170}"/>
           <line class="axis" x1="400" x2="400" y1="40" y2="${large ? 315 : 276}"/>
-          <text class="axis-label" x="78" y="${large ? 350 : 304}">Lower buyer relevance</text>
-          <text class="axis-label" x="618" y="${large ? 350 : 304}">Higher buyer relevance</text>
-          <text class="axis-label" x="320" y="${large ? 368 : 318}">Buyer relevance + proof signal</text>
-          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Calibrated competitive strength</text>
-          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Lower strength</text>
-          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Higher strength</text>
+          <text class="axis-label" x="78" y="${large ? 350 : 304}">Corporate</text>
+          <text class="axis-label" x="618" y="${large ? 350 : 304}">Human</text>
+          <text class="axis-label" x="320" y="${large ? 368 : 318}">Corporate ↔ Human</text>
+          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Needs ↔ Features</text>
+          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Needs</text>
+          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Features</text>
           ${bubbles}`;
         svg.querySelectorAll("[data-signal]").forEach((node) => {
           node.addEventListener("click", () => selectMapSignal(node.dataset.signal, !large));
