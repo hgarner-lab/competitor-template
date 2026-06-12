@@ -458,6 +458,21 @@
       .home-score-card .stat-row { order: 3; }
       .home-score-card .score-model { display: none !important; }
       .wedge-card .score-pill.evidence-confidence { background: rgba(255,255,255,0.045); border-color: var(--line); border-radius: 8px; color: var(--muted); font-weight: 700; padding: 4px 8px; }
+      .home-score-card .score-actions { order: 1; }
+      .home-score-card .score-radar-panel { order: 2; }
+      .home-score-card .stat-row { order: 3; }
+      .wedge-card { align-content: start; }
+      .wedge-snapshot { background: rgba(255,255,255,0.045); border: 1px solid var(--line); border-radius: 10px; display: grid; gap: 12px; padding: 14px; }
+      .snapshot-main { display: grid; gap: 6px; }
+      .snapshot-main span { color: var(--pink-2); font-size: 10px; font-weight: 900; text-transform: uppercase; }
+      .snapshot-main strong { color: var(--text); font-size: 18px; line-height: 1.2; }
+      .snapshot-main p { color: var(--muted); font-size: 12px; line-height: 1.38; margin: 0; }
+      .snapshot-stats { display: grid; gap: 8px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .snapshot-stats div { background: rgba(0,0,0,0.14); border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+      .snapshot-stats strong { color: var(--text); display: block; font-size: 18px; line-height: 1.1; }
+      .snapshot-stats span { color: var(--quiet); display: block; font-size: 10px; line-height: 1.25; margin-top: 4px; }
+      .snapshot-meta { display: flex; flex-wrap: wrap; gap: 7px; }
+      .snapshot-meta span { background: rgba(255,255,255,0.055); border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 10px; padding: 5px 8px; }
       @media (max-width: 1180px) { .home-map-card, .home-activation-card, .home-score-card, .home-matrix-card { grid-column: auto; grid-row: auto; } .home-activation-card { grid-template-columns: 1fr; grid-template-rows: auto; } .home-activation-card .selected-bet-summary, .home-activation-card .wedge-card, .home-activation-card .brief-preview { grid-column: auto; grid-row: auto; } }
 
       .opportunity-strip,
@@ -2140,7 +2155,14 @@
         if (selectedBetSummary) {
           selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small>`;
         }
-        wedgeCard.innerHTML = `<h3>Activation Wedge: ${opportunity.title}</h3><span class="score-pill evidence-confidence">Evidence confidence: ${opportunity.confidence}%</span><div class="wedge-grid"><div><strong>The opening</strong><span>${opportunity.thesis}</span></div><div><strong>Right to win</strong><span>${opportunity.proof}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${opportunity.why}</span></div><div><strong>Watchout</strong><span>${opportunity.risk}</span></div></div>`;
+        const evidenceBrands = Array.isArray(opportunity.distinct_brands) && opportunity.distinct_brands.length
+          ? opportunity.distinct_brands.join(", ")
+          : (Array.isArray(opportunity.supporting_evidence) ? [...new Set(opportunity.supporting_evidence.map((item) => item.brand).filter(Boolean))].slice(0, 4).join(", ") : "");
+        const evidenceCount = opportunity.source_count || (Array.isArray(opportunity.supporting_evidence) ? opportunity.supporting_evidence.length : 0);
+        const snapshotScore = opportunity.opportunity_score || opportunity.confidence || 0;
+        const confidence = opportunity.confidence || snapshotScore;
+        const noiseLabel = opportunity.noise != null ? opportunity.noise + "% crowding" : "Crowding unknown";
+        wedgeCard.innerHTML = `<h3>Activation Wedge: ${escapeHtml(opportunity.title)}</h3><div class="wedge-snapshot"><div class="snapshot-main"><span>Selected bet snapshot</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.thesis)}</p></div><div class="snapshot-stats"><div><strong>${snapshotScore}</strong><span>Opportunity score</span></div><div><strong>${confidence}%</strong><span>Evidence confidence</span></div><div><strong>${evidenceCount}</strong><span>Evidence items</span></div><div><strong>${escapeHtml(opportunity.horizon)}</strong><span>Horizon</span></div></div><div class="snapshot-meta"><span>${escapeHtml(opportunity.buyer)}</span><span>${escapeHtml(opportunity.region || regionSelect.value)}</span><span>${escapeHtml(noiseLabel)}</span><span>${escapeHtml(evidenceBrands || "Competitor signal")}</span></div></div><div class="wedge-grid"><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div><div><strong>Right to win</strong><span>${escapeHtml(opportunity.proof)}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${escapeHtml(opportunity.why)}</span></div><div><strong>Watchout</strong><span>${escapeHtml(opportunity.risk)}</span></div></div>`;
       }
 
       function briefMarkdown() {
