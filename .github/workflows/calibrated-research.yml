@@ -25,6 +25,9 @@ jobs:
       - name: Run calibrated research worker
         run: node scripts/research-worker-v2.js
 
+      - name: Expand ranked bets
+        run: node scripts/expand-ranked-bets.js
+
       - name: Commit generated intelligence files
         run: |
           git config user.name "github-actions[bot]"

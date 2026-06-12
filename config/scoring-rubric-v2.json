@@ -1,6 +1,7 @@
 {
   "schema_version": "0.2.0",
   "instructions": "V2 separates B2B relevance from competitive strength. Generic owned product pages can prove relevance, but they cannot create elite scores without proof-bearing evidence such as named customers, partner announcements, quantified outcomes, reports or dated launch activity.",
+  "ranked_bet_limit": 10,
   "b2b_relevance_filter": {
     "include_keywords": ["enterprise", "business", "businesses", "b2b", "commercial", "treasury", "finance leader", "cfo", "procurement", "platform", "merchant", "merchants", "bank", "banks", "issuer", "acquirer", "acquiring", "fintech", "working capital", "reconciliation", "settlement", "cross-border", "supplier", "supply chain", "accounts payable", "accounts receivable", "payment orchestration", "risk management", "fraud", "identity", "embedded finance"],
     "exclude_if_only_consumer_keywords": ["shopping", "cashback", "rewards", "traveller", "traveler", "personal card", "consumer credit", "retail shopper", "holiday spending", "travel card", "points", "miles", "buy now pay later", "send money", "request money", "pool money", "direct deposit"],
@@ -38,11 +39,19 @@
     {"id": "proof_strength", "name": "Proof Strength", "weight": 20, "signals": ["customer", "case study", "partner", "partnership", "research", "survey", "report", "percent", "million", "billion", "ROI", "reduced", "increased", "improved", "named", "pilot", "launched", "deployed", "results", "newsroom", "press release"]}
   ],
   "whitespace_topics": [
-    {"topic": "AI-led treasury automation", "keywords": ["AI", "treasury", "cash flow", "forecasting", "working capital", "automation"]},
-    {"topic": "Cross-border B2B payment certainty", "keywords": ["cross-border", "settlement", "reconciliation", "supplier", "currency", "global payments"]},
+    {"topic": "AI-led treasury automation", "keywords": ["AI", "artificial intelligence", "treasury", "cash flow", "forecasting", "working capital", "automation"]},
+    {"topic": "Cross-border B2B payment certainty", "keywords": ["cross-border", "settlement", "reconciliation", "supplier", "currency", "global payments", "international payments"]},
     {"topic": "Embedded finance for enterprise platforms", "keywords": ["embedded finance", "platform", "marketplace", "software platform", "SaaS", "monetisation", "monetization"]},
     {"topic": "Acquirer and merchant enablement", "keywords": ["acquirer", "acquiring", "merchant", "acceptance", "commerce", "checkout"]},
     {"topic": "Fraud and identity orchestration", "keywords": ["fraud", "identity", "risk", "authentication", "authorisation", "authorization", "trust"]},
-    {"topic": "Merchant data intelligence", "keywords": ["data", "insight", "analytics", "merchant", "loyalty", "personalisation", "personalization"]}
+    {"topic": "Merchant data intelligence", "keywords": ["data", "insight", "analytics", "merchant", "loyalty", "personalisation", "personalization"]},
+    {"topic": "Commercial card spend control", "keywords": ["commercial card", "corporate card", "virtual card", "spend control", "expense", "procurement", "payables"]},
+    {"topic": "Accounts payable and receivable automation", "keywords": ["accounts payable", "accounts receivable", "invoice", "invoicing", "payables", "receivables", "reconciliation", "automation"]},
+    {"topic": "Supplier working-capital resilience", "keywords": ["supplier", "supply chain", "working capital", "cash flow", "early payment", "financing", "resilience"]},
+    {"topic": "Real-time settlement and liquidity visibility", "keywords": ["real-time", "instant", "settlement", "liquidity", "cash position", "visibility", "treasury operations"]},
+    {"topic": "Open banking and account-to-account B2B payments", "keywords": ["open banking", "open finance", "account-to-account", "A2A", "bank payment", "pay by bank", "bank transfer"]},
+    {"topic": "Partner ecosystem orchestration for banks and fintechs", "keywords": ["partner", "partnership", "ecosystem", "bank", "fintech", "issuer", "program manager", "orchestration"]},
+    {"topic": "B2B payment acceptance for marketplaces", "keywords": ["marketplace", "B2B marketplace", "acceptance", "merchant", "seller", "platform", "checkout", "commerce"]},
+    {"topic": "Enterprise payment risk and compliance assurance", "keywords": ["compliance", "risk management", "regulatory", "sanctions", "fraud", "identity", "assurance", "enterprise risk"]}
   ]
 }
