@@ -449,6 +449,7 @@
       .score-radar-svg .tooltip-title { font-size: 10px; }
       .score-radar-svg .svg-small { font-size: 9px; }
       .score-detail-cta { justify-self: stretch; min-height: 34px; }
+      .home-score-card .score-model { display: none !important; }
       @media (max-width: 1180px) { .home-map-card, .home-activation-card, .home-score-card, .home-matrix-card { grid-column: auto; grid-row: auto; } .home-activation-card { grid-template-columns: 1fr; grid-template-rows: auto; } .home-activation-card .selected-bet-summary, .home-activation-card .wedge-card, .home-activation-card .brief-preview { grid-column: auto; grid-row: auto; } }
 
       .opportunity-strip,
@@ -1251,7 +1252,7 @@
                   <div><span>Industry average</span><strong id="industryAverage">68</strong></div>
                 </div>
                 <div class="score-radar-panel">
-                  <div class="score-radar-top"><strong>Competitor shape</strong><span>Overview radar</span></div>
+                  <div class="score-radar-top"><strong>Competitor shape</strong><span id="scoreRadarSubtitle">Visa vs Mastercard</span></div>
                   <div class="score-mode score-mode-compact" id="scoreModeCompact">
                     <button class="is-active" data-mode="strategic" type="button">Strategic</button>
                     <button data-mode="evidence" type="button">Evidence-backed</button>
@@ -1710,6 +1711,7 @@
         }
       };
       const activeCompetitors = new Set(["visa", "stripe", "adyen", "paypal", "fiserv"]);
+      let activeScoreCompetitor = "visa";
       const expandedCategories = new Set(["share"]);
       let activeRadarCategory = "share";
       let activeOpportunityId = "finance-confidence";
@@ -1754,6 +1756,7 @@
       const radarChart = document.querySelector("#radarChart");
       const radarChartDeep = document.querySelector("#radarChartDeep");
       const scoreRadarChart = document.querySelector("#scoreRadarChart");
+      const scoreRadarSubtitle = document.querySelector("#scoreRadarSubtitle");
       const scoreCompetitorToggles = document.querySelector("#scoreCompetitorToggles");
       const competitorToggles = document.querySelector("#competitorToggles");
       const scoreModeEl = document.querySelector("#scoreMode");
@@ -2007,9 +2010,46 @@
         });
       }
 
+      function compactCompetitorKeys() {
+        const keys = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard");
+        return keys.length ? keys : ["visa", "stripe", "adyen", "paypal", "fiserv"];
+      }
+
+      function ensureActiveScoreCompetitor() {
+        const keys = compactCompetitorKeys();
+        if (!keys.includes(activeScoreCompetitor)) activeScoreCompetitor = keys[0];
+        return activeScoreCompetitor;
+      }
+
+      function renderScoreCompetitorToggles() {
+        if (!scoreCompetitorToggles) return;
+        const selected = ensureActiveScoreCompetitor();
+        scoreCompetitorToggles.innerHTML = compactCompetitorKeys().map((key) => `<button class="${selected === key ? "is-active" : ""}" data-score-competitor="${key}" type="button">${brandNames[key] || key}</button>`).join("");
+        scoreCompetitorToggles.querySelectorAll("[data-score-competitor]").forEach((button) => {
+          button.addEventListener("click", () => {
+            activeScoreCompetitor = button.dataset.scoreCompetitor;
+            renderAll();
+          });
+        });
+      }
+
+      function renderCompactScoreDetails() {
+        const brand = ensureActiveScoreCompetitor();
+        const values = categoryScoresFor(brand);
+        const metricDetails = allMetricDetails(brand);
+        const strongest = [...metricDetails].sort((a, b) => b.value - a.value).slice(0, 3);
+        const weakest = [...metricDetails].sort((a, b) => a.value - b.value).slice(0, 3);
+        if (scoreRadarSubtitle) scoreRadarSubtitle.textContent = `${brandNames[brand] || brand} vs Mastercard`;
+        dataCoverage.textContent = `${formatScore(values[0])}%`;
+        signalConsistency.textContent = `${formatScore(values[1])}%`;
+        sourceQuality.textContent = `${formatScore(values[2])}%`;
+        recency.textContent = `${formatScore(values[3])}%`;
+        doingWell.innerHTML = metricList(strongest);
+        needsImproving.innerHTML = metricList(weakest);
+      }
       function renderToggles() {
         renderToggleSet(competitorToggles);
-        renderToggleSet(scoreCompetitorToggles);
+        renderScoreCompetitorToggles();
       }
 
       function renderMatrix(target) {
@@ -2157,6 +2197,7 @@ ${opportunity.risk}
         if (scoreRadarChart) renderRadar(scoreRadarChart, 200, true);
         renderRadar(radarChartDeep, 300);
         renderToggles();
+        renderCompactScoreDetails();
         renderMatrix(matrixBody);
         renderMatrix(matrixBodyDeep);
         renderThemes();
