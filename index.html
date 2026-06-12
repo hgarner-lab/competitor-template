@@ -403,212 +403,53 @@
         gap: 12px;
       }
 
-      .home-map-card {
-        grid-column: 1;
-        grid-row: 1;
-      }
 
-      .home-score-card {
-        align-self: start;
-        display: grid;
-        gap: 12px;
-        grid-column: 2;
-        grid-row: 1;
-        padding: 18px;
-      }
-
-      .home-activation-card {
-        display: grid;
-        gap: 12px;
-        grid-column: 1 / -1;
-        grid-row: 2;
-        grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
-        grid-template-rows: auto auto minmax(320px, 1fr) auto;
-      }
-
-      .home-matrix-card {
-        grid-column: 1 / -1;
-        grid-row: 3;
-      }
-
-      .home-activation-card .card-header,
-      .home-activation-card .generate-row {
-        grid-column: 1 / -1;
-      }
-
-      .home-activation-card .selected-bet-summary {
-        grid-column: 1;
-        grid-row: 2;
-      }
-
-      .home-activation-card .wedge-card {
-        grid-column: 1;
-        grid-row: 3;
-      }
-
-      .home-activation-card .brief-preview {
-        align-self: stretch;
-        grid-column: 2;
-        grid-row: 2 / 4;
-        height: 100%;
-        max-height: none;
-        min-height: 420px;
-      }
-
-      .home-activation-card .wedge-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .selected-bet-summary {
-        background: rgba(223, 106, 167, 0.08);
-        border: 1px solid rgba(223, 106, 167, 0.24);
-        border-radius: 10px;
-        display: grid;
-        gap: 6px;
-        margin-bottom: 0;
-        padding: 12px;
-      }
-
-      .selected-bet-summary span {
-        color: var(--pink-2);
-        font-size: 10px;
-        font-weight: 900;
-        text-transform: uppercase;
-      }
-
-      .selected-bet-summary strong {
-        color: var(--text);
-        font-size: 15px;
-        line-height: 1.25;
-      }
-
-      .selected-bet-summary p,
-      .selected-bet-summary small {
-        color: var(--muted);
-        font-size: 11px;
-        line-height: 1.35;
-        margin: 0;
-      }
-
-      .selected-bet-summary small {
-        color: var(--quiet);
-      }
-
-      .bet-cta {
-        color: #f5f7fb !important;
-        font-size: 11px !important;
-        font-weight: 800;
-        margin-top: 2px;
-      }
-
-      .home-score-card .card-header {
-        margin-bottom: 0;
-      }
-
-      .home-score-card .gauge-wrap {
-        justify-items: center;
-        margin-top: -4px;
-      }
-
-      .home-score-card .gauge {
-        height: 126px;
-        width: 208px;
-      }
-
-      .home-score-card .gauge-score {
-        top: 42px;
-      }
-
-      .home-score-card .gauge-score strong {
-        font-size: 42px;
-      }
-
-      .home-score-card .gauge-score span {
-        font-size: 12px;
-        margin-top: 5px;
-      }
-
-      .home-score-card .gauge-copy {
-        font-size: 12px;
-        margin: -22px 0 0;
-        max-width: none;
-        text-align: left;
-      }
-
-      .home-score-card .stat-row,
-      .home-score-card .score-model,
-      .home-score-card .score-actions {
-        display: none;
-      }
-
-      .home-score-card .score-context {
-        margin-bottom: 0;
-      }
-
-      .home-score-card .score-context div {
-        padding: 9px;
-      }
-
-      .score-radar-panel {
-        border-top: 1px solid var(--line);
-        display: grid;
-        gap: 8px;
-        padding-top: 12px;
-      }
-
-      .score-radar-top {
-        align-items: baseline;
-        display: flex;
-        gap: 8px;
-        justify-content: space-between;
-      }
-
-      .score-radar-top strong {
-        font-size: 12px;
-      }
-
-      .score-radar-top span {
-        color: var(--quiet);
-        font-size: 10px;
-      }
-
-      .score-toggle-row {
-        gap: 6px;
-      }
-
-      .score-toggle-row button {
-        font-size: 10px;
-        min-height: 25px;
-        padding: 0 8px;
-      }
-
-      .score-radar-svg {
-        margin: 0 auto;
-        max-height: 230px;
-        max-width: 245px;
-      }
-
-      @media (max-width: 1180px) {
-        .home-map-card,
-        .home-activation-card,
-        .home-score-card,
-        .home-matrix-card {
-          grid-column: auto;
-          grid-row: auto;
-        }
-
-        .home-activation-card {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto;
-        }
-
-        .home-activation-card .selected-bet-summary,
-        .home-activation-card .wedge-card,
-        .home-activation-card .brief-preview {
-          grid-column: auto;
-          grid-row: auto;
-        }
-      }
+      .home-map-card { grid-column: 1; grid-row: 1; }
+      .home-score-card { align-self: start; display: grid; gap: 14px; grid-column: 2; grid-row: 1; padding: 18px; }
+      .home-activation-card { display: grid; gap: 12px; grid-column: 1 / -1; grid-row: 2; grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr); grid-template-rows: auto auto minmax(320px, 1fr) auto; }
+      .home-matrix-card { grid-column: 1 / -1; grid-row: 3; scroll-margin-top: 24px; }
+      .home-activation-card .card-header, .home-activation-card .generate-row { grid-column: 1 / -1; }
+      .home-activation-card .selected-bet-summary { grid-column: 1; grid-row: 2; }
+      .home-activation-card .wedge-card { grid-column: 1; grid-row: 3; }
+      .home-activation-card .brief-preview { align-self: stretch; grid-column: 2; grid-row: 2 / 4; height: 100%; max-height: none; min-height: 420px; }
+      .home-activation-card .wedge-grid { grid-template-columns: 1fr; }
+      .selected-bet-summary { background: rgba(223, 106, 167, 0.08); border: 1px solid rgba(223, 106, 167, 0.24); border-radius: 10px; display: grid; gap: 6px; margin-bottom: 0; padding: 12px; }
+      .selected-bet-summary span { color: var(--pink-2); font-size: 10px; font-weight: 900; text-transform: uppercase; }
+      .selected-bet-summary strong { color: var(--text); font-size: 15px; line-height: 1.25; }
+      .selected-bet-summary p, .selected-bet-summary small { color: var(--muted); font-size: 11px; line-height: 1.35; margin: 0; }
+      .selected-bet-summary small { color: var(--quiet); }
+      .bet-cta { color: #f5f7fb !important; font-size: 11px !important; font-weight: 800; margin-top: 2px; }
+      .home-score-card .card-header { margin-bottom: 0; }
+      .home-score-card .gauge-wrap { justify-items: center; margin-top: -6px; }
+      .home-score-card .gauge { height: 118px; width: 196px; }
+      .home-score-card .gauge-score { top: 38px; }
+      .home-score-card .gauge-score strong { font-size: 40px; }
+      .home-score-card .gauge-score span { font-size: 12px; margin-top: 4px; }
+      .home-score-card .gauge-copy { font-size: 12px; line-height: 1.38; margin: -20px 0 0; max-width: none; text-align: left; }
+      .home-score-card .score-context { gap: 8px; margin-bottom: 0; }
+      .home-score-card .score-context div { padding: 9px; }
+      .home-score-card .stat-row { border-top: 1px solid var(--line); display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding-top: 12px; }
+      .home-score-card .stat { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 9px; display: grid; gap: 3px; min-height: auto; padding: 9px; text-align: left; }
+      .home-score-card .stat strong { font-size: 17px; }
+      .home-score-card .stat span, .home-score-card .stat em { font-size: 10px; line-height: 1.25; }
+      .home-score-card .score-actions { display: grid; gap: 8px; grid-template-columns: 1fr; }
+      .home-score-card .score-actions div { padding: 10px; }
+      .home-score-card .score-actions strong { font-size: 13px; }
+      .home-score-card .score-actions span { font-size: 11px; line-height: 1.35; }
+      .home-score-card .score-model { border: 1px solid var(--line); border-radius: 9px; display: grid; gap: 3px; margin: 0; padding: 10px; text-align: left; }
+      .home-score-card .score-model span { font-size: 11px; line-height: 1.35; }
+      .score-radar-panel { background: rgba(255,255,255,0.025); border: 1px solid var(--line); border-radius: 10px; display: grid; gap: 8px; padding: 12px; }
+      .score-radar-top { align-items: baseline; display: flex; gap: 8px; justify-content: space-between; }
+      .score-radar-top strong { font-size: 12px; }
+      .score-radar-top span { color: var(--quiet); font-size: 10px; }
+      .score-mode-compact { gap: 6px; margin-bottom: 0; }
+      .score-mode-compact button, .score-toggle-row button { font-size: 10px; min-height: 25px; padding: 0 8px; }
+      .score-toggle-row { gap: 6px; }
+      .score-radar-svg { margin: -2px auto 0; max-height: 190px; max-width: 210px; }
+      .score-radar-svg .tooltip-title { font-size: 10px; }
+      .score-radar-svg .svg-small { font-size: 9px; }
+      .score-detail-cta { justify-self: stretch; min-height: 34px; }
+      @media (max-width: 1180px) { .home-map-card, .home-activation-card, .home-score-card, .home-matrix-card { grid-column: auto; grid-row: auto; } .home-activation-card { grid-template-columns: 1fr; grid-template-rows: auto; } .home-activation-card .selected-bet-summary, .home-activation-card .wedge-card, .home-activation-card .brief-preview { grid-column: auto; grid-row: auto; } }
 
       .opportunity-strip,
       .bet-list {
@@ -1410,9 +1251,15 @@
                   <div><span>Industry average</span><strong id="industryAverage">68</strong></div>
                 </div>
                 <div class="score-radar-panel">
-                  <div class="score-radar-top"><strong>Competitor shape</strong><span>Toggle competitors against Mastercard</span></div>
+                  <div class="score-radar-top"><strong>Competitor shape</strong><span>Overview radar</span></div>
+                  <div class="score-mode score-mode-compact" id="scoreModeCompact">
+                    <button class="is-active" data-mode="strategic" type="button">Strategic</button>
+                    <button data-mode="evidence" type="button">Evidence-backed</button>
+                    <button data-mode="adjusted" type="button">User-adjusted</button>
+                  </div>
                   <div class="toggle-row score-toggle-row" id="scoreCompetitorToggles"></div>
-                  <svg class="radar-svg score-radar-svg" id="scoreRadarChart" viewBox="0 0 220 220" role="img" aria-label="Compact competitor radar"></svg>
+                  <svg class="radar-svg score-radar-svg" id="scoreRadarChart" viewBox="0 0 200 200" role="img" aria-label="Compact competitor radar"></svg>
+                  <button class="secondary-button score-detail-cta" id="scoreDetailsButton" type="button">Jump to full score details</button>
                 </div>
                 <div class="stat-row">
                   <div class="stat"><strong id="dataCoverage">55%</strong><span>Share of model</span><em>30% weight</em></div>
@@ -1427,7 +1274,7 @@
                 <div class="score-model"><strong>Model</strong><span>30% share of model + 25% differentiation + 25% buyer relevance + 20% proof strength</span></div>
               </article>
 
-              <article class="card home-matrix-card">
+              <article class="card home-matrix-card" id="fullComparisonDetails">
                 <div class="card-header"><p class="eyebrow">Competitor Comparison Matrix</p><span class="helper">Detailed score inputs</span></div>
                 <div class="comparison-top">
                   <svg class="radar-svg" id="radarChart" viewBox="0 0 260 245" role="img" aria-label="Competitive capability radar"></svg>
@@ -1910,6 +1757,8 @@
       const scoreCompetitorToggles = document.querySelector("#scoreCompetitorToggles");
       const competitorToggles = document.querySelector("#competitorToggles");
       const scoreModeEl = document.querySelector("#scoreMode");
+      const scoreDetailsButton = document.querySelector("#scoreDetailsButton");
+      const fullComparisonDetails = document.querySelector("#fullComparisonDetails");
       const matrixBody = document.querySelector("#matrixBody");
       const matrixBodyDeep = document.querySelector("#matrixBodyDeep");
       const themes = document.querySelector("#themes");
@@ -2127,8 +1976,8 @@
         return labels[label] || label;
       }
 
-      function renderRadar(svg, size) {
-        const activeCategory = scoreModel.find((category) => category.key === activeRadarCategory && expandedCategories.has(category.key));
+      function renderRadar(svg, size, forceOverview = false) {
+        const activeCategory = forceOverview ? null : scoreModel.find((category) => category.key === activeRadarCategory && expandedCategories.has(category.key));
         const showingParents = !activeCategory;
         const dimensions = showingParents ? scoreModel.map((category) => ({ label: category.short })) : activeCategory.children;
         const rings = [20, 40, 60, 80, 100].map((level) => `<polygon points="${polygon(pointsFor(Array(dimensions.length).fill(level), size))}" fill="none" stroke="rgba(255,255,255,0.08)"/>`).join("");
@@ -2305,7 +2154,7 @@ ${opportunity.risk}
         renderOpportunityDetail();
         renderOpportunitySelect();
         renderRadar(radarChart, 260);
-        if (scoreRadarChart) renderRadar(scoreRadarChart, 220);
+        if (scoreRadarChart) renderRadar(scoreRadarChart, 200, true);
         renderRadar(radarChartDeep, 300);
         renderToggles();
         renderMatrix(matrixBody);
@@ -2661,7 +2510,15 @@ ${opportunity.risk}
       focusSelect.addEventListener("change", () => { activeOpportunityId = currentOpportunities()[0].id; renderAll(); });
       [buyerSelect, regionSelect, periodSelect, confidenceFloor, briefObjective, briefAudience, briefTone, briefPriority].forEach((element) => element.addEventListener("input", () => renderAll()));
       briefOpportunity.addEventListener("change", () => { activeOpportunityId = briefOpportunity.value; renderAll(); });
-      scoreModeEl.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => { scoreMode = button.dataset.mode; scoreModeEl.querySelectorAll("button").forEach((item) => item.classList.toggle("is-active", item === button)); renderAll(); }));
+      function syncScoreModeButtons() {
+        document.querySelectorAll("[data-mode]").forEach((item) => item.classList.toggle("is-active", item.dataset.mode === scoreMode));
+      }
+      document.querySelectorAll("[data-mode]").forEach((button) => button.addEventListener("click", () => { scoreMode = button.dataset.mode; syncScoreModeButtons(); renderAll(); }));
+      if (scoreDetailsButton && fullComparisonDetails) scoreDetailsButton.addEventListener("click", () => {
+        setView("dashboard");
+        window.setTimeout(() => fullComparisonDetails.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+      });
+      syncScoreModeButtons();
       generateButton.addEventListener("click", () => renderBrief(true));
       generateButtonDeep.addEventListener("click", () => renderBrief(true));
       copyButton.addEventListener("click", () => copyBrief(copyButton));
