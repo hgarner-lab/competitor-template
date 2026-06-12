@@ -15,12 +15,18 @@ function replaceText(oldValue, newValue) {
   text = text.split(oldValue).join(newValue);
 }
 
-replaceText('>Enterprise-cold</text>', '>Lower buyer relevance</text>');
-replaceText('>Human-warm</text>', '>Higher buyer relevance</text>');
-replaceText('>Market communication style</text>', '>Buyer relevance + proof signal</text>');
-replaceText('>Market message posture</text>', '>Calibrated competitive strength</text>');
-replaceText('>Friction-focused</text>', '>Lower strength</text>');
-replaceText('>Confidence-focused</text>', '>Higher strength</text>');
+replaceText('>Enterprise-cold</text>', '>Corporate</text>');
+replaceText('>Lower buyer relevance</text>', '>Corporate</text>');
+replaceText('>Human-warm</text>', '>Human</text>');
+replaceText('>Higher buyer relevance</text>', '>Human</text>');
+replaceText('>Market communication style</text>', '>Corporate ↔ Human</text>');
+replaceText('>Buyer relevance + proof signal</text>', '>Corporate ↔ Human</text>');
+replaceText('>Market message posture</text>', '>Needs ↔ Features</text>');
+replaceText('>Calibrated competitive strength</text>', '>Needs ↔ Features</text>');
+replaceText('>Friction-focused</text>', '>Needs</text>');
+replaceText('>Lower strength</text>', '>Needs</text>');
+replaceText('>Confidence-focused</text>', '>Features</text>');
+replaceText('>Higher strength</text>', '>Features</text>');
 
 const helperMarker = '      function flattenEvidence(payload) {';
 const helperCode = `      function scaleBetween(value, min, max, outMin, outMax) {
