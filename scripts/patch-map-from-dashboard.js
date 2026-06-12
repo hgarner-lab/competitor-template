@@ -16,7 +16,6 @@ function replaceText(oldValue, newValue) {
 }
 
 function insertAfter(marker, value, label) {
-  if (text.includes(value.trim().slice(0, 40))) return;
   if (!text.includes(marker)) throw new Error(`Could not find insertion marker: ${label}`);
   text = text.replace(marker, marker + value);
 }
@@ -86,23 +85,46 @@ const homeFlowCss = `
 
       .home-map-card {
         grid-column: 1;
-        grid-row: 1 / span 2;
-      }
-
-      .home-activation-card {
-        grid-column: 2;
         grid-row: 1;
       }
 
       .home-score-card {
         align-self: start;
         grid-column: 2;
+        grid-row: 1;
+      }
+
+      .home-activation-card {
+        display: grid;
+        gap: 12px;
+        grid-column: 1 / -1;
         grid-row: 2;
+        grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
       }
 
       .home-matrix-card {
         grid-column: 1 / -1;
         grid-row: 3;
+      }
+
+      .home-activation-card .card-header,
+      .home-activation-card .generate-row {
+        grid-column: 1 / -1;
+      }
+
+      .home-activation-card .selected-bet-summary,
+      .home-activation-card .wedge-card {
+        grid-column: 1;
+      }
+
+      .home-activation-card .brief-preview {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+        max-height: 275px;
+      }
+
+      .home-activation-card .wedge-grid {
+        grid-template-columns: 1fr;
       }
 
       .selected-bet-summary {
@@ -111,7 +133,7 @@ const homeFlowCss = `
         border-radius: 10px;
         display: grid;
         gap: 6px;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         padding: 12px;
       }
 
@@ -145,10 +167,6 @@ const homeFlowCss = `
         font-size: 11px !important;
         font-weight: 800;
         margin-top: 2px;
-      }
-
-      .home-activation-card .brief-preview {
-        max-height: 230px;
       }
 
       .home-score-card {
@@ -206,13 +224,31 @@ const homeFlowCss = `
           grid-column: auto;
           grid-row: auto;
         }
+
+        .home-activation-card {
+          grid-template-columns: 1fr;
+        }
+
+        .home-activation-card .selected-bet-summary,
+        .home-activation-card .wedge-card,
+        .home-activation-card .brief-preview {
+          grid-column: auto;
+          grid-row: auto;
+        }
       }
 `;
-insertAfter(
-  '      .map-layout {\n        display: grid;\n        gap: 12px;\n      }\n',
-  homeFlowCss,
-  'home flow css'
-);
+
+const homeStart = text.indexOf('\n      .home-map-card {');
+const homeEnd = homeStart === -1 ? -1 : text.indexOf('\n      .opportunity-strip,', homeStart);
+if (homeStart !== -1 && homeEnd !== -1) {
+  text = text.slice(0, homeStart) + homeFlowCss + text.slice(homeEnd);
+} else {
+  insertAfter(
+    '      .map-layout {\n        display: grid;\n        gap: 12px;\n      }\n',
+    homeFlowCss,
+    'home flow css'
+  );
+}
 
 if (!text.includes('const selectedBetSummary = document.querySelector("#selectedBetSummary");')) {
   replaceOnce(
@@ -222,10 +258,13 @@ if (!text.includes('const selectedBetSummary = document.querySelector("#selected
   );
 }
 
-replaceText(
-  '            <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>\n          </button>`;',
-  '            <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>\n            <span class="bet-cta">Use this bet for the brief -&gt;</span>\n          </button>`;'
-);
+if (!text.includes('class="bet-cta"')) {
+  replaceOnce(
+    '            <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>\n          </button>`;',
+    '            <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>\n            <span class="bet-cta">Use this bet for the brief -&gt;</span>\n          </button>`;',
+    'ranked bet cta'
+  );
+}
 
 if (!text.includes('selectedBetSummary.innerHTML')) {
   replaceOnce(
