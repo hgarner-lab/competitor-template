@@ -403,6 +403,131 @@
         gap: 12px;
       }
 
+
+      .home-map-card {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .home-activation-card {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .home-score-card {
+        align-self: start;
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .home-matrix-card {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
+
+      .selected-bet-summary {
+        background: rgba(223, 106, 167, 0.08);
+        border: 1px solid rgba(223, 106, 167, 0.24);
+        border-radius: 10px;
+        display: grid;
+        gap: 6px;
+        margin-bottom: 10px;
+        padding: 12px;
+      }
+
+      .selected-bet-summary span {
+        color: var(--pink-2);
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .selected-bet-summary strong {
+        color: var(--text);
+        font-size: 15px;
+        line-height: 1.25;
+      }
+
+      .selected-bet-summary p,
+      .selected-bet-summary small {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.35;
+        margin: 0;
+      }
+
+      .selected-bet-summary small {
+        color: var(--quiet);
+      }
+
+      .bet-cta {
+        color: #f5f7fb !important;
+        font-size: 11px !important;
+        font-weight: 800;
+        margin-top: 2px;
+      }
+
+      .home-activation-card .brief-preview {
+        max-height: 230px;
+      }
+
+      .home-score-card {
+        padding: 14px;
+      }
+
+      .home-score-card .card-header {
+        margin-bottom: 4px;
+      }
+
+      .home-score-card .gauge {
+        height: 104px;
+        width: 170px;
+      }
+
+      .home-score-card .gauge-score {
+        top: 33px;
+      }
+
+      .home-score-card .gauge-score strong {
+        font-size: 38px;
+      }
+
+      .home-score-card .gauge-score span {
+        font-size: 11px;
+        margin-top: 4px;
+      }
+
+      .home-score-card .gauge-copy {
+        font-size: 12px;
+        margin: -20px 0 10px;
+        max-width: none;
+        text-align: left;
+      }
+
+      .home-score-card .stat-row,
+      .home-score-card .score-model {
+        display: none;
+      }
+
+      .home-score-card .score-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .home-score-card .score-context div,
+      .home-score-card .score-actions div {
+        padding: 8px;
+      }
+
+      @media (max-width: 1180px) {
+        .home-map-card,
+        .home-activation-card,
+        .home-score-card,
+        .home-matrix-card {
+          grid-column: auto;
+          grid-row: auto;
+        }
+      }
+
       .opportunity-strip,
       .bet-list {
         display: grid;
@@ -1174,7 +1299,7 @@
 
           <section class="view is-active" id="dashboardView">
             <div class="grid">
-              <article class="card">
+              <article class="card home-map-card">
                 <div class="card-header"><p class="eyebrow">Whitespace Opportunity Map</p><span class="helper">Positioning territory</span></div>
                 <div class="legend">
                   <span><i class="dot client"></i> Mastercard</span>
@@ -1187,8 +1312,8 @@
                 </div>
               </article>
 
-              <article class="card">
-                <div class="card-header"><p class="eyebrow">Competitiveness Score</p><span class="helper">Current market strength</span></div>
+              <article class="card home-score-card">
+                <div class="card-header"><p class="eyebrow">At-a-glance Score</p><span class="helper">How are we doing?</span></div>
                 <div class="gauge-wrap">
                   <svg class="gauge" viewBox="0 0 260 160" aria-hidden="true">
                     <path d="M35 130a95 95 0 0 1 190 0" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14" stroke-linecap="round"/>
@@ -1215,8 +1340,8 @@
                 <div class="score-model"><strong>Model</strong><span>30% share of model + 25% differentiation + 25% buyer relevance + 20% proof strength</span></div>
               </article>
 
-              <article class="card">
-                <div class="card-header"><p class="eyebrow">Competitor Comparison Matrix</p><span class="helper">Same data as score</span></div>
+              <article class="card home-matrix-card">
+                <div class="card-header"><p class="eyebrow">Competitor Comparison Matrix</p><span class="helper">Detailed score inputs</span></div>
                 <div class="comparison-top">
                   <svg class="radar-svg" id="radarChart" viewBox="0 0 260 245" role="img" aria-label="Competitive capability radar"></svg>
                   <div>
@@ -1236,8 +1361,9 @@
                 </div>
               </article>
 
-              <article class="card">
-                <div class="card-header"><p class="eyebrow">Creative Brief Builder</p><span class="helper">Turn a bet into action</span></div>
+              <article class="card home-activation-card">
+                <div class="card-header"><p class="eyebrow">Activate Selected Bet</p><span class="helper">Brief generated from the selected ranked bet</span></div>
+                <div class="selected-bet-summary" id="selectedBetSummary"></div>
                 <div class="wedge-card" id="wedgeCard"></div>
                 <div class="brief-preview" id="briefPreview"></div>
                 <div class="generate-row"><button class="generate-button" id="generateButton" type="button">Generate Brief</button><button class="secondary-button" id="copyButton" type="button">Copy Markdown</button></div>
@@ -1690,6 +1816,7 @@
       const opportunityCardsDeep = document.querySelector("#opportunityCardsDeep");
       const opportunityDetail = document.querySelector("#opportunityDetail");
       const selectedOpportunityScore = document.querySelector("#selectedOpportunityScore");
+      const selectedBetSummary = document.querySelector("#selectedBetSummary");
       const radarChart = document.querySelector("#radarChart");
       const radarChartDeep = document.querySelector("#radarChartDeep");
       const competitorToggles = document.querySelector("#competitorToggles");
@@ -1798,6 +1925,7 @@
             <p>${opportunity.thesis}</p>
             <span class="bet-meta"><span>${opportunity.buyer}</span><span>${opportunity.region}</span><span>${opportunity.value} upside</span></span>
             <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>
+            <span class="bet-cta">Use this bet for the brief -&gt;</span>
           </button>`;
         };
         const opportunities = currentOpportunities();
@@ -1981,6 +2109,9 @@
 
       function renderWedge() {
         const opportunity = activeOpportunity();
+        if (selectedBetSummary) {
+          selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small>`;
+        }
         wedgeCard.innerHTML = `<h3>Activation Wedge: ${opportunity.title}</h3><span class="score-pill">Evidenced / ${opportunity.confidence}% confidence</span><div class="wedge-grid"><div><strong>The opening</strong><span>${opportunity.thesis}</span></div><div><strong>Right to win</strong><span>${opportunity.proof}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${opportunity.why}</span></div><div><strong>Watchout</strong><span>${opportunity.risk}</span></div></div>`;
       }
 
