@@ -15,18 +15,33 @@ function replaceText(oldValue, newValue) {
   text = text.split(oldValue).join(newValue);
 }
 
-replaceText('>Enterprise-cold</text>', '>Corporate</text>');
-replaceText('>Lower buyer relevance</text>', '>Corporate</text>');
-replaceText('>Human-warm</text>', '>Human</text>');
-replaceText('>Higher buyer relevance</text>', '>Human</text>');
-replaceText('>Market communication style</text>', '>Corporate ↔ Human</text>');
-replaceText('>Buyer relevance + proof signal</text>', '>Corporate ↔ Human</text>');
-replaceText('>Market message posture</text>', '>Needs ↔ Features</text>');
-replaceText('>Calibrated competitive strength</text>', '>Needs ↔ Features</text>');
-replaceText('>Friction-focused</text>', '>Needs</text>');
-replaceText('>Lower strength</text>', '>Needs</text>');
-replaceText('>Confidence-focused</text>', '>Features</text>');
-replaceText('>Higher strength</text>', '>Features</text>');
+replaceText('>Enterprise-cold</text>', '>Broad corporate jargon</text>');
+replaceText('>Corporate</text>', '>Broad corporate jargon</text>');
+replaceText('>Lower buyer relevance</text>', '>Broad corporate jargon</text>');
+replaceText('>Human-warm</text>', '>Specific buyer pain</text>');
+replaceText('>Human</text>', '>Specific buyer pain</text>');
+replaceText('>Higher buyer relevance</text>', '>Specific buyer pain</text>');
+replaceText('>Market communication style</text>', '>Broad corporate jargon ↔ Specific buyer pain</text>');
+replaceText('>Corporate ↔ Human</text>', '>Broad corporate jargon ↔ Specific buyer pain</text>');
+replaceText('>Buyer relevance + proof signal</text>', '>Broad corporate jargon ↔ Specific buyer pain</text>');
+replaceText('>Market message posture</text>', '>Product capability ↔ Business outcome</text>');
+replaceText('>Needs ↔ Features</text>', '>Product capability ↔ Business outcome</text>');
+replaceText('>Calibrated competitive strength</text>', '>Product capability ↔ Business outcome</text>');
+replaceText('>Friction-focused</text>', '>Product capability</text>');
+replaceText('>Needs</text>', '>Product capability</text>');
+replaceText('>Lower strength</text>', '>Product capability</text>');
+replaceText('>Confidence-focused</text>', '>Business outcome</text>');
+replaceText('>Features</text>', '>Business outcome</text>');
+replaceText('>Higher strength</text>', '>Business outcome</text>');
+
+replaceText(
+  'const xScore = clampScore(metrics.buyer * 0.5 + metrics.proof * 0.3 + metrics.difference * 0.2);',
+  'const xScore = clampScore(metrics.buyer * 0.65 + metrics.proof * 0.2 + metrics.difference * 0.15);'
+);
+replaceText(
+  'yScore: score,',
+  'yScore: clampScore(metrics.buyer * 0.4 + metrics.proof * 0.35 + metrics.share * 0.15 + metrics.difference * 0.1),'
+);
 
 const helperMarker = '      function flattenEvidence(payload) {';
 const helperCode = `      function scaleBetween(value, min, max, outMin, outMax) {
@@ -44,12 +59,12 @@ const helperCode = `      function scaleBetween(value, min, max, outMin, outMax)
           .map((brand) => {
             const metrics = normaliseDashboardMetrics(brand.metrics || {});
             const score = clampScore(brand.competitiveness_score);
-            const xScore = clampScore(metrics.buyer * 0.5 + metrics.proof * 0.3 + metrics.difference * 0.2);
+            const xScore = clampScore(metrics.buyer * 0.65 + metrics.proof * 0.2 + metrics.difference * 0.15);
             return {
               name: brand.name,
               score,
               xScore,
-              yScore: score,
+              yScore: clampScore(metrics.buyer * 0.4 + metrics.proof * 0.35 + metrics.share * 0.15 + metrics.difference * 0.1),
               isClient: String(brand.name).toLowerCase() === clientName,
               claim: brand.summary || brand.name + " scored " + score + "/100 in the latest calibrated run.",
               evidence: Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4))
