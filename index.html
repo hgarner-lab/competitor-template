@@ -1766,12 +1766,12 @@
           <rect x="0" y="0" width="760" height="${height}" rx="10" fill="#0b1119"/>
           <line class="axis" x1="80" x2="720" y1="${large ? 190 : 170}" y2="${large ? 190 : 170}"/>
           <line class="axis" x1="400" x2="400" y1="40" y2="${large ? 315 : 276}"/>
-          <text class="axis-label" x="78" y="${large ? 350 : 304}">Corporate</text>
-          <text class="axis-label" x="618" y="${large ? 350 : 304}">Human</text>
-          <text class="axis-label" x="320" y="${large ? 368 : 318}">Corporate ↔ Human</text>
-          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Needs ↔ Features</text>
-          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Needs</text>
-          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Features</text>
+          <text class="axis-label" x="78" y="${large ? 350 : 304}">Broad corporate jargon</text>
+          <text class="axis-label" x="618" y="${large ? 350 : 304}">Specific buyer pain</text>
+          <text class="axis-label" x="320" y="${large ? 368 : 318}">Broad corporate jargon ↔ Specific buyer pain</text>
+          <text class="axis-label" x="55" y="${large ? 270 : 246}" transform="rotate(-90 55 ${large ? 270 : 246})">Product capability ↔ Business outcome</text>
+          <text class="axis-label" x="92" y="${large ? 305 : 270}" transform="rotate(-90 92 ${large ? 305 : 270})">Product capability</text>
+          <text class="axis-label" x="92" y="142" transform="rotate(-90 92 142)">Business outcome</text>
           ${bubbles}`;
         svg.querySelectorAll("[data-signal]").forEach((node) => {
           node.addEventListener("click", () => selectMapSignal(node.dataset.signal, !large));
@@ -2285,12 +2285,12 @@ ${opportunity.risk}
           .map((brand) => {
             const metrics = normaliseDashboardMetrics(brand.metrics || {});
             const score = clampScore(brand.competitiveness_score);
-            const xScore = clampScore(metrics.buyer * 0.5 + metrics.proof * 0.3 + metrics.difference * 0.2);
+            const xScore = clampScore(metrics.buyer * 0.65 + metrics.proof * 0.2 + metrics.difference * 0.15);
             return {
               name: brand.name,
               score,
               xScore,
-              yScore: score,
+              yScore: clampScore(metrics.buyer * 0.4 + metrics.proof * 0.35 + metrics.share * 0.15 + metrics.difference * 0.1),
               isClient: String(brand.name).toLowerCase() === clientName,
               claim: brand.summary || brand.name + " scored " + score + "/100 in the latest calibrated run.",
               evidence: Math.max(10, (brand.evidence || []).length * 8 + Math.round(score / 4))
