@@ -81,6 +81,27 @@ if (!text.includes('id="selectedBetSummary"')) {
   );
 }
 
+if (!text.includes('id="scoreRadarChart"')) {
+  replaceOnce(
+`                <div class="score-context">
+                  <div><span id="scoreWindow">Last 90 Days</span><strong id="scoreTrend">+3 pts</strong></div>
+                  <div><span>Industry average</span><strong id="industryAverage">68</strong></div>
+                </div>
+                <div class="stat-row">`,
+`                <div class="score-context">
+                  <div><span id="scoreWindow">Last 90 Days</span><strong id="scoreTrend">+3 pts</strong></div>
+                  <div><span>Industry average</span><strong id="industryAverage">68</strong></div>
+                </div>
+                <div class="score-radar-panel">
+                  <div class="score-radar-top"><strong>Competitor shape</strong><span>Toggle competitors against Mastercard</span></div>
+                  <div class="toggle-row score-toggle-row" id="scoreCompetitorToggles"></div>
+                  <svg class="radar-svg score-radar-svg" id="scoreRadarChart" viewBox="0 0 220 220" role="img" aria-label="Compact competitor radar"></svg>
+                </div>
+                <div class="stat-row">`,
+    'compact score radar panel'
+  );
+}
+
 const homeFlowCss = `
 
       .home-map-card {
@@ -90,8 +111,11 @@ const homeFlowCss = `
 
       .home-score-card {
         align-self: start;
+        display: grid;
+        gap: 12px;
         grid-column: 2;
         grid-row: 1;
+        padding: 18px;
       }
 
       .home-activation-card {
@@ -99,7 +123,8 @@ const homeFlowCss = `
         gap: 12px;
         grid-column: 1 / -1;
         grid-row: 2;
-        grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+        grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+        grid-template-rows: auto auto minmax(320px, 1fr) auto;
       }
 
       .home-matrix-card {
@@ -112,15 +137,23 @@ const homeFlowCss = `
         grid-column: 1 / -1;
       }
 
-      .home-activation-card .selected-bet-summary,
+      .home-activation-card .selected-bet-summary {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
       .home-activation-card .wedge-card {
         grid-column: 1;
+        grid-row: 3;
       }
 
       .home-activation-card .brief-preview {
+        align-self: stretch;
         grid-column: 2;
-        grid-row: 2 / span 2;
-        max-height: 275px;
+        grid-row: 2 / 4;
+        height: 100%;
+        max-height: none;
+        min-height: 420px;
       }
 
       .home-activation-card .wedge-grid {
@@ -169,51 +202,91 @@ const homeFlowCss = `
         margin-top: 2px;
       }
 
-      .home-score-card {
-        padding: 14px;
+      .home-score-card .card-header {
+        margin-bottom: 0;
       }
 
-      .home-score-card .card-header {
-        margin-bottom: 4px;
+      .home-score-card .gauge-wrap {
+        justify-items: center;
+        margin-top: -4px;
       }
 
       .home-score-card .gauge {
-        height: 104px;
-        width: 170px;
+        height: 126px;
+        width: 208px;
       }
 
       .home-score-card .gauge-score {
-        top: 33px;
+        top: 42px;
       }
 
       .home-score-card .gauge-score strong {
-        font-size: 38px;
+        font-size: 42px;
       }
 
       .home-score-card .gauge-score span {
-        font-size: 11px;
-        margin-top: 4px;
+        font-size: 12px;
+        margin-top: 5px;
       }
 
       .home-score-card .gauge-copy {
         font-size: 12px;
-        margin: -20px 0 10px;
+        margin: -22px 0 0;
         max-width: none;
         text-align: left;
       }
 
       .home-score-card .stat-row,
-      .home-score-card .score-model {
+      .home-score-card .score-model,
+      .home-score-card .score-actions {
         display: none;
       }
 
-      .home-score-card .score-actions {
-        grid-template-columns: 1fr;
+      .home-score-card .score-context {
+        margin-bottom: 0;
       }
 
-      .home-score-card .score-context div,
-      .home-score-card .score-actions div {
-        padding: 8px;
+      .home-score-card .score-context div {
+        padding: 9px;
+      }
+
+      .score-radar-panel {
+        border-top: 1px solid var(--line);
+        display: grid;
+        gap: 8px;
+        padding-top: 12px;
+      }
+
+      .score-radar-top {
+        align-items: baseline;
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+      }
+
+      .score-radar-top strong {
+        font-size: 12px;
+      }
+
+      .score-radar-top span {
+        color: var(--quiet);
+        font-size: 10px;
+      }
+
+      .score-toggle-row {
+        gap: 6px;
+      }
+
+      .score-toggle-row button {
+        font-size: 10px;
+        min-height: 25px;
+        padding: 0 8px;
+      }
+
+      .score-radar-svg {
+        margin: 0 auto;
+        max-height: 230px;
+        max-width: 245px;
       }
 
       @media (max-width: 1180px) {
@@ -227,6 +300,7 @@ const homeFlowCss = `
 
         .home-activation-card {
           grid-template-columns: 1fr;
+          grid-template-rows: auto;
         }
 
         .home-activation-card .selected-bet-summary,
@@ -258,6 +332,14 @@ if (!text.includes('const selectedBetSummary = document.querySelector("#selected
   );
 }
 
+if (!text.includes('const scoreRadarChart = document.querySelector("#scoreRadarChart");')) {
+  replaceOnce(
+    '      const radarChartDeep = document.querySelector("#radarChartDeep");\n',
+    '      const radarChartDeep = document.querySelector("#radarChartDeep");\n      const scoreRadarChart = document.querySelector("#scoreRadarChart");\n      const scoreCompetitorToggles = document.querySelector("#scoreCompetitorToggles");\n',
+    'score radar selectors'
+  );
+}
+
 if (!text.includes('class="bet-cta"')) {
   replaceOnce(
     '            <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>\n          </button>`;',
@@ -273,6 +355,45 @@ if (!text.includes('selectedBetSummary.innerHTML')) {
     'selected bet summary renderer'
   );
 }
+
+if (!text.includes('function renderToggleSet(container)')) {
+  replaceOnce(
+`      function renderToggles() {
+        competitorToggles.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");
+        competitorToggles.querySelectorAll("[data-competitor]").forEach((button) => {
+          button.addEventListener("click", () => {
+            if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
+            else activeCompetitors.add(button.dataset.competitor);
+            renderAll();
+          });
+        });
+      }
+`,
+`      function renderToggleSet(container) {
+        if (!container) return;
+        container.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");
+        container.querySelectorAll("[data-competitor]").forEach((button) => {
+          button.addEventListener("click", () => {
+            if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
+            else activeCompetitors.add(button.dataset.competitor);
+            renderAll();
+          });
+        });
+      }
+
+      function renderToggles() {
+        renderToggleSet(competitorToggles);
+        renderToggleSet(scoreCompetitorToggles);
+      }
+`,
+    'shared competitor toggle renderer'
+  );
+}
+
+replaceText(
+  '        renderRadar(radarChart, 260);\n        renderRadar(radarChartDeep, 300);',
+  '        renderRadar(radarChart, 260);\n        if (scoreRadarChart) renderRadar(scoreRadarChart, 220);\n        renderRadar(radarChartDeep, 300);'
+);
 
 const helperMarker = '      function flattenEvidence(payload) {';
 const helperCode = `      function scaleBetween(value, min, max, outMin, outMax) {
