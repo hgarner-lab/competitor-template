@@ -4,20 +4,44 @@ const path = 'index.html';
 let text = fs.readFileSync(path, 'utf8');
 
 function replaceOnce(oldValue, newValue, label) {
-  if (text.includes(newValue)) return;
-  if (!text.includes(oldValue)) {
-    throw new Error(`Could not find patch marker: ${label}`);
+  if (text.includes(newValue)) return true;
+  const index = text.indexOf(oldValue);
+  if (index === -1) {
+    console.warn(`Skipped ${label}: marker not found`);
+    return false;
   }
-  text = text.replace(oldValue, newValue);
+  text = text.slice(0, index) + newValue + text.slice(index + oldValue.length);
+  return true;
 }
 
 function replaceText(oldValue, newValue) {
+  if (oldValue === newValue) return;
   text = text.split(oldValue).join(newValue);
 }
 
 function insertAfter(marker, value, label) {
-  if (!text.includes(marker)) throw new Error(`Could not find insertion marker: ${label}`);
-  text = text.replace(marker, marker + value);
+  const index = text.indexOf(marker);
+  if (index === -1) {
+    console.warn(`Skipped ${label}: insertion marker not found`);
+    return false;
+  }
+  text = text.slice(0, index + marker.length) + value + text.slice(index + marker.length);
+  return true;
+}
+
+function replaceBlock(startMarker, endMarker, replacement, label) {
+  const start = text.indexOf(startMarker);
+  if (start === -1) {
+    console.warn(`Skipped ${label}: start marker not found`);
+    return false;
+  }
+  const end = text.indexOf(endMarker, start);
+  if (end === -1) {
+    console.warn(`Skipped ${label}: end marker not found`);
+    return false;
+  }
+  text = text.slice(0, start) + replacement + text.slice(end);
+  return true;
 }
 
 replaceText('>Enterprise-cold</text>', '>Broad corporate jargon</text>');
@@ -356,38 +380,31 @@ if (!text.includes('selectedBetSummary.innerHTML')) {
   );
 }
 
-if (!text.includes('function renderToggleSet(container)')) {
-  replaceOnce(
-`      function renderToggles() {
-        competitorToggles.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");
-        competitorToggles.querySelectorAll("[data-competitor]").forEach((button) => {
-          button.addEventListener("click", () => {
-            if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
-            else activeCompetitors.add(button.dataset.competitor);
-            renderAll();
-          });
-        });
-      }
-`,
-`      function renderToggleSet(container) {
-        if (!container) return;
-        container.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");
-        container.querySelectorAll("[data-competitor]").forEach((button) => {
-          button.addEventListener("click", () => {
-            if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);
-            else activeCompetitors.add(button.dataset.competitor);
-            renderAll();
-          });
-        });
-      }
+const toggleStart = '      function renderToggles() {';
+const toggleEnd = '      function renderMatrix(target) {';
+const toggleReplacement = [
+  '      function renderToggleSet(container) {',
+  '        if (!container) return;',
+  '        container.innerHTML = Object.keys(b2bScoreProfile).filter((key) => key !== "mastercard").map((key) => `<button class="${activeCompetitors.has(key) ? "is-active" : ""}" data-competitor="${key}" type="button">${brandNames[key]}</button>`).join("");',
+  '        container.querySelectorAll("[data-competitor]").forEach((button) => {',
+  '          button.addEventListener("click", () => {',
+  '            if (activeCompetitors.has(button.dataset.competitor)) activeCompetitors.delete(button.dataset.competitor);',
+  '            else activeCompetitors.add(button.dataset.competitor);',
+  '            renderAll();',
+  '          });',
+  '        });',
+  '      }',
+  '',
+  '      function renderToggles() {',
+  '        renderToggleSet(competitorToggles);',
+  '        renderToggleSet(scoreCompetitorToggles);',
+  '      }',
+  '',
+  toggleEnd
+].join('\n');
 
-      function renderToggles() {
-        renderToggleSet(competitorToggles);
-        renderToggleSet(scoreCompetitorToggles);
-      }
-`,
-    'shared competitor toggle renderer'
-  );
+if (!text.includes('function renderToggleSet(container)')) {
+  replaceBlock(toggleStart, toggleEnd, toggleReplacement, 'shared competitor toggle renderer');
 }
 
 replaceText(
@@ -471,11 +488,15 @@ const helperCode = `      function scaleBetween(value, min, max, outMin, outMax)
 
 if (!text.includes('function updateMapBubblePositions(payload)')) {
   const markerIndex = text.indexOf(helperMarker);
-  if (markerIndex === -1) throw new Error('Could not find map helper insertion point');
-  text = text.slice(0, markerIndex) + helperCode + text.slice(markerIndex);
+  if (markerIndex === -1) {
+    console.warn('Skipped map helper insertion: marker not found');
+  } else {
+    text = text.slice(0, markerIndex) + helperCode + text.slice(markerIndex);
+  }
 }
 
-replaceOnce(
+if (!text.includes('updateMapBubblePositions(payload);')) {
+  replaceOnce(
 `        updateBrandScores(payload);
         updateSegmentSummary(payload);
         updateWhitespace(payload);
@@ -486,6 +507,7 @@ replaceOnce(
         updateWhitespace(payload);
 `,
 'apply external dashboard map positions'
-);
+  );
+}
 
 fs.writeFileSync(path, text);
