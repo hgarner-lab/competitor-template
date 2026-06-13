@@ -2216,13 +2216,6 @@
         const snapshotScore = opportunity.opportunity_score || opportunity.confidence || 0;
         const confidence = opportunity.confidence || snapshotScore;
         const noiseLabel = opportunity.noise != null ? opportunity.noise + "% crowding" : "Crowding unknown";
-        const evidenceBrands = Array.isArray(opportunity.distinct_brands) && opportunity.distinct_brands.length
-          ? opportunity.distinct_brands.join(", ")
-          : (Array.isArray(opportunity.supporting_evidence) ? [...new Set(opportunity.supporting_evidence.map((item) => item.brand).filter(Boolean))].slice(0, 4).join(", ") : "");
-        const evidenceCount = opportunity.source_count || (Array.isArray(opportunity.supporting_evidence) ? opportunity.supporting_evidence.length : 0);
-        const snapshotScore = opportunity.opportunity_score || opportunity.confidence || 0;
-        const confidence = opportunity.confidence || snapshotScore;
-        const noiseLabel = opportunity.noise != null ? opportunity.noise + "% crowding" : "Crowding unknown";
         wedgeCard.innerHTML = `<h3>Activation Wedge: ${escapeHtml(opportunity.title)}</h3><div class="wedge-snapshot"><div class="snapshot-main"><span>Selected bet snapshot</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.thesis)}</p></div><div class="snapshot-stats"><div><strong>${snapshotScore}</strong><span>Opportunity score</span></div><div><strong>${confidence}%</strong><span>Evidence confidence</span></div><div><strong>${evidenceCount}</strong><span>Evidence items</span></div><div><strong>${escapeHtml(opportunity.horizon)}</strong><span>Horizon</span></div></div><div class="snapshot-meta"><span>${escapeHtml(opportunity.buyer)}</span><span>${escapeHtml(opportunity.region || regionSelect.value)}</span><span>${escapeHtml(noiseLabel)}</span><span>${escapeHtml(evidenceBrands || "Competitor signal")}</span></div></div><div class="wedge-grid"><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div><div><strong>Right to win</strong><span>${escapeHtml(opportunity.proof)}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${escapeHtml(opportunity.why)}</span></div><div><strong>Watchout</strong><span>${escapeHtml(opportunity.risk)}</span></div></div>`;
       }
 
