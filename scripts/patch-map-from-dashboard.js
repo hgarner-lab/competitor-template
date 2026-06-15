@@ -96,14 +96,9 @@ const dashboardControls = `              <div class="filters dashboard-controls"
 
 if (!text.includes('class="filters dashboard-controls"')) {
   replacePattern(
-    /              <div class="filters">\n[\s\S]*?\n              <\/div>\n          <\/header>/,
-    dashboardControls + '\n          </header>',
+    /\s*<div class="filters">[\s\S]*?<button class="action-button primary-action" id="exportButton" type="button">Export Brief<\/button>\n\s*<\/div>/,
+    '\n' + dashboardControls,
     'top dashboard controls'
-  );
-  replacePattern(
-    /              <div class="filters">\n[\s\S]*?\n              <\/div>\n            <\/header>/,
-    dashboardControls + '\n            </header>',
-    'top dashboard controls fallback'
   );
 }
 
