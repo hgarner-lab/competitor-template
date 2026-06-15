@@ -1,0 +1,96 @@
+name: Scout agent evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "Brand to scout"
+        required: true
+        default: "All"
+        type: choice
+        options:
+          - All
+          - Mastercard
+          - Visa
+          - Stripe
+          - Adyen
+          - PayPal
+          - Fiserv
+      topic:
+        description: "Topic to scout"
+        required: true
+        default: "All"
+        type: choice
+        options:
+          - All
+          - AI-led treasury automation
+          - Cross-border B2B payment certainty
+          - Embedded finance for enterprise platforms
+          - Acquirer and merchant enablement
+          - Fraud and identity orchestration
+          - Merchant data intelligence
+          - Commercial card spend control
+          - Accounts payable and receivable automation
+          - Supplier working-capital resilience
+          - Real-time settlement and liquidity visibility
+          - Open banking and account-to-account B2B payments
+          - Partner ecosystem orchestration for banks and fintechs
+          - B2B payment acceptance for marketplaces
+          - Enterprise payment risk and compliance assurance
+      max_items:
+        description: "Maximum evidence items to write"
+        required: true
+        default: "3"
+      trigger_refresh:
+        description: "Run calibrated dashboard refresh after new evidence is committed"
+        required: true
+        type: boolean
+        default: true
+  schedule:
+    - cron: "30 7 * * 1"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scout public evidence
+        id: scout
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
+          SCOUT_BRAND: ${{ inputs.brand || 'All' }}
+          SCOUT_TOPIC: ${{ inputs.topic || 'All' }}
+          SCOUT_MAX_ITEMS: ${{ inputs.max_items || '3' }}
+        run: node scripts/scout-agent-evidence.js
+
+      - name: Commit scouted agent evidence
+        if: ${{ steps.scout.outputs.items_written != '0' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/agent-runs output/scout-agent-summary.md
+          if git diff --cached --quiet; then
+            echo "No scout evidence changes to commit."
+          else
+            git commit -m "Add scouted agent evidence"
+            git push
+          fi
+
+      - name: Trigger calibrated intelligence refresh
+        if: ${{ steps.scout.outputs.items_written != '0' && (github.event_name == 'schedule' || inputs.trigger_refresh) }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run calibrated-research.yml
