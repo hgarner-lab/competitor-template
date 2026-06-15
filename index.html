@@ -2018,13 +2018,37 @@
         return `<span class="score-bar" title="${label}: ${formatScore(score)} / 100"><strong>${formatScore(score)}</strong><span class="bar-track"><span class="bar-fill" style="width: ${score}%; background: ${color};"></span></span></span>`;
       }
 
-      function pointsFor(values, size) {
+      function radarDomainFor(valueSets) {
+        const values = valueSets.flat().map(Number).filter(Number.isFinite);
+        if (!values.length) return { min: 0, max: 100, label: "Absolute 0-100 scale" };
+        const minRaw = Math.min(...values);
+        const maxRaw = Math.max(...values);
+        const center = (minRaw + maxRaw) / 2;
+        const spread = Math.max(maxRaw - minRaw, 18);
+        let min = Math.max(0, Math.floor(center - spread * 0.7 - 3));
+        let max = Math.min(100, Math.ceil(center + spread * 0.7 + 3));
+        if (max - min < 18) {
+          min = Math.max(0, Math.floor(center - 9));
+          max = Math.min(100, Math.ceil(center + 9));
+        }
+        if (min <= 5 && max >= 95) return { min: 0, max: 100, label: "Absolute 0-100 scale" };
+        return { min, max, label: `Zoomed scale ${min}-${max}` };
+      }
+
+      function scaleRadarValue(value, domain) {
+        if (!domain || domain.max <= domain.min) return Number(value) || 0;
+        const ratio = (Number(value) - domain.min) / (domain.max - domain.min);
+        return Math.max(10, Math.min(100, 10 + ratio * 90));
+      }
+
+      function pointsFor(values, size, domain = null) {
         const cx = size / 2;
         const cy = size / 2 - 5;
         const maxR = size * 0.32;
         return values.map((value, index) => {
           const angle = -Math.PI / 2 + (Math.PI * 2 * index) / values.length;
-          const r = (value / 100) * maxR;
+          const scaledValue = domain ? scaleRadarValue(value, domain) : value;
+          const r = (scaledValue / 100) * maxR;
           return [cx + Math.cos(angle) * r, cy + Math.sin(angle) * r];
         });
       }
@@ -2060,19 +2084,22 @@
         const activeCategory = forceOverview ? null : scoreModel.find((category) => category.key === activeRadarCategory && expandedCategories.has(category.key));
         const showingParents = !activeCategory;
         const dimensions = showingParents ? scoreModel.map((category) => ({ label: category.short })) : activeCategory.children;
-        const rings = [20, 40, 60, 80, 100].map((level) => `<polygon points="${polygon(pointsFor(Array(dimensions.length).fill(level), size))}" fill="none" stroke="rgba(255,255,255,0.08)"/>`).join("");
+        const rings = [25, 50, 75, 100].map((level) => `<polygon points="${polygon(pointsFor(Array(dimensions.length).fill(level), size))}" fill="none" stroke="rgba(255,255,255,0.08)"/>`).join("");
         const axes = dimensions.map((dimension, index) => {
           const end = pointsFor(Array(dimensions.length).fill(100), size)[index];
           const label = pointsFor(Array(dimensions.length).fill(118), size)[index];
           return `<line x1="${size / 2}" y1="${size / 2 - 5}" x2="${end[0]}" y2="${end[1]}" stroke="rgba(255,255,255,0.07)"/><text class="svg-small" x="${label[0] - 24}" y="${label[1] + 4}">${radarLabel(dimension.label)}</text>`;
         }).join("");
         const valuesFor = (brand) => showingParents ? categoryScoresFor(brand) : dimensions.map((dimension, index) => childScore(brand, activeCategory, index));
-        const overlays = [["mastercard", valuesFor("mastercard")], ...Array.from(activeCompetitors).map((key) => [key, valuesFor(key)])].map(([key, values]) => {
-          const pts = polygon(pointsFor(values, size));
-          return `<polygon points="${pts}" fill="${colors[key]}" fill-opacity="${key === "mastercard" ? 0.2 : 0.055}" stroke="${colors[key]}" stroke-width="${key === "mastercard" ? 2.3 : 1.4}"/>`;
+        const series = [["mastercard", valuesFor("mastercard")], ...Array.from(activeCompetitors).map((key) => [key, valuesFor(key)])];
+        const domain = radarDomainFor(series.map(([, values]) => values));
+        const overlays = series.map(([key, values]) => {
+          const pts = polygon(pointsFor(values, size, domain));
+          return `<polygon points="${pts}" fill="${colors[key]}" fill-opacity="${key === "mastercard" ? 0.2 : 0.065}" stroke="${colors[key]}" stroke-width="${key === "mastercard" ? 2.4 : 1.6}"/>`;
         }).join("");
+        const scaleNote = `<text class="svg-small" x="${size - 12}" y="${size - 12}" text-anchor="end">${domain.label}</text>`;
         svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
-        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/>${rings}${axes}${overlays}`;
+        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/>${rings}${axes}${overlays}${scaleNote}`;
       }
 
       function renderToggleSet(container) {
@@ -2124,13 +2151,14 @@
         doingWell.innerHTML = metricList(strongest);
         needsImproving.innerHTML = metricList(weakest);
       }
-      function compactRadarPoints(values, size) {
+      function compactRadarPoints(values, size, domain = null) {
         const cx = size / 2;
         const cy = size / 2 + 2;
         const maxR = size * 0.28;
         return values.map((value, index) => {
           const angle = -Math.PI / 2 + (Math.PI * 2 * index) / values.length;
-          const r = (value / 100) * maxR;
+          const scaledValue = domain ? scaleRadarValue(value, domain) : value;
+          const r = (scaledValue / 100) * maxR;
           return [cx + Math.cos(angle) * r, cy + Math.sin(angle) * r];
         });
       }
@@ -2141,6 +2169,7 @@
         const size = 200;
         const masterValues = categoryScoresFor("mastercard");
         const selectedValues = categoryScoresFor(brand);
+        const domain = radarDomainFor([masterValues, selectedValues]);
         const rings = [25, 50, 75, 100].map((level) => `<polygon points="${polygon(compactRadarPoints(Array(4).fill(level), size))}" fill="none" stroke="rgba(255,255,255,0.08)"/>`).join("");
         const axisEnds = compactRadarPoints(Array(4).fill(100), size);
         const axes = axisEnds.map(([x, y]) => `<line x1="100" y1="102" x2="${x}" y2="${y}" stroke="rgba(255,255,255,0.08)"/>`).join("");
@@ -2151,15 +2180,17 @@
           `<text class="svg-small" x="26" y="106" text-anchor="middle">Proof</text>`
         ].join("");
         const selectedColor = colors[brand] || colors.visa;
-        const masterPoly = polygon(compactRadarPoints(masterValues, size));
-        const selectedPoly = polygon(compactRadarPoints(selectedValues, size));
+        const masterPoly = polygon(compactRadarPoints(masterValues, size, domain));
+        const selectedPoly = polygon(compactRadarPoints(selectedValues, size, domain));
         const overlays = [
-          `<polygon points="${masterPoly}" fill="${colors.mastercard}" fill-opacity="0.12" stroke="${colors.mastercard}" stroke-width="1.4"/>`,
-          `<polygon points="${selectedPoly}" fill="${selectedColor}" fill-opacity="0.22" stroke="${selectedColor}" stroke-width="2.5"/>`
+          `<polygon points="${masterPoly}" fill="${colors.mastercard}" fill-opacity="0.12" stroke="${colors.mastercard}" stroke-width="1.5"/>`,
+          `<polygon points="${selectedPoly}" fill="${selectedColor}" fill-opacity="0.24" stroke="${selectedColor}" stroke-width="2.7"/>`
         ].join("");
+        const scaleNote = `<text class="svg-small" x="188" y="192" text-anchor="end">${domain.label}</text>`;
         svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
-        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/>${rings}${axes}${labels}${overlays}`;
+        svg.innerHTML = `<rect width="${size}" height="${size}" rx="10" fill="rgba(255,255,255,0.025)"/>${rings}${axes}${labels}${overlays}${scaleNote}`;
       }
+
       function renderToggles() {
         renderToggleSet(competitorToggles);
         renderScoreCompetitorToggles();
