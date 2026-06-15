@@ -22,8 +22,14 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Import recent agent runs
+        run: node scripts/import-agent-runs.js
+
       - name: Run calibrated research worker
         run: node scripts/research-worker-v2.js
+
+      - name: Merge agent evidence into dashboard
+        run: node scripts/merge-agent-evidence.js
 
       - name: Expand ranked bets
         run: node scripts/expand-ranked-bets.js
@@ -32,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dashboard.json memory/weekly-change-log.md output/review-this-week.md
+          git add data/dashboard.json data/evidence-feed.json memory/evidence-ledger.json memory/source-health.json memory/weekly-change-log.md output/review-this-week.md output/agent-ingestion-summary.md
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
