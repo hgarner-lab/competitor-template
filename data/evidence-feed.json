@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-06-15T14:58:55.450Z",
+  "recent_window_days": 45,
+  "source_dir": "data/agent-runs",
+  "agent_evidence": [],
+  "diagnostics": {
+    "files_read": 0,
+    "records_seen": 0,
+    "records_kept": 0,
+    "records_skipped": 0,
+    "skipped": []
+  }
+}

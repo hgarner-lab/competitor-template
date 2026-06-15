@@ -68,3 +68,12 @@ This file is appended by `scripts/research-worker.js`.
 - Readiness: AMBER: proof-bearing evidence present, still needs human review
 - Score movement: set to 0 until content deltas are verified.
 - Top live ranked bet: Cross-border B2B payment certainty (77/100, 4 matching evidence items)
+
+## 2026-06-15 - calibrated research run
+
+- Evidence items kept: 29
+- Proof-bearing evidence items: 29
+- Sources skipped or filtered: 0
+- Readiness: AMBER: proof-bearing evidence present, still needs human review
+- Score movement: set to 0 until content deltas are verified.
+- Top live ranked bet: Real-time settlement and liquidity visibility (78/100, 2 matching evidence items)

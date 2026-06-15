@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2.0",
-  "last_updated": "2026-06-11",
-  "generated_at": "2026-06-11T17:59:23.003Z",
+  "last_updated": "2026-06-15",
+  "generated_at": "2026-06-15T14:59:07.870Z",
   "status": "generated_from_public_sources_calibrated",
   "market": "B2B payments",
   "client_brand": "Mastercard",
@@ -163,7 +163,7 @@
           "proof_bearing": true,
           "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
           "url": "https://stripe.com/connect",
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ..."
         },
         {
           "source_type": "specific product page - card issuing",
@@ -172,7 +172,7 @@
           "proof_bearing": true,
           "title": "Stripe Issuing | Virtual and Physical Card Issuing Platform",
           "url": "https://stripe.com/issuing",
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Issuing | Virtual and Physical Card Issuing Platform Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ..."
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Issuing | Virtual and Physical Card Issuing Platform Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing..."
         },
         {
           "source_type": "customer story - Hertz enterprise commerce",
@@ -181,7 +181,7 @@
           "proof_bearing": true,
           "title": "Hertz Unifies Commerce with Stripe",
           "url": "https://stripe.com/customers/hertz",
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payments Payments Online ..."
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing Dashboard Sign in Sign i..."
         },
         {
           "source_type": "report - 2025 annual update",
@@ -246,7 +246,7 @@
         {
           "source_type": "customer story - New Black unified commerce platform",
           "source_class": "customer_story",
-          "evidence_quality_score": 84,
+          "evidence_quality_score": 83,
           "proof_bearing": true,
           "title": "How New Black attracts high-value merchants and increases win rates with Adyen - Adyen",
           "url": "https://www.adyen.com/knowledge-hub/how-new-black-attracts-high-value-merchants-and-increases-win-rates-with-adyen",
@@ -352,7 +352,7 @@
         "buyer_relevance": 84,
         "proof_strength": 78
       },
-      "summary": "Based on 4 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Carat Global Platform | Carat U.S. | Fiserv; CardHub, Card Solutions, Digital Wallet | Fiserv.",
+      "summary": "Based on 5 B2B-relevant public sources. Score is calibrated for source quality. Strongest signals: Carat Global Platform | Carat U.S. | Fiserv; CardHub, Card Solutions, Digital Wallet | Fiserv.",
       "evidence": [
         {
           "source_type": "commerce platform overview",
@@ -389,13 +389,22 @@
           "title": "The Strategic Growth Engine Behind 44% of ISV Revenue | Fiserv",
           "url": "https://www.fiserv.com/en/about-fiserv/resource-center/white-papers/the-strategic-growth-engine-behind-44-of-isv-revenue.html",
           "snippet": "The Strategic Growth Engine Behind 44% of ISV Revenue | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 2026 Moving commerce forward,..."
+        },
+        {
+          "source_type": "specific product page - SnapPay accounts receivable automation",
+          "source_class": "product_page",
+          "evidence_quality_score": 62,
+          "proof_bearing": true,
+          "title": "Commerce Solutions for Mid-sized Businesses",
+          "url": "https://merchants.fiserv.com/en-us/products/merchants/snappay/",
+          "snippet": "Commerce Solutions for Mid-sized Businesses Skip to Contact an Expert Skip to Main Content Who We Serve Business and Merchants Partners Large Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Mid-sized Business Grow and optimize your business and elevate payment experiences to secure commerce Small Business Cl..."
         }
       ],
       "score_diagnostics": {
         "uncapped_score": 80,
         "applied_overall_cap": 100,
-        "proof_bearing_sources": 4,
-        "distinct_source_types": 4,
+        "proof_bearing_sources": 5,
+        "distinct_source_types": 5,
         "caps_applied": [],
         "movement_note": "Movement set to 0 until content deltas are verified."
       }
@@ -403,36 +412,25 @@
   ],
   "whitespace_topics": [
     {
-      "id": "live-2-cross-border-b2b-payment-certainty",
-      "topic": "Cross-border B2B payment certainty",
-      "title": "Cross-border B2B payment certainty",
-      "opportunity_score": 77,
-      "confidence": 77,
-      "buyer": "VP Finance / Treasurer",
-      "region": "Europe / Global",
+      "id": "live-10-real-time-settlement-and-liquidity-visibility",
+      "topic": "Real-time settlement and liquidity visibility",
+      "title": "Real-time settlement and liquidity visibility",
+      "opportunity_score": 78,
+      "confidence": 78,
+      "buyer": "Treasury operations leader",
+      "region": "Global",
       "horizon": "0-6 months",
       "value": "High",
-      "fit": 76,
-      "urgency": 94,
-      "noise": 52,
-      "source_count": 4,
+      "fit": 73,
+      "urgency": 86,
+      "noise": 26,
+      "source_count": 2,
       "distinct_brands": [
-        "Stripe",
         "Mastercard",
         "Visa"
       ],
-      "competitor_count": 2,
+      "competitor_count": 1,
       "supporting_evidence": [
-        {
-          "brand": "Stripe",
-          "title": "Hertz Unifies Commerce with Stripe",
-          "url": "https://stripe.com/customers/hertz",
-          "source_type": "customer story - Hertz enterprise commerce",
-          "source_class": "customer_story",
-          "evidence_quality_score": 80,
-          "proof_bearing": true,
-          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payments Payments Online ..."
-        },
         {
           "brand": "Mastercard",
           "title": "Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US",
@@ -442,6 +440,60 @@
           "evidence_quality_score": 74,
           "proof_bearing": true,
           "snippet": "Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Ca..."
+        },
+        {
+          "brand": "Visa",
+          "title": "Visa Direct | Transforming global money movement | Visa",
+          "url": "https://usa.visa.com/products/visa-direct.html",
+          "source_type": "money movement product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 57,
+          "proof_bearing": true,
+          "snippet": "...ving money globally is easy with Visa Direct. Global We offer worldwide reach to billions of endpoints, with real-time¹ cross-border² and domestic payment solutions. Simple We are a single point of access connecting to card and network endpoints. Innovative We build for the future based on over 60 years of industry expertise. Secure We make it possible for f..."
+        }
+      ],
+      "map_impact": {
+        "buyer_specificity_pull": 46,
+        "business_outcome_pull": 43,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 2 matching public evidence items across Mastercard, Visa. The evidence shows some competitor signal, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Real-time settlement and liquidity visibility is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for treasury operations leader, with 18 buyer-relevance hits and 2 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for real-time settlement and liquidity visibility: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with treasury operations leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Mastercard: Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US; Visa: Visa Direct | Transforming global money movement | Visa",
+      "risk": "Keep the claim tied to named sources and quantified proof so the bet does not become a generic category statement."
+    },
+    {
+      "id": "live-7-commercial-card-spend-control",
+      "topic": "Commercial card spend control",
+      "title": "Commercial card spend control",
+      "opportunity_score": 77,
+      "confidence": 77,
+      "buyer": "Procurement / AP leader",
+      "region": "Global",
+      "horizon": "0-6 months",
+      "value": "High",
+      "fit": 73,
+      "urgency": 96,
+      "noise": 47,
+      "source_count": 5,
+      "distinct_brands": [
+        "Visa",
+        "Mastercard"
+      ],
+      "competitor_count": 1,
+      "supporting_evidence": [
+        {
+          "brand": "Visa",
+          "title": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
+          "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22471.html",
+          "source_type": "press release - VCS Hub and AR Manager integration",
+          "source_class": "press_release",
+          "evidence_quality_score": 88,
+          "proof_bearing": true,
+          "snippet": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager 5/27/2026 New integration allows issuers to send virtual card details to suppliers, helping automate virtual card adoption for suppliers at scale SAN FRANCISCO --(BUSINESS..."
         },
         {
           "brand": "Visa",
@@ -455,22 +507,246 @@
         },
         {
           "brand": "Visa",
-          "title": "Visa Direct | Transforming global money movement | Visa",
-          "url": "https://usa.visa.com/products/visa-direct.html",
-          "source_type": "money movement product page",
+          "title": "Visa B2B Payables | Visa",
+          "url": "https://usa.visa.com/products/b2b-payables.html",
+          "source_type": "B2B payables product page",
           "source_class": "product_page",
-          "evidence_quality_score": 57,
+          "evidence_quality_score": 64,
           "proof_bearing": true,
-          "snippet": "...ving money globally is easy with Visa Direct. Global We offer worldwide reach to billions of endpoints, with real-time¹ cross-border² and domestic payment solutions. Simple We are a single point of access connecting to card and network endpoints. Innovative We build for the future based on over 60 years of industry expertise. Secure We make it possible for f..."
+          "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s..."
+        },
+        {
+          "brand": "Mastercard",
+          "title": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US",
+          "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
+          "source_type": "commercial payments product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 52,
+          "proof_bearing": true,
+          "snippet": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Cards Mastercard Prep..."
         }
       ],
-      "why_it_matters": "Detected from 4 matching public evidence items across Stripe, Mastercard, Visa. The evidence shows some competitor signal, which makes this a live opportunity to pressure-test rather than a static theme.",
-      "thesis": "Cross-border B2B payment certainty is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
-      "why": "The strongest buyer signal is for vp finance / treasurer, with 33 buyer-relevance hits and 4 proof-bearing sources tied to the topic.",
-      "activation_idea": "Build a buyer-facing proof ladder for cross-border b2b payment certainty: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
-      "move": "Turn this into a live evidence table and brief: lead with vp finance / treasurer, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
-      "proof": "Stripe: Hertz Unifies Commerce with Stripe; Mastercard: Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US; Visa: AR Manager | Visa",
+      "map_impact": {
+        "buyer_specificity_pull": 41,
+        "business_outcome_pull": 53,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 5 matching public evidence items across Visa, Mastercard. The evidence shows some competitor signal, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Commercial card spend control is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for procurement / ap leader, with 59 buyer-relevance hits and 5 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for commercial card spend control: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with procurement / ap leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa; Visa: AR Manager | Visa; Visa: Visa B2B Payables | Visa",
       "risk": "Keep the claim tied to named sources and quantified proof so the bet does not become a generic category statement."
+    },
+    {
+      "id": "live-9-supplier-working-capital-resilience",
+      "topic": "Supplier working-capital resilience",
+      "title": "Supplier working-capital resilience",
+      "opportunity_score": 77,
+      "confidence": 77,
+      "buyer": "Treasurer / supplier payments lead",
+      "region": "Global",
+      "horizon": "3-9 months",
+      "value": "High",
+      "fit": 71,
+      "urgency": 86,
+      "noise": 26,
+      "source_count": 2,
+      "distinct_brands": [
+        "Visa"
+      ],
+      "competitor_count": 1,
+      "supporting_evidence": [
+        {
+          "brand": "Visa",
+          "title": "AR Manager | Visa",
+          "url": "https://usa.visa.com/products/ar-manager.html",
+          "source_type": "specific product page - AR Manager",
+          "source_class": "product_page",
+          "evidence_quality_score": 66,
+          "proof_bearing": true,
+          "snippet": "...lines the card acceptance process Step 1: Capture Capture virtual card details and identify the intended Visa-accepting supplier. Step 2: Process Process the virtual card using Visa’s proprietary gateway. Step 3: Reconcile Send payments and invoice reports to suppliers via email. Explore related products Virtual card for business Gain control and flexibility..."
+        },
+        {
+          "brand": "Visa",
+          "title": "Visa B2B Payables | Visa",
+          "url": "https://usa.visa.com/products/b2b-payables.html",
+          "source_type": "B2B payables product page",
+          "source_class": "product_page",
+          "evidence_quality_score": 64,
+          "proof_bearing": true,
+          "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s..."
+        }
+      ],
+      "map_impact": {
+        "buyer_specificity_pull": 44,
+        "business_outcome_pull": 40,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 2 matching public evidence items across Visa. The evidence shows some competitor signal, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Supplier working-capital resilience is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for treasurer / supplier payments lead, with 20 buyer-relevance hits and 2 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for supplier working-capital resilience: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with treasurer / supplier payments lead, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Visa: AR Manager | Visa; Visa: Visa B2B Payables | Visa",
+      "risk": "Keep the claim tied to named sources and quantified proof so the bet does not become a generic category statement."
+    },
+    {
+      "id": "live-13-b2b-payment-acceptance-for-marketplaces",
+      "topic": "B2B payment acceptance for marketplaces",
+      "title": "B2B payment acceptance for marketplaces",
+      "opportunity_score": 75,
+      "confidence": 75,
+      "buyer": "Finance leaders / enterprise buyers",
+      "region": "Global",
+      "horizon": "6-12 months",
+      "value": "High",
+      "fit": 80,
+      "urgency": 96,
+      "noise": 72,
+      "source_count": 26,
+      "distinct_brands": [
+        "Fiserv",
+        "Adyen",
+        "Visa",
+        "PayPal",
+        "Mastercard",
+        "Stripe"
+      ],
+      "competitor_count": 5,
+      "supporting_evidence": [
+        {
+          "brand": "Fiserv",
+          "title": "Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv",
+          "url": "https://www.fiserv.com/en/insights/articles-and-blogs/autoagent-partners-with-fiserv-to-drive-reliable-payments-for-local-governments.html",
+          "source_type": "customer story - Autoagent local government payments",
+          "source_class": "customer_story",
+          "evidence_quality_score": 95,
+          "proof_bearing": true,
+          "snippet": "Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 202..."
+        },
+        {
+          "brand": "Adyen",
+          "title": "Shareholder Letter H2 2024 - Adyen",
+          "url": "https://investors.adyen.com/financials/h2-2024",
+          "source_type": "investor report - H2 2024 shareholder letter",
+          "source_class": "report_or_research",
+          "evidence_quality_score": 90,
+          "proof_bearing": true,
+          "snippet": "...ustomers Net revenue growth was 22% YoY in H2 2024, driven by share of wallet expansion with existing customers and new business wins across verticals In a period where headcount grew at a slower pace and net revenue growth remained strong, EBITDA margin landed at 53% In line with our strategic priorities, we maintained our sustainable capital expenditure le..."
+        },
+        {
+          "brand": "Visa",
+          "title": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
+          "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22471.html",
+          "source_type": "press release - VCS Hub and AR Manager integration",
+          "source_class": "press_release",
+          "evidence_quality_score": 88,
+          "proof_bearing": true,
+          "snippet": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager 5/27/2026 New integration allows issuers to send virtual card details to suppliers, helping automate virtual card adoption for suppliers at scale SAN FRANCISCO --(BUSINESS..."
+        },
+        {
+          "brand": "PayPal",
+          "title": "Home - Investor Day",
+          "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
+          "source_type": "investor source - 2025 Investor Day",
+          "source_class": "report_or_research",
+          "evidence_quality_score": 86,
+          "proof_bearing": true,
+          "snippet": "...source Library Presentation Speakers Investor Day Content Innovation Demos We are building the next generation commerce platform with frictionless and personalized experiences for our customers, online and in-store. By leveraging our data and AI tools, PayPal is increasing innovation velocity and connecting every stage of the shopping journey. Our demos show..."
+        }
+      ],
+      "map_impact": {
+        "buyer_specificity_pull": 43,
+        "business_outcome_pull": 60,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 26 matching public evidence items across Fiserv, Adyen, Visa, PayPal, Mastercard. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "B2B payment acceptance for marketplaces is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for finance leaders / enterprise buyers, with 294 buyer-relevance hits and 26 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for b2b payment acceptance for marketplaces: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with finance leaders / enterprise buyers, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Adyen: Shareholder Letter H2 2024 - Adyen; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
+      "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
+    },
+    {
+      "id": "live-4-acquirer-and-merchant-enablement",
+      "topic": "Acquirer and merchant enablement",
+      "title": "Acquirer and merchant enablement",
+      "opportunity_score": 75,
+      "confidence": 75,
+      "buyer": "Merchant acquiring / commerce leader",
+      "region": "North America / Global",
+      "horizon": "0-6 months",
+      "value": "High",
+      "fit": 80,
+      "urgency": 96,
+      "noise": 72,
+      "source_count": 25,
+      "distinct_brands": [
+        "Fiserv",
+        "Visa",
+        "PayPal",
+        "Mastercard",
+        "Adyen",
+        "Stripe"
+      ],
+      "competitor_count": 5,
+      "supporting_evidence": [
+        {
+          "brand": "Fiserv",
+          "title": "Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv",
+          "url": "https://www.fiserv.com/en/insights/articles-and-blogs/autoagent-partners-with-fiserv-to-drive-reliable-payments-for-local-governments.html",
+          "source_type": "customer story - Autoagent local government payments",
+          "source_class": "customer_story",
+          "evidence_quality_score": 95,
+          "proof_bearing": true,
+          "snippet": "Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv Who We Serve Who We Serve Business and Merchant Business and Merchant Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Small Business All-in-one systems for merchants to accept payments and manage their business FORUM 202..."
+        },
+        {
+          "brand": "Visa",
+          "title": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
+          "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22471.html",
+          "source_type": "press release - VCS Hub and AR Manager integration",
+          "source_class": "press_release",
+          "evidence_quality_score": 88,
+          "proof_bearing": true,
+          "snippet": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager 5/27/2026 New integration allows issuers to send virtual card details to suppliers, helping automate virtual card adoption for suppliers at scale SAN FRANCISCO --(BUSINESS..."
+        },
+        {
+          "brand": "PayPal",
+          "title": "Home - Investor Day",
+          "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
+          "source_type": "investor source - 2025 Investor Day",
+          "source_class": "report_or_research",
+          "evidence_quality_score": 86,
+          "proof_bearing": true,
+          "snippet": "...source Library Presentation Speakers Investor Day Content Innovation Demos We are building the next generation commerce platform with frictionless and personalized experiences for our customers, online and in-store. By leveraging our data and AI tools, PayPal is increasing innovation velocity and connecting every stage of the shopping journey. Our demos show..."
+        },
+        {
+          "brand": "PayPal",
+          "title": "Fastlane by PayPal and Venmo help supercharge your checkout experience and drive more sales | PayPal US",
+          "url": "https://www.paypal.com/us/brc/case-study/paypal-ecosystem-helps-simplify-payments",
+          "source_type": "customer story - PayPal ecosystem merchant case study",
+          "source_class": "customer_story",
+          "evidence_quality_score": 85,
+          "proof_bearing": true,
+          "snippet": "...ing with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Subscriptions Savings and goals Cryptocurrency Get the App How PayPal Works Money Hub Business PayPal Open The platform for all business Business Types Enterprises Small Businesses So..."
+        }
+      ],
+      "map_impact": {
+        "buyer_specificity_pull": 43,
+        "business_outcome_pull": 60,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 25 matching public evidence items across Fiserv, Visa, PayPal, Mastercard, Adyen. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Acquirer and merchant enablement is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for merchant acquiring / commerce leader, with 299 buyer-relevance hits and 25 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for acquirer and merchant enablement: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with merchant acquiring / commerce leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa; PayPal: Home - Investor Day",
+      "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
     },
     {
       "id": "live-3-embedded-finance-for-enterprise-platforms",
@@ -485,7 +761,7 @@
       "fit": 80,
       "urgency": 96,
       "noise": 72,
-      "source_count": 22,
+      "source_count": 23,
       "distinct_brands": [
         "Fiserv",
         "Adyen",
@@ -537,35 +813,40 @@
           "snippet": "...source Library Presentation Speakers Investor Day Content Innovation Demos We are building the next generation commerce platform with frictionless and personalized experiences for our customers, online and in-store. By leveraging our data and AI tools, PayPal is increasing innovation velocity and connecting every stage of the shopping journey. Our demos show..."
         }
       ],
-      "why_it_matters": "Detected from 22 matching public evidence items across Fiserv, Adyen, Visa, PayPal, Stripe. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "map_impact": {
+        "buyer_specificity_pull": 43,
+        "business_outcome_pull": 60,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 23 matching public evidence items across Fiserv, Adyen, Visa, PayPal, Stripe. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
       "thesis": "Embedded finance for enterprise platforms is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
-      "why": "The strongest buyer signal is for platform partnerships lead, with 251 buyer-relevance hits and 22 proof-bearing sources tied to the topic.",
+      "why": "The strongest buyer signal is for platform partnerships lead, with 270 buyer-relevance hits and 23 proof-bearing sources tied to the topic.",
       "activation_idea": "Build a buyer-facing proof ladder for embedded finance for enterprise platforms: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
       "move": "Turn this into a live evidence table and brief: lead with platform partnerships lead, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
       "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Adyen: Shareholder Letter H2 2024 - Adyen; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
       "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
     },
     {
-      "id": "live-4-acquirer-and-merchant-enablement",
-      "topic": "Acquirer and merchant enablement",
-      "title": "Acquirer and merchant enablement",
+      "id": "live-12-partner-ecosystem-orchestration-for-banks-and-fintechs",
+      "topic": "Partner ecosystem orchestration for banks and fintechs",
+      "title": "Partner ecosystem orchestration for banks and fintechs",
       "opportunity_score": 75,
       "confidence": 75,
-      "buyer": "Merchant acquiring / commerce leader",
-      "region": "North America / Global",
-      "horizon": "0-6 months",
+      "buyer": "Bank / fintech partnership leader",
+      "region": "Global",
+      "horizon": "6-12 months",
       "value": "High",
       "fit": 80,
       "urgency": 96,
       "noise": 72,
-      "source_count": 24,
+      "source_count": 22,
       "distinct_brands": [
         "Fiserv",
         "Visa",
         "PayPal",
-        "Adyen",
         "Mastercard",
-        "Stripe"
+        "Stripe",
+        "Adyen"
       ],
       "competitor_count": 5,
       "supporting_evidence": [
@@ -591,16 +872,6 @@
         },
         {
           "brand": "PayPal",
-          "title": "Home - Investor Day",
-          "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
-          "source_type": "investor source - 2025 Investor Day",
-          "source_class": "report_or_research",
-          "evidence_quality_score": 86,
-          "proof_bearing": true,
-          "snippet": "...source Library Presentation Speakers Investor Day Content Innovation Demos We are building the next generation commerce platform with frictionless and personalized experiences for our customers, online and in-store. By leveraging our data and AI tools, PayPal is increasing innovation velocity and connecting every stage of the shopping journey. Our demos show..."
-        },
-        {
-          "brand": "PayPal",
           "title": "Fastlane by PayPal and Venmo help supercharge your checkout experience and drive more sales | PayPal US",
           "url": "https://www.paypal.com/us/brc/case-study/paypal-ecosystem-helps-simplify-payments",
           "source_type": "customer story - PayPal ecosystem merchant case study",
@@ -608,14 +879,29 @@
           "evidence_quality_score": 85,
           "proof_bearing": true,
           "snippet": "...ing with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Subscriptions Savings and goals Cryptocurrency Get the App How PayPal Works Money Hub Business PayPal Open The platform for all business Business Types Enterprises Small Businesses So..."
+        },
+        {
+          "brand": "Mastercard",
+          "title": "How AIK Banka found a possible 30% increase in transaction volume | Mastercard | Mastercard US",
+          "url": "https://www.mastercard.com/us/en/news-and-trends/Insights/2023/how-aik-banka-found-a-possible-30-increase-in-transaction-volume.html",
+          "source_type": "customer story - AIK Banka acquiring optimisation",
+          "source_class": "customer_story",
+          "evidence_quality_score": 83,
+          "proof_bearing": true,
+          "snippet": "How AIK Banka found a possible 30% increase in transaction volume | Mastercard | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Card..."
         }
       ],
-      "why_it_matters": "Detected from 24 matching public evidence items across Fiserv, Visa, PayPal, Adyen, Mastercard. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
-      "thesis": "Acquirer and merchant enablement is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
-      "why": "The strongest buyer signal is for merchant acquiring / commerce leader, with 280 buyer-relevance hits and 24 proof-bearing sources tied to the topic.",
-      "activation_idea": "Build a buyer-facing proof ladder for acquirer and merchant enablement: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
-      "move": "Turn this into a live evidence table and brief: lead with merchant acquiring / commerce leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
-      "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa; PayPal: Home - Investor Day",
+      "map_impact": {
+        "buyer_specificity_pull": 43,
+        "business_outcome_pull": 60,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 22 matching public evidence items across Fiserv, Visa, PayPal, Mastercard, Stripe. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Partner ecosystem orchestration for banks and fintechs is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for bank / fintech partnership leader, with 283 buyer-relevance hits and 22 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for partner ecosystem orchestration for banks and fintechs: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with bank / fintech partnership leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa; PayPal: Fastlane by PayPal and Venmo help supercharge your checkout experience and drive more sales | PayPal US",
       "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
     },
     {
@@ -624,20 +910,20 @@
       "title": "Merchant data intelligence",
       "opportunity_score": 75,
       "confidence": 75,
-      "buyer": "Merchant acquiring / commerce leader",
-      "region": "North America / Global",
-      "horizon": "0-6 months",
+      "buyer": "Merchant growth / data leader",
+      "region": "Global",
+      "horizon": "3-9 months",
       "value": "High",
       "fit": 80,
       "urgency": 96,
       "noise": 72,
-      "source_count": 20,
+      "source_count": 21,
       "distinct_brands": [
         "Fiserv",
         "Visa",
         "PayPal",
-        "Adyen",
         "Mastercard",
+        "Adyen",
         "Stripe"
       ],
       "competitor_count": 5,
@@ -683,44 +969,60 @@
           "snippet": "...ing with PayPal Send & Receive Send money Request money Pool money Donate Start selling Manage Your Money Add cards and banks Security and safety Set up Direct Deposit Add cash Subscriptions Savings and goals Cryptocurrency Get the App How PayPal Works Money Hub Business PayPal Open The platform for all business Business Types Enterprises Small Businesses So..."
         }
       ],
-      "why_it_matters": "Detected from 20 matching public evidence items across Fiserv, Visa, PayPal, Adyen, Mastercard. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "map_impact": {
+        "buyer_specificity_pull": 43,
+        "business_outcome_pull": 60,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 21 matching public evidence items across Fiserv, Visa, PayPal, Mastercard, Adyen. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
       "thesis": "Merchant data intelligence is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
-      "why": "The strongest buyer signal is for merchant acquiring / commerce leader, with 235 buyer-relevance hits and 20 proof-bearing sources tied to the topic.",
+      "why": "The strongest buyer signal is for merchant growth / data leader, with 254 buyer-relevance hits and 21 proof-bearing sources tied to the topic.",
       "activation_idea": "Build a buyer-facing proof ladder for merchant data intelligence: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
-      "move": "Turn this into a live evidence table and brief: lead with merchant acquiring / commerce leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "move": "Turn this into a live evidence table and brief: lead with merchant growth / data leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
       "proof": "Fiserv: Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv; Visa: Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa; PayPal: Home - Investor Day",
       "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
     },
     {
-      "id": "live-5-fraud-and-identity-orchestration",
-      "topic": "Fraud and identity orchestration",
-      "title": "Fraud and identity orchestration",
+      "id": "live-1-ai-led-treasury-automation",
+      "topic": "AI-led treasury automation",
+      "title": "AI-led treasury automation",
       "opportunity_score": 74,
       "confidence": 74,
-      "buyer": "Risk, fraud and identity leader",
+      "buyer": "VP Finance / Treasurer",
       "region": "Global",
-      "horizon": "6-12 months",
+      "horizon": "3-9 months",
       "value": "High",
-      "fit": 75,
-      "urgency": 94,
-      "noise": 64,
-      "source_count": 4,
+      "fit": 77,
+      "urgency": 96,
+      "noise": 72,
+      "source_count": 8,
       "distinct_brands": [
-        "Adyen",
+        "PayPal",
         "Stripe",
+        "Visa",
         "Fiserv"
       ],
-      "competitor_count": 3,
+      "competitor_count": 4,
       "supporting_evidence": [
         {
-          "brand": "Adyen",
-          "title": "How New Black attracts high-value merchants and increases win rates with Adyen - Adyen",
-          "url": "https://www.adyen.com/knowledge-hub/how-new-black-attracts-high-value-merchants-and-increases-win-rates-with-adyen",
-          "source_type": "customer story - New Black unified commerce platform",
-          "source_class": "customer_story",
-          "evidence_quality_score": 84,
+          "brand": "PayPal",
+          "title": "Home - Investor Day",
+          "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
+          "source_type": "investor source - 2025 Investor Day",
+          "source_class": "report_or_research",
+          "evidence_quality_score": 86,
           "proof_bearing": true,
-          "snippet": "How New Black attracts high-value merchants and increases win rates with Adyen - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Knowledge Hub Case study How New Black attracts high-value m..."
+          "snippet": "...source Library Presentation Speakers Investor Day Content Innovation Demos We are building the next generation commerce platform with frictionless and personalized experiences for our customers, online and in-store. By leveraging our data and AI tools, PayPal is increasing innovation velocity and connecting every stage of the shopping journey. Our demos show..."
+        },
+        {
+          "brand": "Stripe",
+          "title": "Hertz Unifies Commerce with Stripe",
+          "url": "https://stripe.com/customers/hertz",
+          "source_type": "customer story - Hertz enterprise commerce",
+          "source_class": "customer_story",
+          "evidence_quality_score": 80,
+          "proof_bearing": true,
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing Dashboard Sign in Sign i..."
         },
         {
           "brand": "Stripe",
@@ -733,32 +1035,103 @@
           "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe’s 2025 annual letter Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payme..."
         },
         {
-          "brand": "Adyen",
-          "title": "Platforms | Payment solution for marketplaces and platforms - Adyen",
-          "url": "https://www.adyen.com/platform-payments",
-          "source_type": "platform payments product page",
+          "brand": "Visa",
+          "title": "Visa B2B Payables | Visa",
+          "url": "https://usa.visa.com/products/b2b-payables.html",
+          "source_type": "B2B payables product page",
           "source_class": "product_page",
-          "evidence_quality_score": 55,
+          "evidence_quality_score": 64,
           "proof_bearing": true,
-          "snippet": "Platforms | Payment solution for marketplaces and platforms - Adyen Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Products Businesses we serve About Resources Pricing Log in Contact us Adyen for Platforms Embed payments into your platform or marketplace Let your u..."
+          "snippet": "Visa B2B Payables | Visa Designed for businesses of all sizes Visa B2B Payables is designed for large, medium and small businesses to connect, communicate and transact with ease. Efficient payments Organizations of all sizes can pay approved invoices and make on-demand payments simply and securely. Secure processing Visa B2B Payables offers a comprehensive s..."
+        }
+      ],
+      "map_impact": {
+        "buyer_specificity_pull": 39,
+        "business_outcome_pull": 56,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 8 matching public evidence items across PayPal, Stripe, Visa, Fiserv. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "AI-led treasury automation is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for vp finance / treasurer, with 90 buyer-relevance hits and 8 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for ai-led treasury automation: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with vp finance / treasurer, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "PayPal: Home - Investor Day; Stripe: Hertz Unifies Commerce with Stripe; Stripe: Stripe’s 2025 annual letter",
+      "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
+    },
+    {
+      "id": "live-2-cross-border-b2b-payment-certainty",
+      "topic": "Cross-border B2B payment certainty",
+      "title": "Cross-border B2B payment certainty",
+      "opportunity_score": 74,
+      "confidence": 74,
+      "buyer": "VP Finance / Treasurer",
+      "region": "Europe / Global",
+      "horizon": "0-6 months",
+      "value": "High",
+      "fit": 77,
+      "urgency": 96,
+      "noise": 71,
+      "source_count": 5,
+      "distinct_brands": [
+        "Stripe",
+        "Mastercard",
+        "Visa",
+        "Fiserv"
+      ],
+      "competitor_count": 3,
+      "supporting_evidence": [
+        {
+          "brand": "Stripe",
+          "title": "Hertz Unifies Commerce with Stripe",
+          "url": "https://stripe.com/customers/hertz",
+          "source_type": "customer story - Hertz enterprise commerce",
+          "source_class": "customer_story",
+          "evidence_quality_score": 80,
+          "proof_bearing": true,
+          "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing Dashboard Sign in Sign i..."
+        },
+        {
+          "brand": "Mastercard",
+          "title": "Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US",
+          "url": "https://www.mastercard.com/us/en/news-and-trends/press/2026/june/Mastercard-advances-instant-cross-border-payments-with-TIPS-cross-currency-pilot.html",
+          "source_type": "press release - instant cross-border settlement pilot",
+          "source_class": "press_release",
+          "evidence_quality_score": 74,
+          "proof_bearing": true,
+          "snippet": "Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US Skip to main content Open Menu For you For business For the world For innovators News and trends All For you Find a card Ways to pay Protecting you Get support Experience Mastercard For you Find a card Explore all cards Mastercard Credit Cards Mastercard Debit Ca..."
+        },
+        {
+          "brand": "Visa",
+          "title": "AR Manager | Visa",
+          "url": "https://usa.visa.com/products/ar-manager.html",
+          "source_type": "specific product page - AR Manager",
+          "source_class": "product_page",
+          "evidence_quality_score": 66,
+          "proof_bearing": true,
+          "snippet": "...lines the card acceptance process Step 1: Capture Capture virtual card details and identify the intended Visa-accepting supplier. Step 2: Process Process the virtual card using Visa’s proprietary gateway. Step 3: Reconcile Send payments and invoice reports to suppliers via email. Explore related products Virtual card for business Gain control and flexibility..."
         },
         {
           "brand": "Fiserv",
-          "title": "Carat Global Platform | Carat U.S. | Fiserv",
-          "url": "https://www.carat.fiserv.com/en-us/",
-          "source_type": "commerce platform overview",
-          "source_class": "overview_page",
-          "evidence_quality_score": 53,
+          "title": "Commerce Solutions for Mid-sized Businesses",
+          "url": "https://merchants.fiserv.com/en-us/products/merchants/snappay/",
+          "source_type": "specific product page - SnapPay accounts receivable automation",
+          "source_class": "product_page",
+          "evidence_quality_score": 62,
           "proof_bearing": true,
-          "snippet": "Carat Global Platform | Carat U.S. | Fiserv Skip to Contact an Expert Skip to Main Content What we do What we do Explore the Carat Platform Explore the Carat Platform Orchestrate payments and commerce experiences. Alternative Payments Alternative Payments Engage more customers and lower the cost of payments. Secure Commerce Secure Commerce Protect your brand..."
+          "snippet": "Commerce Solutions for Mid-sized Businesses Skip to Contact an Expert Skip to Main Content Who We Serve Business and Merchants Partners Large Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Mid-sized Business Grow and optimize your business and elevate payment experiences to secure commerce Small Business Cl..."
         }
       ],
-      "why_it_matters": "Detected from 4 matching public evidence items across Adyen, Stripe, Fiserv. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
-      "thesis": "Fraud and identity orchestration is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
-      "why": "The strongest buyer signal is for risk, fraud and identity leader, with 45 buyer-relevance hits and 4 proof-bearing sources tied to the topic.",
-      "activation_idea": "Build a buyer-facing proof ladder for fraud and identity orchestration: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
-      "move": "Turn this into a live evidence table and brief: lead with risk, fraud and identity leader, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
-      "proof": "Adyen: How New Black attracts high-value merchants and increases win rates with Adyen - Adyen; Stripe: Stripe’s 2025 annual letter; Adyen: Platforms | Payment solution for marketplaces and platforms - Adyen",
+      "map_impact": {
+        "buyer_specificity_pull": 40,
+        "business_outcome_pull": 56,
+        "summary": "Expected to pull Mastercard toward more specific buyer pain and a more outcome-led map position."
+      },
+      "why_it_matters": "Detected from 5 matching public evidence items across Stripe, Mastercard, Visa, Fiserv. The evidence shows visible competitor crowding, which makes this a live opportunity to pressure-test rather than a static theme.",
+      "thesis": "Cross-border B2B payment certainty is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.",
+      "why": "The strongest buyer signal is for vp finance / treasurer, with 51 buyer-relevance hits and 5 proof-bearing sources tied to the topic.",
+      "activation_idea": "Build a buyer-facing proof ladder for cross-border b2b payment certainty: what the market is saying, what competitors can prove, and where Mastercard can credibly create a sharper position.",
+      "move": "Turn this into a live evidence table and brief: lead with vp finance / treasurer, cite the strongest public sources, and separate Mastercard's proof from competitor noise.",
+      "proof": "Stripe: Hertz Unifies Commerce with Stripe; Mastercard: Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US; Visa: AR Manager | Visa",
       "risk": "Competitor signal is already crowded; the brief needs a sharper Mastercard-specific claim and proof hierarchy."
     }
   ],
@@ -770,10 +1143,10 @@
       "action": "Add proof-bearing sources before using scores externally: customer stories, partner announcements, press releases, reports, quantified outcomes or dated launch evidence."
     },
     {
-      "title": "Pressure-test Cross-border B2B payment certainty",
+      "title": "Pressure-test Real-time settlement and liquidity visibility",
       "priority": "Medium",
       "why": "Whitespace ranking is now based on live evidence counts, buyer signal, proof signal and competitor crowding from the calibrated run.",
-      "action": "Create an evidence table for Cross-border B2B payment certainty: public proof, competitor crowding, buyer relevance and what Mastercard can credibly own."
+      "action": "Create an evidence table for Real-time settlement and liquidity visibility: public proof, competitor crowding, buyer relevance and what Mastercard can credibly own."
     },
     {
       "title": "Strengthen proof for Mastercard",
@@ -788,7 +1161,7 @@
       "source_type": "commercial payments product page",
       "title": "Mastercard Commercial Payments – Innovative Payment Solutions | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments.html",
-      "captured_at": "2026-06-11T17:59:11.779Z",
+      "captured_at": "2026-06-15T14:58:55.696Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -818,7 +1191,7 @@
       "source_type": "money movement product page",
       "title": "Mastercard Move - Set money in motion | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/mastercard-move.html",
-      "captured_at": "2026-06-11T17:59:11.826Z",
+      "captured_at": "2026-06-15T14:58:55.733Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -848,7 +1221,7 @@
       "source_type": "customer story - AIK Banka acquiring optimisation",
       "title": "How AIK Banka found a possible 30% increase in transaction volume | Mastercard | Mastercard US",
       "url": "https://www.mastercard.com/us/en/news-and-trends/Insights/2023/how-aik-banka-found-a-possible-30-increase-in-transaction-volume.html",
-      "captured_at": "2026-06-11T17:59:11.867Z",
+      "captured_at": "2026-06-15T14:58:55.764Z",
       "b2b_relevance_score": 100,
       "source_class": "customer_story",
       "evidence_quality_score": 83,
@@ -878,7 +1251,7 @@
       "source_type": "press release - instant cross-border settlement pilot",
       "title": "Mastercard advances instant cross-border payments with TIPS cross-currency pilot | Mastercard US",
       "url": "https://www.mastercard.com/us/en/news-and-trends/press/2026/june/Mastercard-advances-instant-cross-border-payments-with-TIPS-cross-currency-pilot.html",
-      "captured_at": "2026-06-11T17:59:11.897Z",
+      "captured_at": "2026-06-15T14:58:55.792Z",
       "b2b_relevance_score": 100,
       "source_class": "press_release",
       "evidence_quality_score": 74,
@@ -908,7 +1281,7 @@
       "source_type": "specific product page - accounts receivable solutions",
       "title": "Accounts Receivable Solutions - Streamline Receivables Management | Mastercard US",
       "url": "https://www.mastercard.com/us/en/business/payments/commercial-payments/corporate-solutions/accounts-receivable-solutions.html",
-      "captured_at": "2026-06-11T17:59:11.931Z",
+      "captured_at": "2026-06-15T14:58:55.823Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -938,7 +1311,7 @@
       "source_type": "B2B payables product page",
       "title": "Visa B2B Payables | Visa",
       "url": "https://usa.visa.com/products/b2b-payables.html",
-      "captured_at": "2026-06-11T17:59:12.115Z",
+      "captured_at": "2026-06-15T14:58:56.000Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 64,
@@ -968,7 +1341,7 @@
       "source_type": "money movement product page",
       "title": "Visa Direct | Transforming global money movement | Visa",
       "url": "https://usa.visa.com/products/visa-direct.html",
-      "captured_at": "2026-06-11T17:59:12.230Z",
+      "captured_at": "2026-06-15T14:58:56.107Z",
       "b2b_relevance_score": 48,
       "source_class": "product_page",
       "evidence_quality_score": 57,
@@ -994,7 +1367,7 @@
       "source_type": "press release - VCS Hub and AR Manager integration",
       "title": "Visa Expands Commercial Solutions Hub with Integration of Visa Accounts Receivable Manager | Visa",
       "url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22471.html",
-      "captured_at": "2026-06-11T17:59:14.193Z",
+      "captured_at": "2026-06-15T14:58:58.166Z",
       "b2b_relevance_score": 100,
       "source_class": "press_release",
       "evidence_quality_score": 88,
@@ -1024,7 +1397,7 @@
       "source_type": "specific product page - AR Manager",
       "title": "AR Manager | Visa",
       "url": "https://usa.visa.com/products/ar-manager.html",
-      "captured_at": "2026-06-11T17:59:14.318Z",
+      "captured_at": "2026-06-15T14:58:58.270Z",
       "b2b_relevance_score": 48,
       "source_class": "product_page",
       "evidence_quality_score": 66,
@@ -1049,7 +1422,7 @@
       "source_type": "enterprise payments product page",
       "title": "Stripe Payments | Global Payment Processing Platform",
       "url": "https://stripe.com/payments",
-      "captured_at": "2026-06-11T17:59:14.536Z",
+      "captured_at": "2026-06-15T14:58:58.661Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -1079,7 +1452,7 @@
       "source_type": "platform and marketplace payments product page",
       "title": "Stripe Connect | Platform and Marketplace Payment Solutions",
       "url": "https://stripe.com/connect",
-      "captured_at": "2026-06-11T17:59:14.707Z",
+      "captured_at": "2026-06-15T14:58:58.734Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -1095,7 +1468,7 @@
         "merchants",
         "bank"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing...",
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Connect | Platform and Marketplace Payment Solutions Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ...",
       "sourceClass": "product_page",
       "proofBearing": true,
       "navHeavy": true,
@@ -1109,7 +1482,7 @@
       "source_type": "specific product page - card issuing",
       "title": "Stripe Issuing | Virtual and Physical Card Issuing Platform",
       "url": "https://stripe.com/issuing",
-      "captured_at": "2026-06-11T17:59:14.761Z",
+      "captured_at": "2026-06-15T14:58:58.881Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -1125,7 +1498,7 @@
         "merchant",
         "merchants"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Issuing | Virtual and Physical Card Issuing Platform Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in ...",
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Stripe Issuing | Virtual and Physical Card Issuing Platform Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing...",
       "sourceClass": "product_page",
       "proofBearing": true,
       "navHeavy": true,
@@ -1139,7 +1512,7 @@
       "source_type": "customer story - Hertz enterprise commerce",
       "title": "Hertz Unifies Commerce with Stripe",
       "url": "https://stripe.com/customers/hertz",
-      "captured_at": "2026-06-11T17:59:15.444Z",
+      "captured_at": "2026-06-15T14:58:59.557Z",
       "b2b_relevance_score": 100,
       "source_class": "customer_story",
       "evidence_quality_score": 80,
@@ -1155,7 +1528,7 @@
         "bank",
         "reconciliation"
       ],
-      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales Stripe logo Back Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Payments Payments Online ...",
+      "snippet": "Chat with Stripe sales 8 sales reps available We're here to discuss your business needs. Chat now with sales Hertz Unifies Commerce with Stripe Stripe logo Products Solutions Developers Resources Pricing Guide me Dashboard Sign in Sign in Contact sales Guide me Stripe logo Back Guide me Products Solutions Developers Resources Pricing Dashboard Sign in Sign i...",
       "sourceClass": "customer_story",
       "proofBearing": true,
       "navHeavy": true,
@@ -1169,7 +1542,7 @@
       "source_type": "report - 2025 annual update",
       "title": "Stripe’s 2025 annual letter",
       "url": "https://stripe.com/annual-updates/2025",
-      "captured_at": "2026-06-11T17:59:15.570Z",
+      "captured_at": "2026-06-15T14:58:59.696Z",
       "b2b_relevance_score": 100,
       "source_class": "report_or_research",
       "evidence_quality_score": 73,
@@ -1199,7 +1572,7 @@
       "source_type": "online payments product page",
       "title": "Online payments | Making online payments easy - Adyen",
       "url": "https://www.adyen.com/online-payments",
-      "captured_at": "2026-06-11T17:59:16.098Z",
+      "captured_at": "2026-06-15T14:59:00.220Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -1229,7 +1602,7 @@
       "source_type": "platform payments product page",
       "title": "Platforms | Payment solution for marketplaces and platforms - Adyen",
       "url": "https://www.adyen.com/platform-payments",
-      "captured_at": "2026-06-11T17:59:16.369Z",
+      "captured_at": "2026-06-15T14:59:00.539Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 55,
@@ -1259,7 +1632,7 @@
       "source_type": "specific product page - issuing",
       "title": "Adyen Card Issuing | Issue virtual cards instantly - Adyen",
       "url": "https://www.adyen.com/issuing",
-      "captured_at": "2026-06-11T17:59:16.664Z",
+      "captured_at": "2026-06-15T14:59:00.787Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 55,
@@ -1289,15 +1662,16 @@
       "source_type": "customer story - New Black unified commerce platform",
       "title": "How New Black attracts high-value merchants and increases win rates with Adyen - Adyen",
       "url": "https://www.adyen.com/knowledge-hub/how-new-black-attracts-high-value-merchants-and-increases-win-rates-with-adyen",
-      "captured_at": "2026-06-11T17:59:16.923Z",
-      "b2b_relevance_score": 80,
+      "captured_at": "2026-06-15T14:59:01.132Z",
+      "b2b_relevance_score": 100,
       "source_class": "customer_story",
-      "evidence_quality_score": 84,
+      "evidence_quality_score": 83,
       "proof_bearing": true,
       "nav_heavy": true,
       "top_signals": [
         "business",
         "businesses",
+        "commercial",
         "platform",
         "merchant",
         "merchants",
@@ -1307,17 +1681,17 @@
       "sourceClass": "customer_story",
       "proofBearing": true,
       "navHeavy": true,
-      "proofHits": 5,
+      "proofHits": 22,
       "boilerplateHits": 6,
-      "genericHits": 4,
-      "quality": 84
+      "genericHits": 5,
+      "quality": 83
     },
     {
       "brand": "Adyen",
       "source_type": "investor report - H2 2024 shareholder letter",
       "title": "Shareholder Letter H2 2024 - Adyen",
       "url": "https://investors.adyen.com/financials/h2-2024",
-      "captured_at": "2026-06-11T17:59:17.234Z",
+      "captured_at": "2026-06-15T14:59:01.895Z",
       "b2b_relevance_score": 24,
       "source_class": "report_or_research",
       "evidence_quality_score": 90,
@@ -1342,7 +1716,7 @@
       "source_type": "enterprise payments overview",
       "title": "Enterprise Payments | PayPal for Enterprises | PayPal US",
       "url": "https://www.paypal.com/us/business/enterprise",
-      "captured_at": "2026-06-11T17:59:18.262Z",
+      "captured_at": "2026-06-15T14:59:02.724Z",
       "b2b_relevance_score": 100,
       "source_class": "overview_page",
       "evidence_quality_score": 44,
@@ -1372,7 +1746,7 @@
       "source_type": "payment processing product page",
       "title": "Enterprise Payments Processing Solutions | PayPal US",
       "url": "https://www.paypal.com/us/business/payment-processing",
-      "captured_at": "2026-06-11T17:59:19.235Z",
+      "captured_at": "2026-06-15T14:59:03.687Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 52,
@@ -1402,7 +1776,7 @@
       "source_type": "specific product page - platform payment solution",
       "title": "PayPal for Platforms | PayPal US",
       "url": "https://www.paypal.com/us/business/platform-payment-solution",
-      "captured_at": "2026-06-11T17:59:19.978Z",
+      "captured_at": "2026-06-15T14:59:04.441Z",
       "b2b_relevance_score": 100,
       "source_class": "product_page",
       "evidence_quality_score": 56,
@@ -1432,7 +1806,7 @@
       "source_type": "customer story - PayPal ecosystem merchant case study",
       "title": "Fastlane by PayPal and Venmo help supercharge your checkout experience and drive more sales | PayPal US",
       "url": "https://www.paypal.com/us/brc/case-study/paypal-ecosystem-helps-simplify-payments",
-      "captured_at": "2026-06-11T17:59:20.522Z",
+      "captured_at": "2026-06-15T14:59:04.876Z",
       "b2b_relevance_score": 100,
       "source_class": "customer_story",
       "evidence_quality_score": 85,
@@ -1462,7 +1836,7 @@
       "source_type": "investor source - 2025 Investor Day",
       "title": "Home - Investor Day",
       "url": "https://paypal2025irday.q4ir.com/home/default.aspx",
-      "captured_at": "2026-06-11T17:59:20.821Z",
+      "captured_at": "2026-06-15T14:59:05.092Z",
       "b2b_relevance_score": 8,
       "source_class": "report_or_research",
       "evidence_quality_score": 86,
@@ -1486,7 +1860,7 @@
       "source_type": "commerce platform overview",
       "title": "Carat Global Platform | Carat U.S. | Fiserv",
       "url": "https://www.carat.fiserv.com/en-us/",
-      "captured_at": "2026-06-11T17:59:21.350Z",
+      "captured_at": "2026-06-15T14:59:05.601Z",
       "b2b_relevance_score": 100,
       "source_class": "overview_page",
       "evidence_quality_score": 53,
@@ -1514,7 +1888,7 @@
       "source_type": "card services product page",
       "title": "CardHub, Card Solutions, Digital Wallet | Fiserv",
       "url": "https://www.fiserv.com/en/solutions/card-services/cardhub.html",
-      "captured_at": "2026-06-11T17:59:21.712Z",
+      "captured_at": "2026-06-15T14:59:06.259Z",
       "b2b_relevance_score": 100,
       "source_class": "adjacent_or_mixed",
       "evidence_quality_score": 51,
@@ -1544,7 +1918,7 @@
       "source_type": "customer story - Autoagent local government payments",
       "title": "Autoagent Partners with Fiserv to Drive Reliable Payments for Local Governments | Fiserv",
       "url": "https://www.fiserv.com/en/insights/articles-and-blogs/autoagent-partners-with-fiserv-to-drive-reliable-payments-for-local-governments.html",
-      "captured_at": "2026-06-11T17:59:22.069Z",
+      "captured_at": "2026-06-15T14:59:06.837Z",
       "b2b_relevance_score": 100,
       "source_class": "customer_story",
       "evidence_quality_score": 95,
@@ -1574,7 +1948,7 @@
       "source_type": "white paper - ISV integrated payments revenue",
       "title": "The Strategic Growth Engine Behind 44% of ISV Revenue | Fiserv",
       "url": "https://www.fiserv.com/en/about-fiserv/resource-center/white-papers/the-strategic-growth-engine-behind-44-of-isv-revenue.html",
-      "captured_at": "2026-06-11T17:59:22.365Z",
+      "captured_at": "2026-06-15T14:59:07.373Z",
       "b2b_relevance_score": 100,
       "source_class": "resource_centre",
       "evidence_quality_score": 56,
@@ -1598,13 +1972,48 @@
       "boilerplateHits": 0,
       "genericHits": 0,
       "quality": 56
+    },
+    {
+      "brand": "Fiserv",
+      "source_type": "specific product page - SnapPay accounts receivable automation",
+      "title": "Commerce Solutions for Mid-sized Businesses",
+      "url": "https://merchants.fiserv.com/en-us/products/merchants/snappay/",
+      "captured_at": "2026-06-15T14:59:07.853Z",
+      "b2b_relevance_score": 100,
+      "source_class": "product_page",
+      "evidence_quality_score": 62,
+      "proof_bearing": true,
+      "nav_heavy": false,
+      "top_signals": [
+        "enterprise",
+        "business",
+        "businesses",
+        "platform",
+        "merchant",
+        "merchants",
+        "bank",
+        "reconciliation"
+      ],
+      "snippet": "Commerce Solutions for Mid-sized Businesses Skip to Contact an Expert Skip to Main Content Who We Serve Business and Merchants Partners Large Enterprise Omnichannel commerce, billing and payments solutions for large merchants and corporates Mid-sized Business Grow and optimize your business and elevate payment experiences to secure commerce Small Business Cl...",
+      "sourceClass": "product_page",
+      "proofBearing": true,
+      "navHeavy": false,
+      "proofHits": 14,
+      "boilerplateHits": 1,
+      "genericHits": 7,
+      "quality": 62
     }
   ],
   "run_diagnostics": {
-    "sources_kept": 28,
-    "sources_skipped_or_filtered": 1,
-    "proof_bearing_sources": 28,
+    "sources_kept": 29,
+    "sources_skipped_or_filtered": 0,
+    "proof_bearing_sources": 29,
     "readiness": "AMBER: proof-bearing evidence present, still needs human review",
-    "warning": "Scores are calibrated and capped. Client use requires manual review and stronger proof-bearing evidence."
+    "warning": "Scores are calibrated and capped. Client use requires manual review and stronger proof-bearing evidence.",
+    "agent_evidence_items": 0,
+    "agent_evidence_note": "No recent agent evidence found in data/agent-runs.",
+    "ranked_bet_limit": 10,
+    "candidate_whitespace_topics": 14,
+    "ranked_bets_generated": 10
   }
 }

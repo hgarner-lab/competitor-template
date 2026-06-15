@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "latest": {
+    "run_at": "2026-06-15T14:58:55.450Z",
+    "files_read": 0,
+    "records_seen": 0,
+    "records_kept": 0,
+    "records_skipped": 0,
+    "brands": [],
+    "agents": []
+  },
+  "history": [
+    {
+      "run_at": "2026-06-15T14:58:55.450Z",
+      "files_read": 0,
+      "records_seen": 0,
+      "records_kept": 0,
+      "records_skipped": 0,
+      "brands": [],
+      "agents": []
+    }
+  ]
+}
