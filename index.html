@@ -801,6 +801,26 @@
         color: var(--text);
       }
 
+
+      .radar-control-panel {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        display: grid;
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+
+      .radar-control-panel strong {
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .radar-control-panel .body-copy {
+        margin: 0;
+      }
+
       .matrix-scroll {
         overflow-x: auto;
       }
@@ -1374,6 +1394,11 @@
                 <div class="card-header"><p class="eyebrow">Competitiveness Radar</p><span class="helper">Same four scoring categories</span></div>
                 <div class="comparison-top">
                   <svg class="radar-svg" id="radarChartDeep" viewBox="0 0 300 270" role="img" aria-label="Deep capability radar"></svg>
+                  <div class="radar-control-panel">
+                    <strong>Compare competitors</strong>
+                    <div class="toggle-row" id="competitorTogglesDeep"></div>
+                    <p class="body-copy">Mastercard stays fixed. Select or deselect competitor shapes to isolate the comparison.</p>
+                  </div>
                   <div class="body-copy">The radar compares Mastercard and visible competitors on the same four inputs that create the competitiveness score: share of model, differentiation, buyer relevance and proof strength.</div>
                 </div>
               </article>
@@ -1805,6 +1830,7 @@
       const scoreRadarSubtitle = document.querySelector("#scoreRadarSubtitle");
       const scoreCompetitorToggles = document.querySelector("#scoreCompetitorToggles");
       const competitorToggles = document.querySelector("#competitorToggles");
+      const competitorTogglesDeep = document.querySelector("#competitorTogglesDeep");
       const scoreModeEl = document.querySelector("#scoreMode");
       const scoreDetailsButton = document.querySelector("#scoreDetailsButton");
       const fullComparisonDetails = document.querySelector("#fullComparisonDetails");
@@ -2193,6 +2219,7 @@
 
       function renderToggles() {
         renderToggleSet(competitorToggles);
+        renderToggleSet(competitorTogglesDeep);
         renderScoreCompetitorToggles();
       }
 
