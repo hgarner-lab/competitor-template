@@ -1272,40 +1272,30 @@
               <p class="subtitle">B2B competitor intelligence for payments, platforms, and enterprise commerce.</p>
               <p class="subtitle data-status" id="dataStatus">Loading data/dashboard.json…</p>
             </div>
-            <div class="filters">
-              <label class="mini-field">
-                <span>Client</span>
-                <select id="clientSelect" aria-label="Client"><option>Mastercard</option><option>New client draft</option></select>
-              </label>
-              <label class="mini-field">
-                <span>Market</span>
-                <select id="focusSelect" aria-label="Market segment">
-                  <option value="b2b">B2B payments</option>
-                  <option value="commercial">Commercial payments</option>
-                  <option value="movement">Money movement</option>
-                  <option value="openfinance">Open finance and AI</option>
-                </select>
-              </label>
-              <label class="mini-field">
-                <span>Buyer</span>
-                <select id="buyerSelect" aria-label="Buyer segment"><option>All buyers</option><option>Finance leaders</option><option>Platforms</option><option>Merchants</option><option>Banks</option></select>
-              </label>
-              <label class="mini-field">
-                <span>Region</span>
-                <select id="regionSelect" aria-label="Region"><option>Global</option><option>North America</option><option>Europe</option><option>Asia Pacific</option></select>
-              </label>
-              <label class="mini-field">
-                <span>Timeframe</span>
-                <select id="periodSelect" aria-label="Time period"><option>Last 90 Days</option><option>Last 30 Days</option><option>Last 12 Months</option></select>
-              </label>
-              <label class="mini-field">
-                <span>Confidence floor</span>
-                <input id="confidenceFloor" aria-label="Confidence floor" type="number" min="50" max="95" value="51" />
-              </label>
-              <button class="action-button" id="newReviewButton" type="button">New Review</button>
-              <button class="action-button" id="shareButton" type="button"><span id="shareLabel">Share</span></button>
-              <button class="action-button primary-action" id="exportButton" type="button">Export Brief</button>
-            </div>
+              <div class="filters dashboard-controls">
+                <p class="filter-note">Dashboard controls only: change the analysis lens, trend window and map confidence filter. Brief settings sit in the brief module.</p>
+                <label class="mini-field">
+                  <span>Dashboard lens</span>
+                  <small>Changes the competitive landscape view</small>
+                  <select id="focusSelect" aria-label="Dashboard lens">
+                    <option value="b2b">B2B payments</option>
+                    <option value="commercial">Commercial payments</option>
+                    <option value="movement">Money movement</option>
+                    <option value="openfinance">Open finance and AI</option>
+                  </select>
+                </label>
+                <label class="mini-field">
+                  <span>Trend window</span>
+                  <small>Changes score movement context</small>
+                  <select id="periodSelect" aria-label="Trend window"><option>Last 90 Days</option><option>Last 30 Days</option><option>Last 12 Months</option></select>
+                </label>
+                <label class="mini-field">
+                  <span>Map confidence floor</span>
+                  <small>Hides lower-confidence map bubbles</small>
+                  <input id="confidenceFloor" aria-label="Map confidence floor" type="number" min="50" max="95" value="51" />
+                </label>
+                <button class="action-button" id="shareButton" type="button"><span id="shareLabel">Share</span></button>
+              </div>
           </header>
 
           <section class="view is-active" id="dashboardView">
@@ -1441,7 +1431,7 @@
                 <div class="card-header"><p class="eyebrow">Editable Brief Inputs</p><span class="helper">Shape before generation</span></div>
                 <div class="brief-form">
                   <label class="field full"><span>Objective</span><textarea id="briefObjective">Turn the selected whitespace into a buyer-facing activation that earns attention from enterprise payment decision-makers.</textarea></label>
-                  <label class="field"><span>Audience</span><select id="briefAudience"><option>Head of Payments at an enterprise</option><option>VP Finance / Treasurer</option><option>Procurement / AP leader</option><option>Platform partnerships lead</option><option>Merchant acquiring leader</option></select></label>
+                  <label class="field"><span>Audience</span><select id="briefAudience"><option>Head of Payments at an enterprise</option><option>VP Finance / Treasurer</option><option>Procurement / AP leader</option><option>Platform partnerships lead</option><option>Merchant acquiring leader</option></select></label><label class="field"><span>Region for brief</span><select id="regionSelect" aria-label="Brief region"><option>Global</option><option>North America</option><option>Europe</option><option>Asia Pacific</option></select></label>
                   <label class="field"><span>Tone</span><select id="briefTone"><option>Confident and practical</option><option>Boardroom-ready</option><option>Human and reassuring</option><option>Commercially urgent</option></select></label>
                   <label class="field"><span>Action priority</span><select id="briefPriority"><option>Build campaign platform</option><option>Create sales narrative</option><option>Shape partner activation</option><option>Develop thought leadership</option></select></label>
                   <label class="field"><span>Selected opportunity</span><select id="briefOpportunity"></select></label>
