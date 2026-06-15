@@ -222,6 +222,32 @@
         color: var(--text);
       }
 
+      .dashboard-controls {
+        align-items: end;
+        gap: 12px;
+      }
+
+      .filter-note {
+        color: var(--quiet);
+        flex: 1 1 100%;
+        font-size: 11px;
+        line-height: 1.35;
+        margin: 0;
+        text-align: right;
+      }
+
+      .mini-field small {
+        color: var(--quiet);
+        font-size: 10px;
+        line-height: 1.25;
+        margin-top: -2px;
+      }
+
+      .dashboard-controls .mini-field {
+        min-width: 170px;
+      }
+
+
       .action-button {
         align-items: center;
         display: inline-flex;
@@ -1362,7 +1388,7 @@
                 <div class="selected-bet-summary" id="selectedBetSummary"></div>
                 <div class="wedge-card" id="wedgeCard"></div>
                 <div class="brief-preview" id="briefPreview"></div>
-                <div class="generate-row"><button class="generate-button" id="generateButton" type="button">Generate Brief</button><button class="secondary-button" id="copyButton" type="button">Copy Markdown</button></div>
+                <div class="generate-row"><button class="generate-button" id="generateButton" type="button">Generate Brief</button><button class="secondary-button" id="copyButton" type="button">Copy Markdown</button><button class="secondary-button" data-export-brief type="button">Export Brief</button></div>
               </article>
             </div>
           </section>
@@ -1425,7 +1451,7 @@
               <article class="card">
                 <div class="card-header"><p class="eyebrow">Live Brief Preview</p><span class="helper">Markdown export</span></div>
                 <div class="brief-preview" id="briefPreviewDeep"></div>
-                <div class="generate-row"><button class="generate-button" id="generateButtonDeep" type="button">Generate Brief</button><button class="secondary-button" id="copyButtonDeep" type="button">Copy Markdown</button></div>
+                <div class="generate-row"><button class="generate-button" id="generateButtonDeep" type="button">Generate Brief</button><button class="secondary-button" id="copyButtonDeep" type="button">Copy Markdown</button><button class="secondary-button" data-export-brief type="button">Export Brief</button></div>
               </article>
             </div>
           </section>
@@ -1849,7 +1875,7 @@
       const generateButtonDeep = document.querySelector("#generateButtonDeep");
       const copyButton = document.querySelector("#copyButton");
       const copyButtonDeep = document.querySelector("#copyButtonDeep");
-      const exportButton = document.querySelector("#exportButton");
+      const exportButtons = document.querySelectorAll("[data-export-brief]");
       const shareButton = document.querySelector("#shareButton");
       const shareLabel = document.querySelector("#shareLabel");
       const runReview = document.querySelector("#runReview");
@@ -1862,7 +1888,8 @@
       const liveFeedHelper = document.querySelector("#liveFeedHelper");
       const liveEvidenceFeed = document.querySelector("#liveEvidenceFeed");
       const liveRecommendations = document.querySelector("#liveRecommendations");
-      document.querySelector("#newReviewButton").addEventListener("click", () => setView("settings"));
+      const newReviewButton = document.querySelector("#newReviewButton");
+      if (newReviewButton) newReviewButton.addEventListener("click", () => setView("settings"));
 
       function currentData() {
         return segmentData[focusSelect.value];
@@ -2728,7 +2755,7 @@ ${opportunity.risk}
 
       navButtons.forEach((button) => button.addEventListener("click", () => setView(button.dataset.view)));
       focusSelect.addEventListener("change", () => { activeOpportunityId = currentOpportunities()[0].id; renderAll(); });
-      [buyerSelect, regionSelect, periodSelect, confidenceFloor, briefObjective, briefAudience, briefTone, briefPriority].forEach((element) => element.addEventListener("input", () => renderAll()));
+      [regionSelect, periodSelect, confidenceFloor, briefObjective, briefAudience, briefTone, briefPriority].filter(Boolean).forEach((element) => element.addEventListener("input", () => renderAll()));
       briefOpportunity.addEventListener("change", () => { activeOpportunityId = briefOpportunity.value; renderAll(); });
       function syncScoreModeButtons() {
         document.querySelectorAll("[data-mode]").forEach((item) => item.classList.toggle("is-active", item.dataset.mode === scoreMode));
@@ -2743,7 +2770,7 @@ ${opportunity.risk}
       generateButtonDeep.addEventListener("click", () => renderBrief(true));
       copyButton.addEventListener("click", () => copyBrief(copyButton));
       copyButtonDeep.addEventListener("click", () => copyBrief(copyButtonDeep));
-      exportButton.addEventListener("click", () => downloadFile("mastercard-b2b-creative-brief.md", latestBrief));
+      exportButtons.forEach((button) => button.addEventListener("click", () => downloadFile("mastercard-b2b-creative-brief.md", latestBrief)));
       shareButton.addEventListener("click", () => shareDashboard().catch(() => { shareLabel.textContent = "Copy failed"; window.setTimeout(() => (shareLabel.textContent = "Share"), 1800); }));
       runReview.addEventListener("click", () => {
         pageTitle.textContent = `${newClient.value} Competitor Dashboard`;
