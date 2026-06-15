@@ -36,6 +36,58 @@ replaceAll(
   'function renderMatrix(target) {'
 );
 
+const radarControlCss = `
+      .radar-control-panel {
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        display: grid;
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+
+      .radar-control-panel strong {
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .radar-control-panel .body-copy {
+        margin: 0;
+      }
+`;
+
+if (!text.includes('.radar-control-panel {')) {
+  replaceAll(
+    '      .matrix-scroll {\n        overflow-x: auto;\n      }',
+    radarControlCss + '\n      .matrix-scroll {\n        overflow-x: auto;\n      }'
+  );
+}
+
+const deepRadarControls = [
+  '                  <svg class="radar-svg" id="radarChartDeep" viewBox="0 0 300 270" role="img" aria-label="Deep capability radar"></svg>',
+  '                  <div class="radar-control-panel">',
+  '                    <strong>Compare competitors</strong>',
+  '                    <div class="toggle-row" id="competitorTogglesDeep"></div>',
+  '                    <p class="body-copy">Mastercard stays fixed. Select or deselect competitor shapes to isolate the comparison.</p>',
+  '                  </div>',
+  '                  <div class="body-copy">The radar compares Mastercard and visible competitors on the same four inputs that create the competitiveness score: share of model, differentiation, buyer relevance and proof strength.</div>'
+].join('\n');
+
+if (!text.includes('id="competitorTogglesDeep"')) {
+  replaceAll(
+    '                  <svg class="radar-svg" id="radarChartDeep" viewBox="0 0 300 270" role="img" aria-label="Deep capability radar"></svg>\n                  <div class="body-copy">The radar compares Mastercard and visible competitors on the same four inputs that create the competitiveness score: share of model, differentiation, buyer relevance and proof strength.</div>',
+    deepRadarControls
+  );
+}
+
+if (!text.includes('competitorTogglesDeep = document.querySelector')) {
+  replaceAll(
+    '      const competitorToggles = document.querySelector("#competitorToggles");',
+    '      const competitorToggles = document.querySelector("#competitorToggles");\n      const competitorTogglesDeep = document.querySelector("#competitorTogglesDeep");'
+  );
+}
+
 const radarBlock = `      function radarDomainFor(valueSets) {
         const values = valueSets.flat().map(Number).filter(Number.isFinite);
         if (!values.length) return { min: 0, max: 100, label: "Absolute 0-100 scale" };
@@ -174,6 +226,16 @@ replacePattern(
   compactRadarBlock + `
       function renderToggles() {`,
   'compact zoomed competitor radar'
+);
+
+replacePattern(
+  /      function renderToggles\(\) \{\n        renderToggleSet\(competitorToggles\);\n        renderScoreCompetitorToggles\(\);\n      \}/,
+  `      function renderToggles() {
+        renderToggleSet(competitorToggles);
+        renderToggleSet(competitorTogglesDeep);
+        renderScoreCompetitorToggles();
+      }`,
+  'deep radar competitor toggles'
 );
 
 fs.writeFileSync(path, text);
