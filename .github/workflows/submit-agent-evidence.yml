@@ -1,0 +1,154 @@
+name: Submit agent evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: "Agent name"
+        required: true
+        default: "manual-agent"
+      brand:
+        description: "Brand / competitor"
+        required: true
+        type: choice
+        options:
+          - Mastercard
+          - Visa
+          - Stripe
+          - Adyen
+          - PayPal
+          - Fiserv
+      topic:
+        description: "Evidence topic or ranked-bet theme"
+        required: true
+      source_url:
+        description: "Source URL"
+        required: true
+      source_title:
+        description: "Source title"
+        required: true
+      source_type:
+        description: "Source type"
+        required: true
+        default: "agent_signal"
+      claim:
+        description: "Short claim the agent found"
+        required: true
+      evidence:
+        description: "Supporting proof point or extracted summary"
+        required: false
+        default: ""
+      confidence:
+        description: "Confidence, 0-1 or 0-100"
+        required: true
+        default: "0.75"
+      observed_at:
+        description: "Observed timestamp, optional ISO date/time"
+        required: false
+        default: ""
+      run_id:
+        description: "Run ID, optional"
+        required: false
+        default: ""
+      trigger_refresh:
+        description: "Run calibrated intelligence research after saving"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  submit-agent-evidence:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Write agent evidence JSON
+        id: evidence
+        env:
+          AGENT: ${{ inputs.agent }}
+          BRAND: ${{ inputs.brand }}
+          TOPIC: ${{ inputs.topic }}
+          SOURCE_URL: ${{ inputs.source_url }}
+          SOURCE_TITLE: ${{ inputs.source_title }}
+          SOURCE_TYPE: ${{ inputs.source_type }}
+          CLAIM: ${{ inputs.claim }}
+          EVIDENCE: ${{ inputs.evidence }}
+          CONFIDENCE: ${{ inputs.confidence }}
+          OBSERVED_AT: ${{ inputs.observed_at }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          function clean(value) { return String(value || '').trim(); }
+          function slug(value) {
+            return clean(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70) || 'agent-evidence';
+          }
+          function confidenceValue(value) {
+            const raw = Number(value);
+            if (!Number.isFinite(raw)) return 0.75;
+            return raw;
+          }
+
+          const observedAt = clean(process.env.OBSERVED_AT) || new Date().toISOString();
+          const stamp = new Date(observedAt).toISOString().replace(/[-:]/g, '').replace(/\.\d+Z$/, 'Z');
+          const agent = clean(process.env.AGENT) || 'manual-agent';
+          const brand = clean(process.env.BRAND);
+          const topic = clean(process.env.TOPIC);
+          const sourceUrl = clean(process.env.SOURCE_URL);
+          const sourceTitle = clean(process.env.SOURCE_TITLE);
+          const sourceType = clean(process.env.SOURCE_TYPE) || 'agent_signal';
+          const runId = clean(process.env.RUN_ID) || `${observedAt.slice(0, 10)}-${slug(agent)}`;
+          const confidence = confidenceValue(process.env.CONFIDENCE);
+
+          const payload = {
+            run_id: runId,
+            agent,
+            brand,
+            topic,
+            source_url: sourceUrl,
+            source_title: sourceTitle,
+            source_type: sourceType,
+            observed_at: observedAt,
+            claim: clean(process.env.CLAIM),
+            evidence: clean(process.env.EVIDENCE) || clean(process.env.CLAIM),
+            confidence,
+            dedupe_key: `${slug(brand)}|${slug(topic)}|${sourceUrl || slug(sourceTitle)}`
+          };
+
+          if (!payload.brand || !payload.topic || !payload.claim) {
+            throw new Error('brand, topic and claim are required.');
+          }
+
+          const dir = path.join('data', 'agent-runs');
+          fs.mkdirSync(dir, { recursive: true });
+          const file = path.join(dir, `${stamp}-${slug(agent)}-${slug(brand)}-${slug(topic)}.json`);
+          fs.writeFileSync(file, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `agent_file=${file}\n`);
+          console.log(`Wrote ${file}`);
+          NODE
+
+      - name: Commit agent evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/agent-runs
+          if git diff --cached --quiet; then
+            echo "No agent evidence changes to commit."
+          else
+            git commit -m "Add agent evidence: ${{ inputs.brand }} - ${{ inputs.topic }}"
+            git push
+          fi
+
+      - name: Trigger calibrated intelligence refresh
+        if: ${{ inputs.trigger_refresh }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run calibrated-research.yml
