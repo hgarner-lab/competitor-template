@@ -76,6 +76,12 @@ function summariseEvidence(items, limit = 3) {
   return items.slice(0, limit).map((item) => `${item.brand}: ${item.title}`).join('; ');
 }
 
+function actionLineForTopic(topic, metadata, clientBrandName) {
+  const topicName = String(topic.topic || 'this B2B payments opportunity').toLowerCase();
+  const buyer = String(metadata.buyer || 'the buyer').toLowerCase();
+  return `Build a ${buyer}-led proposition for ${topicName}: name the operational pain, attach public proof, and show how ${clientBrandName} can solve it more credibly.`;
+}
+
 function scoreTopic(topic, index, dashboard, rubric) {
   const evidenceFeed = dashboard.evidence_feed || [];
   const brandScores = dashboard.brand_scores || [];
@@ -117,6 +123,7 @@ function scoreTopic(topic, index, dashboard, rubric) {
   const noise = matchedEvidence.length ? crowding : 22;
   const opportunityScore = clamp(fit * 0.46 + urgency * 0.34 + (100 - noise) * 0.2, 35, 92);
   const metadata = topicMetadata(topic.topic);
+  const opportunityLine = topic.opportunity_line || actionLineForTopic(topic, metadata, clientBrandName);
   const supportingEvidence = topicEvidence.slice(0, 4).map((item) => ({
     brand: item.brand,
     title: item.title,
@@ -156,6 +163,7 @@ function scoreTopic(topic, index, dashboard, rubric) {
       business_outcome_pull: businessOutcomePull,
       summary: `Expected to pull ${clientBrandName} toward more specific buyer pain and a more outcome-led map position.`
     },
+    opportunity_line: opportunityLine,
     why_it_matters: `Detected from ${matchedEvidence.length} matching public evidence item${matchedEvidence.length === 1 ? '' : 's'} across ${brandList}. The evidence shows ${crowdingPhrase}, which makes this a live opportunity to pressure-test rather than a static theme.`,
     thesis: `${topic.topic} is ranking as a live bet because it combines B2B buyer relevance, available proof signals and manageable competitor crowding in the latest source set.`,
     why: `The strongest buyer signal is for ${metadata.buyer.toLowerCase()}, with ${buyerHits} buyer-relevance hits and ${proofBearingTopicCount} proof-bearing source${proofBearingTopicCount === 1 ? '' : 's'} tied to the topic.`,
@@ -175,6 +183,7 @@ function rankedBetMarkdown(dashboard) {
   for (const topic of dashboard.whitespace_topics || []) {
     lines.push(`### ${topic.topic}: ${topic.opportunity_score}/100`);
     lines.push(`- Buyer: ${topic.buyer || 'n/a'}`);
+    lines.push(`- Opportunity: ${topic.opportunity_line || topic.move || topic.activation_idea || topic.thesis || 'n/a'}`);
     lines.push(`- Fit / urgency / crowding: ${topic.fit ?? 'n/a'} / ${topic.urgency ?? 'n/a'} / ${topic.noise ?? 'n/a'}`);
     lines.push(`- Evidence items matched: ${topic.source_count ?? 0}`);
     if (topic.map_impact) lines.push(`- Map impact: +${topic.map_impact.buyer_specificity_pull} buyer specificity / +${topic.map_impact.business_outcome_pull} business outcome`);

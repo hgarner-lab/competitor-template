@@ -141,4 +141,66 @@ replaceAll(
   '      exportButtons.forEach((button) => button.addEventListener("click", () => downloadFile("mastercard-b2b-creative-brief.md", latestBrief)));'
 );
 
+const betActionCss = `
+      .bet-action {
+        background: rgba(101, 115, 236, 0.12);
+        border: 1px solid rgba(101, 115, 236, 0.28);
+        border-radius: 9px;
+        color: #dce3ee !important;
+        display: block;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        padding: 9px 10px;
+      }
+
+      .bet-action strong {
+        color: #ffffff;
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.03em;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+      }
+`;
+
+if (!text.includes('.bet-action {')) {
+  replaceAll(
+    '      .bet-card p {\n        font-size: 12px;\n      }',
+    '      .bet-card p {\n        font-size: 12px;\n      }\n' + betActionCss
+  );
+}
+
+if (!text.includes('function opportunityActionLine')) {
+  replaceAll(
+    '      function renderOpportunityCards() {',
+    `      function opportunityActionLine(opportunity) {
+        return opportunity.opportunity_line || opportunity.move || opportunity.activation_idea || \`Build a buyer-facing proof story for \${String(opportunity.title || "this opportunity").toLowerCase()} that gives \${String(opportunity.buyer || "the buyer").toLowerCase()} a clear reason to act.\`;
+      }
+
+      function renderOpportunityCards() {`
+  );
+}
+
+if (!text.includes('class="bet-action"')) {
+  replaceAll(
+    '            <p>${opportunity.thesis}</p>\n            <span class="bet-meta">',
+    '            <p>${opportunity.thesis}</p>\n            <span class="bet-action"><strong>Opportunity</strong>${escapeHtml(opportunityActionLine(opportunity))}</span>\n            <span class="bet-meta">'
+  );
+}
+
+replaceAll(
+  'selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small>`;',
+  'selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small><small><strong>Opportunity:</strong> ${escapeHtml(opportunityActionLine(opportunity))}</small>`;'
+);
+
+replaceAll(
+  '<div class="wedge-grid"><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div>',
+  '<div class="wedge-grid"><div><strong>Action to take</strong><span>${escapeHtml(opportunityActionLine(opportunity))}</span></div><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div>'
+);
+
+replaceAll(
+  '## Opportunity to action\n${opportunity.thesis}',
+  '## Opportunity to action\n${opportunityActionLine(opportunity)}\n\n## Why this bet exists\n${opportunity.thesis}'
+);
+
 fs.writeFileSync(path, text);
