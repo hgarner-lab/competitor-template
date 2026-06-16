@@ -571,6 +571,27 @@
         font-size: 12px;
       }
 
+      .bet-action {
+        background: rgba(101, 115, 236, 0.12);
+        border: 1px solid rgba(101, 115, 236, 0.28);
+        border-radius: 9px;
+        color: #dce3ee !important;
+        display: block;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        padding: 9px 10px;
+      }
+
+      .bet-action strong {
+        color: #ffffff;
+        display: block;
+        font-size: 10px;
+        letter-spacing: 0.03em;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+      }
+
+
       .bet-top {
         align-items: center;
         display: flex;
@@ -1972,6 +1993,10 @@
         });
       }
 
+      function opportunityActionLine(opportunity) {
+        return opportunity.opportunity_line || opportunity.move || opportunity.activation_idea || `Build a buyer-facing proof story for ${String(opportunity.title || "this opportunity").toLowerCase()} that gives ${String(opportunity.buyer || "the buyer").toLowerCase()} a clear reason to act.`;
+      }
+
       function renderOpportunityCards() {
         const metric = (label, value) => `
           <span class="metric-bar">
@@ -1984,6 +2009,7 @@
             <span class="bet-top"><span>${opportunity.horizon}</span><span class="score-pill">${opportunity.confidence}</span></span>
             <strong>${opportunity.title}</strong>
             <p>${opportunity.thesis}</p>
+            <span class="bet-action"><strong>Opportunity</strong>${escapeHtml(opportunityActionLine(opportunity))}</span>
             <span class="bet-meta"><span>${opportunity.buyer}</span><span>${opportunity.region}</span><span>${opportunity.value} upside</span></span>
             <span class="metric-grid">${metric("Fit", opportunity.fit)}${metric("Urgency", opportunity.urgency)}${metric("Crowding", opportunity.noise)}</span>
             <span class="bet-cta">Use this bet for the brief -&gt;</span>
@@ -2282,7 +2308,7 @@
       function renderWedge() {
         const opportunity = activeOpportunity();
         if (selectedBetSummary) {
-          selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small>`;
+          selectedBetSummary.innerHTML = `<span>Selected ranked bet</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.buyer)} | ${escapeHtml(opportunity.horizon)}</p><small>${escapeHtml(opportunity.thesis)}</small><small><strong>Opportunity:</strong> ${escapeHtml(opportunityActionLine(opportunity))}</small>`;
         }
         const evidenceBrands = Array.isArray(opportunity.distinct_brands) && opportunity.distinct_brands.length
           ? opportunity.distinct_brands.join(", ")
@@ -2291,7 +2317,7 @@
         const snapshotScore = opportunity.opportunity_score || opportunity.confidence || 0;
         const confidence = opportunity.confidence || snapshotScore;
         const noiseLabel = opportunity.noise != null ? opportunity.noise + "% crowding" : "Crowding unknown";
-        wedgeCard.innerHTML = `<h3>Activation Wedge: ${escapeHtml(opportunity.title)}</h3><div class="wedge-snapshot"><div class="snapshot-main"><span>Selected bet snapshot</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.thesis)}</p></div><div class="snapshot-stats"><div><strong>${snapshotScore}</strong><span>Opportunity score</span></div><div><strong>${confidence}%</strong><span>Evidence confidence</span></div><div><strong>${evidenceCount}</strong><span>Evidence items</span></div><div><strong>${escapeHtml(opportunity.horizon)}</strong><span>Horizon</span></div></div><div class="snapshot-meta"><span>${escapeHtml(opportunity.buyer)}</span><span>${escapeHtml(opportunity.region || regionSelect.value)}</span><span>${escapeHtml(noiseLabel)}</span><span>${escapeHtml(evidenceBrands || "Competitor signal")}</span></div></div><div class="wedge-grid"><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div><div><strong>Right to win</strong><span>${escapeHtml(opportunity.proof)}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${escapeHtml(opportunity.why)}</span></div><div><strong>Watchout</strong><span>${escapeHtml(opportunity.risk)}</span></div></div>`;
+        wedgeCard.innerHTML = `<h3>Activation Wedge: ${escapeHtml(opportunity.title)}</h3><div class="wedge-snapshot"><div class="snapshot-main"><span>Selected bet snapshot</span><strong>${escapeHtml(opportunity.title)}</strong><p>${escapeHtml(opportunity.thesis)}</p></div><div class="snapshot-stats"><div><strong>${snapshotScore}</strong><span>Opportunity score</span></div><div><strong>${confidence}%</strong><span>Evidence confidence</span></div><div><strong>${evidenceCount}</strong><span>Evidence items</span></div><div><strong>${escapeHtml(opportunity.horizon)}</strong><span>Horizon</span></div></div><div class="snapshot-meta"><span>${escapeHtml(opportunity.buyer)}</span><span>${escapeHtml(opportunity.region || regionSelect.value)}</span><span>${escapeHtml(noiseLabel)}</span><span>${escapeHtml(evidenceBrands || "Competitor signal")}</span></div></div><div class="wedge-grid"><div><strong>Action to take</strong><span>${escapeHtml(opportunityActionLine(opportunity))}</span></div><div><strong>The opening</strong><span>${escapeHtml(opportunity.thesis)}</span></div><div><strong>Right to win</strong><span>${escapeHtml(opportunity.proof)}</span></div><div><strong>Cost to respond</strong><span>Competitors would need a broader B2B capability map and stronger trust-led payment proof.</span></div><div><strong>Buyer trigger</strong><span>${escapeHtml(opportunity.why)}</span></div><div><strong>Watchout</strong><span>${escapeHtml(opportunity.risk)}</span></div></div>`;
       }
 
       function briefMarkdown() {
@@ -2303,6 +2329,9 @@
 ${briefObjective.value}
 
 ## Opportunity to action
+${opportunityActionLine(opportunity)}
+
+## Why this bet exists
 ${opportunity.thesis}
 
 ## Target buyer
