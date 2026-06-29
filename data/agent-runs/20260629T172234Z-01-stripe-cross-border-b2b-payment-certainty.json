@@ -1,0 +1,21 @@
+{
+  "run_id": "1",
+  "agent": "Stripe",
+  "brand": "Stripe",
+  "topic": "Cross-border B2B payment certainty",
+  "source_url": "https://stripe.com/resources/more/cross-border-b2b-payments-a-guide-for-businesses",
+  "source_title": "A Guide to B2B Cross-Border Payments | Stripe",
+  "source_type": "report_or_research",
+  "published_at": "2026-03-17",
+  "observed_at": "2026-06-29",
+  "claim": "Stripe provides a comprehensive guide on B2B cross-border payments, detailing challenges and solutions.",
+  "evidence": "The guide discusses issues like slow processing times, hidden fees, and currency fluctuations, offering insights into overcoming these challenges.",
+  "metrics": {
+    "buyer_relevance": 85,
+    "proof_strength": 90,
+    "differentiation": 80,
+    "share_of_model": 0
+  },
+  "confidence": 0.9,
+  "dedupe_key": "stripe|cross-border-b2b-payment-certainty|https://stripe.com/resources/more/cross-border-b2b-payments-a-guide-for-businesses"
+}

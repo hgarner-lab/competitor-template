@@ -1,0 +1,21 @@
+{
+  "run_id": "3",
+  "agent": "Fiserv",
+  "brand": "Fiserv",
+  "topic": "Accounts payable and receivable automation",
+  "source_url": "https://www.carat.fiserv.com/en-us/resources/b2b-payments-automation",
+  "source_title": "B2B Payment Automation Guide | Fiserv",
+  "source_type": "report_or_research",
+  "published_at": "2026-06-28",
+  "observed_at": "2026-06-29",
+  "claim": "Fiserv discusses the benefits of automating B2B payments for accounts receivable.",
+  "evidence": "The guide highlights cost efficiencies and enhanced customer experiences achieved through B2B payment automation.",
+  "metrics": {
+    "buyer_relevance": 75,
+    "proof_strength": 80,
+    "differentiation": 70,
+    "share_of_model": 0
+  },
+  "confidence": 0.8,
+  "dedupe_key": "fiserv|accounts-payable-and-receivable-automation|https://www.carat.fiserv.com/en-us/resources/b2b-payments-automation/"
+}

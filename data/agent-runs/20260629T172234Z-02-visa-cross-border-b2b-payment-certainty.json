@@ -1,0 +1,21 @@
+{
+  "run_id": "2",
+  "agent": "Visa",
+  "brand": "Visa",
+  "topic": "Cross-border B2B payment certainty",
+  "source_url": "https://corporate.visa.com/en/solutions/commercial-solutions/knowledge-hub/frictionless-crossborder-payments.html",
+  "source_title": "Five fixes for frictionless cross-border payments | Visa",
+  "source_type": "report_or_research",
+  "published_at": "2026-06-28",
+  "observed_at": "2026-06-29",
+  "claim": "Visa outlines strategies to enhance cross-border B2B payment efficiency.",
+  "evidence": "The article emphasizes real-time payments, compliance management, and leveraging technology to streamline cross-border transactions.",
+  "metrics": {
+    "buyer_relevance": 80,
+    "proof_strength": 85,
+    "differentiation": 75,
+    "share_of_model": 0
+  },
+  "confidence": 0.85,
+  "dedupe_key": "visa|cross-border-b2b-payment-certainty|https://corporate.visa.com/en/solutions/commercial-solutions/knowledge-hub/frictionless-crossborder-payments.html"
+}
