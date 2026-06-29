@@ -1,13 +1,113 @@
 {
   "schema_version": "0.1.0",
-  "generated_at": "2026-06-15T14:58:55.450Z",
+  "generated_at": "2026-06-29T17:22:47.211Z",
   "recent_window_days": 45,
   "source_dir": "data/agent-runs",
-  "agent_evidence": [],
+  "agent_evidence": [
+    {
+      "brand": "Stripe",
+      "topic": "Cross-border B2B payment certainty",
+      "source_type": "report_or_research",
+      "title": "A Guide to B2B Cross-Border Payments | Stripe",
+      "url": "https://stripe.com/resources/more/cross-border-b2b-payments-a-guide-for-businesses",
+      "captured_at": "2026-06-29",
+      "published_at": "2026-03-17",
+      "b2b_relevance_score": 85,
+      "source_class": "report_or_research",
+      "evidence_quality_score": 87,
+      "proof_bearing": true,
+      "nav_heavy": false,
+      "top_signals": [
+        "Cross-border B2B payment certainty"
+      ],
+      "snippet": "The guide discusses issues like slow processing times, hidden fees, and currency fluctuations, offering insights into overcoming these challenges.",
+      "text": "A Guide to B2B Cross-Border Payments | Stripe Cross-border B2B payment certainty Stripe provides a comprehensive guide on B2B cross-border payments, detailing challenges and solutions. The guide discusses issues like slow processing times, hidden fees, and currency fluctuations, offering insights into overcoming these challenges. Cross-border B2B payment certainty",
+      "agent": "Stripe",
+      "run_id": "1",
+      "confidence": 90,
+      "claim": "Stripe provides a comprehensive guide on B2B cross-border payments, detailing challenges and solutions.",
+      "metrics": {
+        "buyer_relevance": 85,
+        "proof_strength": 90,
+        "differentiation": 80,
+        "share_of_model": 0
+      },
+      "source_origin": "agent_run",
+      "source_file": "data/agent-runs/20260629T172234Z-01-stripe-cross-border-b2b-payment-certainty.json",
+      "dedupe_key": "stripe|cross-border-b2b-payment-certainty|https://stripe.com/resources/more/cross-border-b2b-payments-a-guide-for-businesses",
+      "content_hash": "db419dc6725c4cc0"
+    },
+    {
+      "brand": "Visa",
+      "topic": "Cross-border B2B payment certainty",
+      "source_type": "report_or_research",
+      "title": "Five fixes for frictionless cross-border payments | Visa",
+      "url": "https://corporate.visa.com/en/solutions/commercial-solutions/knowledge-hub/frictionless-crossborder-payments.html",
+      "captured_at": "2026-06-29",
+      "published_at": "2026-06-28",
+      "b2b_relevance_score": 80,
+      "source_class": "report_or_research",
+      "evidence_quality_score": 84,
+      "proof_bearing": true,
+      "nav_heavy": false,
+      "top_signals": [
+        "Cross-border B2B payment certainty"
+      ],
+      "snippet": "The article emphasizes real-time payments, compliance management, and leveraging technology to streamline cross-border transactions.",
+      "text": "Five fixes for frictionless cross-border payments | Visa Cross-border B2B payment certainty Visa outlines strategies to enhance cross-border B2B payment efficiency. The article emphasizes real-time payments, compliance management, and leveraging technology to streamline cross-border transactions. Cross-border B2B payment certainty",
+      "agent": "Visa",
+      "run_id": "2",
+      "confidence": 85,
+      "claim": "Visa outlines strategies to enhance cross-border B2B payment efficiency.",
+      "metrics": {
+        "buyer_relevance": 80,
+        "proof_strength": 85,
+        "differentiation": 75,
+        "share_of_model": 0
+      },
+      "source_origin": "agent_run",
+      "source_file": "data/agent-runs/20260629T172234Z-02-visa-cross-border-b2b-payment-certainty.json",
+      "dedupe_key": "visa|cross-border-b2b-payment-certainty|https://corporate.visa.com/en/solutions/commercial-solutions/knowledge-hub/frictionless-crossborder-payments.html",
+      "content_hash": "5491a06a01daddf4"
+    },
+    {
+      "brand": "Fiserv",
+      "topic": "Accounts payable and receivable automation",
+      "source_type": "report_or_research",
+      "title": "B2B Payment Automation Guide | Fiserv",
+      "url": "https://www.carat.fiserv.com/en-us/resources/b2b-payments-automation",
+      "captured_at": "2026-06-29",
+      "published_at": "2026-06-28",
+      "b2b_relevance_score": 75,
+      "source_class": "report_or_research",
+      "evidence_quality_score": 82,
+      "proof_bearing": true,
+      "nav_heavy": false,
+      "top_signals": [
+        "Accounts payable and receivable automation"
+      ],
+      "snippet": "The guide highlights cost efficiencies and enhanced customer experiences achieved through B2B payment automation.",
+      "text": "B2B Payment Automation Guide | Fiserv Accounts payable and receivable automation Fiserv discusses the benefits of automating B2B payments for accounts receivable. The guide highlights cost efficiencies and enhanced customer experiences achieved through B2B payment automation. Accounts payable and receivable automation",
+      "agent": "Fiserv",
+      "run_id": "3",
+      "confidence": 80,
+      "claim": "Fiserv discusses the benefits of automating B2B payments for accounts receivable.",
+      "metrics": {
+        "buyer_relevance": 75,
+        "proof_strength": 80,
+        "differentiation": 70,
+        "share_of_model": 0
+      },
+      "source_origin": "agent_run",
+      "source_file": "data/agent-runs/20260629T172234Z-03-fiserv-accounts-payable-and-receivable-automation.json",
+      "dedupe_key": "fiserv|accounts-payable-and-receivable-automation|https://www.carat.fiserv.com/en-us/resources/b2b-payments-automation/",
+      "content_hash": "64211c188286ab9c"
+    }
+  ],
   "diagnostics": {
-    "files_read": 0,
-    "records_seen": 0,
-    "records_kept": 0,
+    "files_read": 3,
+    "records_seen": 3,
+    "records_kept": 3,
     "records_skipped": 0,
     "skipped": []
   }

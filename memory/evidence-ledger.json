@@ -1,15 +1,40 @@
 {
   "schema_version": "0.1.0",
   "latest": {
-    "run_at": "2026-06-15T14:58:55.450Z",
-    "files_read": 0,
-    "records_seen": 0,
-    "records_kept": 0,
+    "run_at": "2026-06-29T17:22:47.211Z",
+    "files_read": 3,
+    "records_seen": 3,
+    "records_kept": 3,
     "records_skipped": 0,
-    "brands": [],
-    "agents": []
+    "brands": [
+      "Fiserv",
+      "Stripe",
+      "Visa"
+    ],
+    "agents": [
+      "Fiserv",
+      "Stripe",
+      "Visa"
+    ]
   },
   "history": [
+    {
+      "run_at": "2026-06-29T17:22:47.211Z",
+      "files_read": 3,
+      "records_seen": 3,
+      "records_kept": 3,
+      "records_skipped": 0,
+      "brands": [
+        "Fiserv",
+        "Stripe",
+        "Visa"
+      ],
+      "agents": [
+        "Fiserv",
+        "Stripe",
+        "Visa"
+      ]
+    },
     {
       "run_at": "2026-06-15T14:58:55.450Z",
       "files_read": 0,

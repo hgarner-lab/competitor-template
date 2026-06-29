@@ -1,5 +1,48 @@
 {
   "schema_version": "0.1.0",
-  "generated_at": "2026-06-15T14:58:55.452Z",
-  "sources": []
+  "generated_at": "2026-06-29T17:22:47.213Z",
+  "sources": [
+    {
+      "brand": "Stripe",
+      "topic": "Cross-border B2B payment certainty",
+      "url": "https://stripe.com/resources/more/cross-border-b2b-payments-a-guide-for-businesses",
+      "source_type": "report_or_research",
+      "source_class": "report_or_research",
+      "agents": [
+        "Stripe"
+      ],
+      "evidence_count": 1,
+      "last_seen": "2026-06-29",
+      "highest_confidence": 90,
+      "proof_bearing": true
+    },
+    {
+      "brand": "Visa",
+      "topic": "Cross-border B2B payment certainty",
+      "url": "https://corporate.visa.com/en/solutions/commercial-solutions/knowledge-hub/frictionless-crossborder-payments.html",
+      "source_type": "report_or_research",
+      "source_class": "report_or_research",
+      "agents": [
+        "Visa"
+      ],
+      "evidence_count": 1,
+      "last_seen": "2026-06-29",
+      "highest_confidence": 85,
+      "proof_bearing": true
+    },
+    {
+      "brand": "Fiserv",
+      "topic": "Accounts payable and receivable automation",
+      "url": "https://www.carat.fiserv.com/en-us/resources/b2b-payments-automation",
+      "source_type": "report_or_research",
+      "source_class": "report_or_research",
+      "agents": [
+        "Fiserv"
+      ],
+      "evidence_count": 1,
+      "last_seen": "2026-06-29",
+      "highest_confidence": 80,
+      "proof_bearing": true
+    }
+  ]
 }

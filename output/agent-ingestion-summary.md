@@ -1,12 +1,14 @@
-# Agent ingestion summary - 2026-06-15
+# Agent ingestion summary - 2026-06-29
 
-- Files read: 0
-- Records seen: 0
-- Records kept: 0
+- Files read: 3
+- Records seen: 3
+- Records kept: 3
 - Records skipped: 0
 - Recent window: 45 days
 
 ## Evidence by brand
 
-- No agent evidence found yet.
+- Fiserv: 1
+- Stripe: 1
+- Visa: 1
 
